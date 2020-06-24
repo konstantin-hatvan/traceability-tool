@@ -80,7 +80,8 @@ Git is used for source version control.
 The private repository is hosted on Github.
 
 ## Document management
-Documents are managed and shared in Microsoft Teams.
+Microsoft Team is primarily used to manage and share documents.
+Github can be used whenever it is reasonable.
 
 ## Issue tracking
 Issues from the academic supervisor are tracked in the Github project.
@@ -104,8 +105,11 @@ Developers as well as project managers will provide input and feedback.
 The table will adapted accordingly whenever necessary.
 
 ## Risk analysis
-| ID     | Name            | Description                                                                                                                     | Priority [HIGH, MIDDLE, LOW] | Actions                                                                                                                                                                                                                                                 |
-|:------:|:----------------|:--------------------------------------------------------------------------------------------------------------------------------|:----------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RISK_1 | User acceptance | User acceptance towards the project outcome might be low. This may result in the software not being used and time being wasted. | HIGH                         | To mitigate this risk a user centered approach can be used during development including user tests as well as interviews. Making the software incrementally adoptable may simplify its introduction and might therefore also help with user acceptance. |
+| ID     | Name              | Description                                                                                                                                                         | Priority [HIGH, MIDDLE, LOW] | Actions                                                                                                                                                                                                                                     |
+|:------:|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| RISK_1 | User acceptance   | User acceptance towards the project outcome might be low. This may result in the software not being used and time being wasted                                      | HIGH                         | Utilize a user centered development approach including user tests as well as interviews. Making the software incrementally adoptable may simplify its introduction and might therefore also help with user acceptance                       |
+| RISK_2 | Scope Creep       | The project boundaries as well as the requirements may be ill defined. Stakeholders might have secret expectations regarding the project result                     | HIGH                         | Additional effort to clearly define project requirements. Also clearly define project boundaries and communicate those boundaries to stakeholders                                                                                           |
+| RISK_3 | Use-Case specific | No general solution to the problem can be modelled. For each programming language a distinct solution has to be implemented. Effort increases drastically           | LOW                          | Additional effort in the architectural and desing stages in order to clearly understand the problem domain. Invest extra time to find reusable abstractions and think of possible extensions. Adapt the architecture and design accordingly |
+| RISK_4 | Maintainability   | The project is hard to maintain or extend because of fragile software design and architecture. The software can not be further extended and needs major refactoring | MIDDLE                       | Additional effort in the architectural and desing stages in order to find a robust solution. Use a test driven development approach and precisely document architectural decisions                                                          |
 
 This list of risks is subject to change and will be adapted whenever necessary.
