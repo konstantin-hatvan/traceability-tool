@@ -12,8 +12,7 @@ This list of goals is subject to change and will be adapted whenever necessary.
 
 ## Hypothesis
 This project aims at improving several aspects of software quality by providing traceability links between structured requirements and source code artifacts.
-I expect to improve
-- project documentation
+I expect to improvetion
 - conceptual quality
 - impact analysis
 - estimation quality
@@ -24,6 +23,8 @@ The additional incentive is created by offering a useful tool for developers and
 Questions to be answered are:
 - What value can be offered to developers and project managers from generating and maintaining traceability links?
 - How can a new requirements engineering workflow be gradually introduced in a company?
+
+<div class="page-break"></div>
 
 ## Requirements
 | ID    | Description                                                                                                  |
@@ -40,6 +41,8 @@ Requirements elicitation, documentation and refinement is going to be a continuo
 ## Work breakdown structure
 ![Work Breakdown Structure](WBS.png)
 
+<div class="page-break"></div>
+
 ## Architecture
 The architecture documentation is still subject to change and will be adapted whenever necessary.
 Architectural refinement and design refactoring is going to be a continuous effort throughout the development process.
@@ -51,6 +54,8 @@ The first analysis revealed three top level components.
 
 ### Class Diagram
 ![Class Diagram](class.svg)
+
+<div class="page-break"></div>
 
 ## Kick-off date
 June 22, 2020
@@ -88,6 +93,8 @@ Issues from the academic supervisor are tracked in the Github project.
 Issues from the technical supervisor are tracked in the company JIRA as well as the Github project.
 The Github project acts as a single source of truth for project issues.
 
+<div class="page-break"></div>
+
 ## Time tracking
 In general, all time is tracked on the Github Issues.
 If JIRA issues are provided by LimeSoda time is tracked on those JIRA issues as well as the Github issues.
@@ -104,12 +111,14 @@ Additionally, there will be other stakeholders involved during project developme
 Developers as well as project managers will provide input and feedback.
 The table will adapted accordingly whenever necessary.
 
+<div class="page-break"></div>
+
 ## Risk analysis
-| ID     | Name              | Description                                                                                                                                                         | Priority [HIGH, MIDDLE, LOW] | Actions                                                                                                                                                                                                                                     |
-|:------:|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RISK_1 | User acceptance   | User acceptance towards the project outcome might be low. This may result in the software not being used and time being wasted                                      | HIGH                         | Utilize a user centered development approach including user tests as well as interviews. Making the software incrementally adoptable may simplify its introduction and might therefore also help with user acceptance                       |
-| RISK_2 | Scope Creep       | The project boundaries as well as the requirements may be ill defined. Stakeholders might have secret expectations regarding the project result                     | HIGH                         | Additional effort to clearly define project requirements. Also clearly define project boundaries and communicate those boundaries to stakeholders                                                                                           |
-| RISK_3 | Use-Case specific | No general solution to the problem can be modelled. For each programming language a distinct solution has to be implemented. Effort increases drastically           | LOW                          | Additional effort in the architectural and desing stages in order to clearly understand the problem domain. Invest extra time to find reusable abstractions and think of possible extensions. Adapt the architecture and design accordingly |
-| RISK_4 | Maintainability   | The project is hard to maintain or extend because of fragile software design and architecture. The software can not be further extended and needs major refactoring | MIDDLE                       | Additional effort in the architectural and desing stages in order to find a robust solution. Use a test driven development approach and precisely document architectural decisions                                                          |
+| ID     | Description                                                                                                     | Priority | Actions                                                                                                                |
+|:------:|:----------------------------------------------------------------------------------------------------------------|:--------:|:-----------------------------------------------------------------------------------------------------------------------|
+| RISK_1 | Low user acceptance. Software is not used. Time was wasted                                                      | HIGH     | Utilize user-centered development approach. Make software incrementally adoptable                                      |
+| RISK_2 | Ill-defined project boundaries. Stakeholders have secret expectations                                           | HIGH     | Clearly define project requirements and project boundaries. Communicate those boundaries to stakeholders               |
+| RISK_3 | General solution can't be modelled. Custom solution for each programming language. Effort increases drastically | LOW      | Deeply understand the domain. Find reusable abstractions. Think of possible extensions. Adapt architecture accordingly |
+| RISK_4 | Fragile project architecture. Software hard to maintain or extend. Software needs refactoring                   | MIDDLE   | Find a robust solution. Use a test driven development approach. Precisely document architectural decisions             |
 
 This list of risks is subject to change and will be adapted whenever necessary.
