@@ -1,0 +1,111 @@
+# Pre Project Documentation
+
+## Project goals
+| ID     | Description                                                                                                      |
+|:------:|:-----------------------------------------------------------------------------------------------------------------|
+| GOAL_1 | Enable the student to finish his masters degree. Overall project success                                         |
+| GOAL_2 | Improve project documentation by generating additional value from structured requirements and traceability links |
+| GOAL_3 | Improve conceptual quality by introducing a structured workflow for requirements engineering                     |
+| GOAL_3 | Simplify impact analysis and therefore increase estimation quality by utilizing the new traceability information |
+
+This list of goals is subject to change and will be adapted whenever necessary.
+
+## Hypothesis
+This project aims at improving several aspects of software quality by providing traceability links between structured requirements and source code artifacts.
+I expect to improve
+- project documentation
+- conceptual quality
+- impact analysis
+- estimation quality
+
+by providing additional incentive to create and maintain structured requirements.
+The additional incentive is created by offering a useful tool for developers and project managers in various recurring tasks like effort estimation, project planning and change management.
+
+Questions to be answered are:
+- What value can be offered to developers and project managers from generating and maintaining traceability links?
+- How can a new requirements engineering workflow be gradually introduced in a company?
+
+## Requirements
+| ID    | Description                                                                                                  |
+|:-----:|:-------------------------------------------------------------------------------------------------------------|
+| REQ_1 | Generate traceability links between requirements and source code artifacts                                   |
+| REQ_2 | Allow incremental adoption of the software in existing as well as new projects                               |
+| REQ_3 | Use markdown files for documenting the structured requirements                                               |
+| REQ_4 | Use source code comments to document the links between the structured requirements and source code artifacts |
+
+This list of requirements is subject to change and will be adapted whenever necessary.
+Nevertheless, the general focus of the project shall remain as is.
+Requirements elicitation, documentation and refinement is going to be a continuous effort.
+
+## Work breakdown structure
+![Work Breakdown Structure](WBS.png)
+
+## Architecture
+The architecture documentation is still subject to change and will be adapted whenever necessary.
+Architectural refinement and design refactoring is going to be a continuous effort throughout the development process.
+
+### Component Diagram
+The first analysis revealed three top level components.
+
+![Component Diagram](component.svg)
+
+### Class Diagram
+![Class Diagram](class.svg)
+
+## Kick-off date
+June 22, 2020
+
+## Milestones
+| ID     | Description                           | Date             |
+|:------:|---------------------------------------|------------------|
+| MILE_1 | Minimum Viable Product is implemented | August 1, 2020   |
+| MILE_2 | Project finalization                  | January 31, 2020 |
+
+## Communication modalities / Meeting plan
+The main communication channel with the academic supervisor is Microsoft Teams.
+For communication regarding software specifics Github can also be used.
+Every 4 weeks a meeting is scheduled between the student and the academic supervisor.  
+
+For the technical supervisor, the company Slack will be used as main means of communication.
+A dedicated Slack channel is used.
+Meetings between the student and the technical supervisor are scheduled whenever necessary.
+No fixed schedule is used.
+
+## Project home/hosting
+The project repository is hosted on Github.
+The repository is private.
+
+## Source version control
+Git is used for source version control.
+The private repository is hosted on Github.
+
+## Document management
+Documents are managed and shared in Microsoft Teams.
+
+## Issue tracking
+Issues from the academic supervisor are tracked in the Github project.
+Issues from the technical supervisor are tracked in the company JIRA as well as the Github project.
+The Github project acts as a single source of truth for project issues.
+
+## Time tracking
+In general, all time is tracked on the Github Issues.
+If JIRA issues are provided by LimeSoda time is tracked on those JIRA issues as well as the Github issues.
+The Github project acts as a single source of truth for time tracking.
+
+## Roles / Stakeholders
+| Name              | Role                 |
+|:------------------|:---------------------|
+| Konstantin Hatvan | Student              |
+| Klaus Feiler      | Technical Supervisor |
+| Daniel Kienböck   | Academic Supervisor  |
+
+Additionally, there will be other stakeholders involved during project development.
+Developers as well as project managers will provide input and feedback.
+The table will adapted accordingly whenever necessary.
+
+## Risk analysis
+| ID     | Name            | Description                                                                                                                     | Priority [HIGH, MIDDLE, LOW] | Actions                                                                                                                                                                                                                                                 |
+|:------:|:----------------|:--------------------------------------------------------------------------------------------------------------------------------|:----------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| RISK_1 | User acceptance | User acceptance towards the project outcome might be low. This may result in the software not being used and time being wasted. | HIGH                         | To mitigate this risk a user centered approach can be used during development including user tests as well as interviews. Making the software incrementally adoptable may simplify its introduction and might therefore also help with user acceptance. |
+
+This list of risks is subject to change and will be adapted whenever necessary.

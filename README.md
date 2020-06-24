@@ -1,10 +1,5 @@
 # traceability-tool
 This is a tool for tracing requirements for the whole workflow
 
-## Project goals
-
-## hypothesis
-
-## requirements
-
-## Architecture
+## Links
+[Pre Project Documentation](pre-project-documentation/pre-project-documentation.md)

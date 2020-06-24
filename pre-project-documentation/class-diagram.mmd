@@ -1,0 +1,31 @@
+classDiagram
+    class TraceabilityGraph {
+        -nodes: Node[]
+        -edges: Edge[]
+        +addNode(node)
+        +removeNode(node)
+        +findNode(node): Node
+        +findNeighbors(node): Node[]
+        +addEdge(edge)
+        +removeEdge(edge)
+    }
+
+    class Node {
+        type: Requirement | TraceabilityDestination
+    }
+
+    class Edge {
+        from: Node
+        to: Node
+    }
+
+    class Requirement {
+        id: string
+        content: string
+        presist()
+    }
+
+    class TraceabilityDestination {
+        file: string
+        line: string
+    }
