@@ -6,7 +6,7 @@
 | GOAL_1 | Enable the student to finish his masters degree. Overall project success                                         |
 | GOAL_2 | Improve project documentation by generating additional value from structured requirements and traceability links |
 | GOAL_3 | Improve conceptual quality by introducing a structured workflow for requirements engineering                     |
-| GOAL_3 | Simplify impact analysis and therefore increase estimation quality by utilizing the new traceability information |
+| GOAL_4 | Simplify impact analysis and therefore increase estimation quality by utilizing the new traceability information |
 
 This list of goals is subject to change and will be adapted whenever necessary.
 
