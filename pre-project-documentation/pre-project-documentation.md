@@ -59,7 +59,7 @@ June 22, 2020
 | ID     | Description                           | Date             |
 |:------:|---------------------------------------|------------------|
 | MILE_1 | Minimum Viable Product is implemented | August 1, 2020   |
-| MILE_2 | Project finalization                  | January 31, 2020 |
+| MILE_2 | Project finalization                  | January 31, 2021 |
 
 ## Communication modalities / Meeting plan
 The main communication channel with the academic supervisor is Microsoft Teams.
@@ -72,7 +72,7 @@ Meetings between the student and the technical supervisor are scheduled whenever
 No fixed schedule is used.
 
 ## Project home/hosting
-The project repository is hosted on Github.
+The project repository is hosted on [Github](https://github.com/konstantin-hatvan/traceability-tool/).
 The repository is private.
 
 ## Source version control
