@@ -12,7 +12,8 @@ This list of goals is subject to change and will be adapted whenever necessary.
 
 ## Hypothesis
 This project aims at improving several aspects of software quality by providing traceability links between structured requirements and source code artifacts.
-I expect to improvetion
+I expect to improve
+- project documentation
 - conceptual quality
 - impact analysis
 - estimation quality
