@@ -1,4 +1,17 @@
-# Pre Project Documentation
+# Project Tracey
+
+Traceability link auto-generation. An attempt to disentangle software complexity at the origin of change.
+
+## Roles / Stakeholders
+| Name              | Role                 |
+|:------------------|:---------------------|
+| Konstantin Hatvan | Student              |
+| Klaus Feiler      | Technical Supervisor |
+| Daniel Kienböck   | Academic Supervisor  |
+
+Additionally, there will be other stakeholders involved during project development.
+Developers as well as project managers will provide input and feedback.
+The table will adapted accordingly whenever necessary.
 
 ## Project goals
 | ID     | Description                                                                                                      |
@@ -9,6 +22,8 @@
 | GOAL_4 | Simplify impact analysis and therefore increase estimation quality by utilizing the new traceability information |
 
 This list of goals is subject to change and will be adapted whenever necessary.
+
+<div class="page-break"></div>
 
 ## Hypothesis
 This project aims at improving several aspects of software quality by providing traceability links between structured requirements and source code artifacts.
@@ -25,8 +40,6 @@ Questions to be answered are:
 - What value can be offered to developers and project managers from generating and maintaining traceability links?
 - How can a new requirements engineering workflow be gradually introduced in a company?
 
-<div class="page-break"></div>
-
 ## Requirements
 | ID    | Description                                                                                                  |
 |:-----:|:-------------------------------------------------------------------------------------------------------------|
@@ -38,6 +51,8 @@ Questions to be answered are:
 This list of requirements is subject to change and will be adapted whenever necessary.
 Nevertheless, the general focus of the project shall remain as is.
 Requirements elicitation, documentation and refinement is going to be a continuous effort.
+
+<div class="page-break"></div>
 
 ## Work breakdown structure
 ![Work Breakdown Structure](WBS.png)
@@ -85,6 +100,8 @@ The repository is private.
 Git is used for source version control.
 The private repository is hosted on Github.
 
+<div class="page-break"></div>
+
 ## Document management
 Microsoft Team is primarily used to manage and share documents.
 Github can be used whenever it is reasonable.
@@ -94,23 +111,10 @@ Issues from the academic supervisor are tracked in the Github project.
 Issues from the technical supervisor are tracked in the company JIRA as well as the Github project.
 The Github project acts as a single source of truth for project issues.
 
-<div class="page-break"></div>
-
 ## Time tracking
 In general, all time is tracked on the Github Issues.
 If JIRA issues are provided by LimeSoda time is tracked on those JIRA issues as well as the Github issues.
 The Github project acts as a single source of truth for time tracking.
-
-## Roles / Stakeholders
-| Name              | Role                 |
-|:------------------|:---------------------|
-| Konstantin Hatvan | Student              |
-| Klaus Feiler      | Technical Supervisor |
-| Daniel Kienböck   | Academic Supervisor  |
-
-Additionally, there will be other stakeholders involved during project development.
-Developers as well as project managers will provide input and feedback.
-The table will adapted accordingly whenever necessary.
 
 <div class="page-break"></div>
 
