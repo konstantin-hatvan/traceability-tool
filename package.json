@@ -1,0 +1,33 @@
+{
+    "name": "tracey",
+    "version": "0.0.1",
+    "description": "Traceability link auto-generation.",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/konstantin-hatvan/traceability-tool.git"
+    },
+    "keywords": [
+        "Requirements",
+        "Documentation",
+        "Traceability"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/konstantin-hatvan/traceability-tool/issues"
+    },
+    "homepage": "https://github.com/konstantin-hatvan/traceability-tool#readme",
+    "devDependencies": {
+        "@types/jest": "^26.0.3",
+        "@types/node": "^14.0.14",
+        "jest": "^26.1.0",
+        "ts-jest": "^26.1.1",
+        "typescript": "^3.9.5"
+    }
+}
