@@ -1,4 +1,4 @@
-# traceability-tool
+# Project Tracey
 This is a tool for tracing requirements for the whole workflow
 
 ## Links
