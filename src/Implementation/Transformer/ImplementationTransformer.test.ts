@@ -1,8 +1,7 @@
 import mock from 'mock-fs';
-import RequirementFactory from './RequirementFactory';
-import Requirement from '../Requirement';
+import ImplementationTransformer from './ImplementationTransformer';
 
-describe('RequirementFactory', () => {
+describe('ImplementationTransformer', () => {
     beforeEach(() => {
         mock({
             'docs': {
@@ -36,9 +35,10 @@ This time a paragraph and a table under this block
             'src': {
                 'Resources': {
                     'Private': {
-                        'main.ts': `console.log("Hello World!");
+                        'main.ts': `console.log("Hello World!"); // @requirement REQ_02
 `,
-                        'styles.scss': `html {
+                        'styles.scss': `// @requirement REQ_01
+html {
     background: blue;
 }
 `,
@@ -58,17 +58,21 @@ This time a paragraph and a table under this block
 
     afterEach(mock.restore);
 
-    test('returns Requirement instances', () => {
-        const path = 'docs/requirement_01.md';
-        const instance = RequirementFactory.fromFile(path);
+    describe('transform()', () => {
+        test('returns correct data shape', async () => {
+            const files = [
+                'src/Resources/Private/main.ts',
+                'src/Resources/Private/styles.scss',
+            ];
 
-        expect(instance).toBeInstanceOf(Requirement);
-    });
-
-    test('instantiates Requirement instances with string IDs', () => {
-        const path = 'docs/requirement_01.md';
-        const instance = RequirementFactory.fromFile(path);
-
-        expect(typeof instance.getId()).toBe('string');
+            expect.assertions(1);
+            await expect(ImplementationTransformer.transform(files)).resolves.toEqual(expect.arrayContaining([
+                expect.objectContaining({
+                    file: expect.any(String),
+                    line: expect.any(Number),
+                    requirement: expect.any(String),
+                })
+            ]));
+        });
     });
 });
