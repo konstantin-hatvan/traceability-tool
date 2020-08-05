@@ -5,8 +5,6 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "test:watch": "jest --watch",
-        "test:coverage": "jest --coverage",
         "build": "tsc -p ."
     },
     "repository": {
@@ -26,8 +24,10 @@
     "homepage": "https://github.com/konstantin-hatvan/traceability-tool#readme",
     "devDependencies": {
         "@types/jest": "^26.0.3",
+        "@types/mdast": "^3.0.3",
         "@types/mock-fs": "^4.10.0",
         "@types/node": "^14.0.14",
+        "@types/unist": "^2.0.3",
         "jest": "^26.1.0",
         "mock-fs": "^4.12.0",
         "ts-jest": "^26.1.1",
@@ -36,6 +36,9 @@
     "dependencies": {
         "remark-frontmatter": "^2.0.0",
         "remark-parse": "^8.0.2",
-        "unified": "^9.0.0"
+        "remark-stringify": "8.1.1",
+        "unified": "^9.0.0",
+        "unist-util-remove-position": "^3.0.0",
+        "yaml": "1.10.0"
     }
 }

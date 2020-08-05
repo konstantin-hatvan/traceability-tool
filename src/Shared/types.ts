@@ -1,17 +1,44 @@
-export type RequirementId = string;
+//External dependencies
+import { Node } from 'unist';
 
-export type RequirementData = {
-    id: RequirementId;
+export type TraceabilityLocationType = 'requirement' | 'implementation';
+
+export interface TraceabilityLocation {
+    type: TraceabilityLocationType;
     file: string;
 };
 
-export type KeyValuePair = {
-    key: string;
-    value: string;
+export interface Requirement extends TraceabilityLocation {
+    type: 'requirement';
+    ast: Node;
+    id: string;
 };
 
-export type ImplementationData = {
-    file: string;
+export interface Implementation extends TraceabilityLocation {
+    type: 'implementation';
     line: number;
-    requirement: RequirementId;
+    requirement: string;
+};
+
+export interface TraceabilityLink {
+    origin: Requirement;
+    destination: Implementation;
+};
+
+export interface TraceabilityGraph {
+    links: TraceabilityLink[];
+    locations: TraceabilityLocation[];
+};
+
+export interface Configuration {
+    requirement: {
+        startingpoint: string;
+    };
+    implementation: {
+        startingpoint: string;
+    };
+};
+
+export interface KeyValueStore {
+    [key: string]: string;
 };
