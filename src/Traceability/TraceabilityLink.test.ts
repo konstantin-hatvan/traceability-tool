@@ -60,7 +60,7 @@ describe('Traceability', () => {
         };
 
         test('generates a relative link from the requirement to the implementation', () => {
-            expect(toRelativeLink(testData)).toEqual('../../src/Resources/Private/JavaScript/main.ts#L1');
+            expect(toRelativeLink(testData)).toEqual('../src/Resources/Private/JavaScript/main.ts#L1');
         });
     });
 });

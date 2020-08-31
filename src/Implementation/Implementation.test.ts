@@ -4,7 +4,6 @@ import { mockFileSystemData } from '../Test/TestUtility';
 import {
     trimArray,
     splitCommaSeparatedList,
-    fileHasRequirementAnnotation,
     stripComment,
     stripAnnotation,
     getRequirementIds,
@@ -49,26 +48,6 @@ describe('Implementation', () => {
                 'REQ_03 ',
                 ' REQ_04 ',
             ]);
-        });
-    });
-
-    describe('fileHasRequirementAnnotation()', () => {
-        const testData = [
-            {
-                file: 'src/Resources/Private/JavaScript/main.ts',
-                expectedResult: true,
-            },
-            {
-                file: 'docs/requirement_01.md',
-                expectedResult: false,
-            },
-
-        ];
-
-        test('categorizes files correctly', () => {
-            testData.forEach(({ file, expectedResult }) => {
-                expect(fileHasRequirementAnnotation(file)).toEqual(expectedResult);
-            });
         });
     });
 
@@ -168,10 +147,8 @@ describe('Implementation', () => {
     });
 
     describe('collectImplementations()', () => {
-        const testData = 'src';
-
         test('returns an array of strings', () => {
-            const implementations = collectImplementations(testData);
+            const implementations = collectImplementations('src', []);
 
             implementations.forEach(implementation => {
                 expect(implementation).toMatch(/[a-z0-9]*/);
@@ -179,7 +156,7 @@ describe('Implementation', () => {
         });
 
         test('returns an array of filesystem paths', () => {
-            const implementations = collectImplementations(testData);
+            const implementations = collectImplementations('src', []);
 
             implementations.forEach(implementation => {
                 expect(fs.statSync(implementation).isFile()).toBeTruthy();
@@ -208,7 +185,10 @@ describe('Implementation', () => {
     });
 
     describe('list()', () => {
-        const testData = 'src';
+        const testData = {
+            startingpoint: 'src',
+            excludes: []
+        };
 
         test('returns a list of implementation data structures', async () => {
             const implementations = await list(testData);

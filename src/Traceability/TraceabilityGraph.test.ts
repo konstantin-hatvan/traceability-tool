@@ -192,12 +192,14 @@ describe('Traceability', () => {
     });
 
     describe('buildGraph()', () => {
-        const configuration: Configuration = {
+        const configuration = {
             requirement: {
                 startingpoint: 'docs',
+                excludes: [],
             },
             implementation: {
                 startingpoint: 'src',
+                excludes: [],
             },
         };
 

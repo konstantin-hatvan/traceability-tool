@@ -3,7 +3,6 @@ import path from 'path';
 import mock from 'mock-fs';
 import {
     collectRequirements,
-    isRequirement,
     parseMarkdownFile,
     parseFrontmatter,
     getRequirementId,
@@ -18,7 +17,7 @@ import {
     mockAbstractSyntaxTree,
 } from '../Test/TestUtility';
 import { Requirement } from '../Shared/types';
-import { Node } from 'unist';
+import { Node, Parent } from 'unist';
 
 describe('Requirement', () => {
     beforeEach(() => {
@@ -30,7 +29,7 @@ describe('Requirement', () => {
 
     describe('collectRequirements()', () => {
         test('returns an array of strings', () => {
-            const requirements = collectRequirements('docs');
+            const requirements = collectRequirements('docs', []);
 
             requirements.forEach(requirement => {
                 expect(requirement).toMatch(/[a-z0-9]*/);
@@ -38,7 +37,7 @@ describe('Requirement', () => {
         });
 
         test('returns an array of filesystem paths', () => {
-            const requirements = collectRequirements('docs');
+            const requirements = collectRequirements('docs', []);
 
             requirements.forEach(requirement => {
                 expect(fs.statSync(requirement).isFile()).toBeTruthy();
@@ -46,37 +45,10 @@ describe('Requirement', () => {
         });
 
         test('returns an array of markdown files', () => {
-            const requirements = collectRequirements('docs');
+            const requirements = collectRequirements('docs', []);
 
             requirements.forEach(requirement => {
                 expect(path.parse(requirement).ext).toEqual('.md');
-            });
-        });
-    });
-
-    describe('isRequirement()', () => {
-        const testData = [
-            {
-                input: 'requirement.md',
-                expectedResult: true,
-            },
-            {
-                input: 'nested/requirement.md',
-                expectedResult: true,
-            },
-            {
-                input: 'implementation.php',
-                expectedResult: false,
-            },
-            {
-                input: 'nested/implementation.php',
-                expectedResult: false,
-            },
-        ];
-
-        test('categorizes requirement files correctly', () => {
-            testData.forEach(({ input, expectedResult }) => {
-                expect(isRequirement(input)).toEqual(expectedResult);
             });
         });
     });
@@ -151,7 +123,10 @@ describe('Requirement', () => {
     });
 
     describe('buildRequirements()', () => {
-        const testData = 'docs';
+        const testData = {
+            startingpoint: 'docs',
+            excludes: [],
+        };
 
         test('returns a collection of requirement datastructures', () => {
             expect(list(testData)).toEqual(expect.arrayContaining([
@@ -233,10 +208,11 @@ describe('Requirement', () => {
 
         test('add the traceabilityInformation to the end of the AST', () => {
             const updatedRequirement = update(requirement, traceyBlock);
+            const ast = <Parent>updatedRequirement.ast;
 
-            const [beginBlock] = updatedRequirement.ast.children.slice(-3, -2);
-            const [table] = updatedRequirement.ast.children.slice(-2, -1);
-            const [endBlock] = updatedRequirement.ast.children.slice(-1);
+            const [beginBlock] = ast.children.slice(-3, -2);
+            const [table] = ast.children.slice(-2, -1);
+            const [endBlock] = ast.children.slice(-1);
 
             expect(beginBlock).toEqual(traceyBlock[0]);
             expect(table).toEqual(traceyBlock[1]);
