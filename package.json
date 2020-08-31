@@ -34,6 +34,7 @@
         "typescript": "^3.9.5"
     },
     "dependencies": {
+        "cosmiconfig": "^7.0.0",
         "remark-frontmatter": "^2.0.0",
         "remark-parse": "^8.0.2",
         "remark-stringify": "8.1.1",
