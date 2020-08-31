@@ -20,8 +20,8 @@ export const buildTraceabilityLinks = (requirements: Requirement[], implementati
 };
 
 export const buildGraph = async (configuration: Configuration): Promise<TraceabilityGraph> => {
-    const requirements = Requirements.list(configuration.requirement.startingpoint);
-    const implementations = await Implementations.list(configuration.implementation.startingpoint);
+    const requirements = Requirements.list(configuration.requirement);
+    const implementations = await Implementations.list(configuration.implementation);
     const traceabilityLinks = buildTraceabilityLinks(requirements, implementations);
     const traceabilityLocations = [
         ...requirements,

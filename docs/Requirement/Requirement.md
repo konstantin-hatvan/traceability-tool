@@ -7,6 +7,7 @@ id: Requirement
 Developers store requirements in markdown files and assign each requirement a unique identifier (key: `id`) in the YAML frontmatter.
 
 ## Examples
+
 ```md
 ---
 id: MyRequirement
@@ -14,3 +15,11 @@ id: MyRequirement
 
 # My Requirement
 ```
+
+<div class="tracey">
+
+| Traceability Link                                                             |
+| ----------------------------------------------------------------------------- |
+| [src/Requirement/Requirement.ts](../../../src/Requirement/Requirement.ts#L38) |
+
+</div>

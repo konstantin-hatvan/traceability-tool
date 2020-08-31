@@ -55,11 +55,6 @@ export const createTable = (tableRows: TableRow[]): Table => {
     };
 };
 
-const createTracey = (links: Link[]): Parent => ({
-    type: 'tracey',
-    children: links,
-});
-
 export const createTraceyBlock = (table: Table) => {
     const startBlock = {
         type: 'html',

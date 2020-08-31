@@ -44,8 +44,8 @@ export const updateRequirements = (graph: TraceabilityGraph) => {
 
 const main = async (configuration: Configuration) => {
     // Gather Requirements and Implementations
-    const requirements = Requirement.list(configuration.requirement.startingpoint);
-    const implementations = await Implementation.list(configuration.implementation.startingpoint);
+    const requirements = Requirement.list(configuration.requirement);
+    const implementations = await Implementation.list(configuration.implementation);
 
     // Build Traceability Graph
     const locations = [...requirements, ...implementations];
@@ -69,3 +69,20 @@ const main = async (configuration: Configuration) => {
         Requirement.save(updatedRequirement);
     })
 };
+
+main({
+    requirement: {
+        startingpoint: 'docs',
+        excludes: [],
+    },
+    implementation: {
+        startingpoint: 'src',
+        excludes: [
+            '.*\\.test\\..*',
+            'TestUtility.ts',
+            'constants.ts',
+        ],
+    }
+}).then(() => {
+    console.log('Process finished');
+});

@@ -30,13 +30,19 @@ export interface TraceabilityGraph {
     locations: TraceabilityLocation[];
 };
 
+export interface RequirementConfiguration {
+    startingpoint: string;
+    excludes: string[];
+};
+
+export interface ImplementationConfiguration {
+    startingpoint: string;
+    excludes: string[];
+};
+
 export interface Configuration {
-    requirement: {
-        startingpoint: string;
-    };
-    implementation: {
-        startingpoint: string;
-    };
+    requirement: RequirementConfiguration;
+    implementation: ImplementationConfiguration;
 };
 
 export interface KeyValueStore {
