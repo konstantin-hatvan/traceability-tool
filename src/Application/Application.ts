@@ -1,46 +1,11 @@
+import { cosmiconfigSync } from 'cosmiconfig';
 import { Link } from 'mdast';
 import { createLink, createTable, createTableCell, createTableRow, createTraceyBlock } from '../Markdown/Markdown';
 import * as Requirement from '../Requirement';
 import * as Implementation from '../Implementation';
-import { Requirement as RequirementType, TraceabilityGraph, TraceabilityLink, Configuration } from '../Shared/types';
-import { getIncidentLinks, getLocationsByType } from '../Traceability/TraceabilityGraph';
+import { TraceabilityLink, Configuration } from '../Shared/types';
+import { getIncidentLinks } from '../Traceability/TraceabilityGraph';
 import { toRelativeLink } from '../Traceability/TraceabilityLink';
-
-export const updateRequirements = (graph: TraceabilityGraph) => {
-    // Get all requirements
-    let requirements = <RequirementType[]>getLocationsByType(graph, 'requirement');
-
-    // Group Traceability Links by requirement
-    const groupedRequirements = requirements.map(requirement => {
-        const traceabilityLinks = getIncidentLinks(graph, requirement);
-        return {
-            requirement,
-            traceabilityLinks,
-        };
-    });
-
-    // Transform Traceability Links into Markdown Table AST
-    return groupedRequirements.map(({ requirement, traceabilityLinks }): RequirementType => {
-        const links: Link[] = traceabilityLinks.reduce((result: Link[], link: TraceabilityLink) => {
-            const relativeLink = toRelativeLink(link);
-            const linkContent = link.destination.file;
-            const linkNode = createLink(linkContent, relativeLink);
-
-            return [
-                ...result,
-                linkNode,
-            ]
-        }, []);
-
-        const tableCells = links.map(createTableCell);
-        const tableRows = tableCells.map(createTableRow);
-        const table = createTable(tableRows);
-        const traceabilityInformation = createTraceyBlock(table);
-
-        // Update Requirement AST and add traceability information
-        return Requirement.update(requirement, traceabilityInformation);
-    });
-};
 
 const main = async (configuration: Configuration) => {
     // Gather Requirements and Implementations
@@ -70,19 +35,9 @@ const main = async (configuration: Configuration) => {
     })
 };
 
-main({
-    requirement: {
-        startingpoint: 'docs',
-        excludes: [],
-    },
-    implementation: {
-        startingpoint: 'src',
-        excludes: [
-            '.*\\.test\\..*',
-            'TestUtility.ts',
-            'constants.ts',
-        ],
-    }
-}).then(() => {
+const explorer = cosmiconfigSync('tracey');
+const result = <Configuration>explorer.search()?.config;
+
+main(result).then(() => {
     console.log('Process finished');
 });
