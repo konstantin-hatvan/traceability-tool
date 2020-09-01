@@ -15,11 +15,3 @@ id: MyRequirement
 
 # My Requirement
 ```
-
-<div class="tracey">
-
-| Traceability Link                                                          |
-| -------------------------------------------------------------------------- |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L38) |
-
-</div>

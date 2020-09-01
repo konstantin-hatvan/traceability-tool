@@ -33,13 +33,13 @@ Here comes the specification
 
 | Traceability Link                                                                     |
 | ------------------------------------------------------------------------------------- |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L20)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L42)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L52)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L67)                        |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L78)            |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L95)            |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L116)           |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L43)                        |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L65)                        |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L75)                        |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L90)                        |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L28)            |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L45)            |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L67)            |
 | [src/Traceability/TraceabilityLink.ts](../../src/Traceability/TraceabilityLink.ts#L5) |
 
 </div>
