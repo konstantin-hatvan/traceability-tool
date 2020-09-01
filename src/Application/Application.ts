@@ -28,10 +28,7 @@ const main = async (configuration: Configuration) => {
         const traceabilityInformation = createTraceyBlock(createTable(links.map(createTableCell).map(createTableRow)));
 
         // Update Requirements
-        const updatedRequirement = Requirement.update(requirement, traceabilityInformation);
-
-        // Write Requirements
-        Requirement.save(updatedRequirement);
+        Requirement.update(requirement, traceabilityInformation);
     })
 };
 

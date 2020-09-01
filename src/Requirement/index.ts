@@ -1,2 +1,2 @@
-import { list, update, save } from './Requirement';
-export { list, update, save };
+import { list, update } from './Requirement';
+export { list, update };

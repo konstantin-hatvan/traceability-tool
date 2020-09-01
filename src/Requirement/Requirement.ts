@@ -74,6 +74,9 @@ const hasTraceyBlock = (requirement: Requirement): boolean => {
     return ast.children.filter(child => child.value === '<div class="tracey">').length > 0;
 };
 
+/**
+ * @requirement TraceLink
+ */
 const removeTraceyBlock = (requirement: Requirement): Requirement => {
     const ast = <Parent>requirement.ast;
 
@@ -88,6 +91,9 @@ const removeTraceyBlock = (requirement: Requirement): Requirement => {
     };
 };
 
+/**
+ * @requirement TraceLink
+ */
 const removeExistingTraceyBlock = (requirement: Requirement): Requirement => {
     if (hasTraceyBlock(requirement)) {
         return removeTraceyBlock(requirement);
@@ -101,13 +107,21 @@ const shouldUpdate = (traceabilityInformation: Node[]): boolean => {
     return table.children.length > 1;
 };
 
-export const update = (requirement: Requirement, traceabilityInformation: Node[]): Requirement => {
+const save = (requirement: Requirement) => {
+    fs.writeFileSync(requirement.file, stringifyMarkdown(requirement.ast));
+};
+
+
+/**
+ * @requirement TraceLink
+ */
+export const update = (requirement: Requirement, traceabilityInformation: Node[]) => {
     const cleanRequirement = removeExistingTraceyBlock(requirement);
 
     if (shouldUpdate(traceabilityInformation)) {
         const ast = <Parent>cleanRequirement.ast;
 
-        return {
+        save({
             ...cleanRequirement,
             ast: {
                 ...ast,
@@ -116,12 +130,10 @@ export const update = (requirement: Requirement, traceabilityInformation: Node[]
                     ...traceabilityInformation,
                 ],
             },
-        }
+        });
+
+        return;
     }
 
-    return cleanRequirement;
-};
-
-export const save = (requirement: Requirement) => {
-    fs.writeFileSync(requirement.file, stringifyMarkdown(requirement.ast));
+    save(cleanRequirement);
 };

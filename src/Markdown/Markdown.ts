@@ -1,4 +1,3 @@
-import { Parent } from 'unist';
 import { Link, TableCell, TableRow, Table, Text } from 'mdast';
 
 export const createText = (text: string): Text => ({
@@ -17,6 +16,9 @@ export const createLink = (value: string, url: string): Link => ({
     url,
 });
 
+/**
+ * @requirement TraceLink
+ */
 export const createTableCell = (link: Link | string): TableCell => {
     if (typeof link === 'string') {
         return {
@@ -36,6 +38,9 @@ export const createTableCell = (link: Link | string): TableCell => {
     }
 };
 
+/**
+ * @requirement TraceLink
+ */
 export const createTableRow = (tableCell: TableCell): TableRow => ({
     type: 'tableRow',
     children: [
@@ -43,6 +48,9 @@ export const createTableRow = (tableCell: TableCell): TableRow => ({
     ],
 });
 
+/**
+ * @requirement TraceLink
+ */
 export const createTable = (tableRows: TableRow[]): Table => {
     const header: TableRow = createTableRow(createTableCell('Traceability Link'));
 
@@ -55,6 +63,9 @@ export const createTable = (tableRows: TableRow[]): Table => {
     };
 };
 
+/**
+ * @requirement TraceLink
+ */
 export const createTraceyBlock = (table: Table) => {
     const startBlock = {
         type: 'html',
