@@ -42,8 +42,8 @@ the resulting file list is going to be
 
 <div class="tracey">
 
-| Traceability Link                                                                                               |
-| --------------------------------------------------------------------------------------------------------------- |
-| [src/Requirement/Collector/RequirementCollector.ts](../../src/Requirement/Collector/RequirementCollector.ts#L2) |
+| Traceability Link                                                                           |
+| ------------------------------------------------------------------------------------------- |
+| [src/Requirement/RequirementCollector.ts](../../src/Requirement/RequirementCollector.ts#L2) |
 
 </div>
