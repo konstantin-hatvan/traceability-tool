@@ -13,10 +13,12 @@ id: RequirementCollector
 
 Given the following file tree
 
-    - docs
-        - requirement_01.md
-        - requirement_02.md
-        - index.md
+```yaml
+- docs
+    - requirement_01.md
+    - requirement_02.md
+    - index.md
+```
 
 and the following configuration
 

@@ -2,20 +2,7 @@ import fs from 'fs';
 import readline from 'readline';
 import { Implementation, ImplementationConfiguration } from '../Shared/types';
 import { constants } from '../Shared/constants';
-import readdirRecursive from '../Shared/readdirRecursive';
-
-const filterFileExcludes = (excludes: string[], file: string) => excludes
-    .map(exclude => new RegExp(exclude))
-    .every(exclude => !exclude.test(file));
-
-const fileHasRequirementAnnotation = (file: string): boolean => {
-    const content = fs.readFileSync(file);
-    return content.indexOf(constants.requirement.annotation) >= 0;
-};
-
-const isImplementationFile = (excludes: string[]) => (file: string) => filterFileExcludes(excludes, file) && fileHasRequirementAnnotation(file);
-
-export const collectImplementations = (startingpoint: string, excludes: string[]): string[] => readdirRecursive(startingpoint).filter(isImplementationFile(excludes));
+import { collect } from './ImplementationCollector';
 
 export const stripComment = (str: string): string => str.substring(str.indexOf(constants.requirement.annotation)).trim();
 
@@ -63,4 +50,4 @@ export const createImplementations = async (files: string[]): Promise<Implementa
     return output;
 };
 
-export const list = (configuration: ImplementationConfiguration): Promise<Implementation[]> => createImplementations(collectImplementations(configuration.startingpoint, configuration.excludes));
+export const list = (configuration: ImplementationConfiguration): Promise<Implementation[]> => createImplementations(collect(configuration.startingpoint, configuration.excludes));
