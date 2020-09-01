@@ -1,21 +1,6 @@
-import fs from 'fs';
-import path from 'path';
 import mock from 'mock-fs';
-import {
-    collectRequirements,
-    parseFrontmatter,
-    getRequirementId,
-    createRequirement,
-    createRequirements,
-    list,
-    update,
-} from './Requirement';
-import {
-    mockFileSystemData,
-    mockAbstractSyntaxTree,
-} from '../Test/TestUtility';
-import { Requirement } from '../Shared/types';
-import { Node, Parent } from 'unist';
+import { createRequirement, createRequirements, list } from './Requirement';
+import { mockFileSystemData } from '../Test/TestUtility';
 
 describe('Requirement', () => {
     beforeEach(() => {
@@ -24,50 +9,6 @@ describe('Requirement', () => {
     });
 
     afterEach(mock.restore);
-
-    describe('collectRequirements()', () => {
-        test('returns an array of strings', () => {
-            const requirements = collectRequirements('docs', []);
-
-            requirements.forEach(requirement => {
-                expect(requirement).toMatch(/[a-z0-9]*/);
-            });
-        });
-
-        test('returns an array of filesystem paths', () => {
-            const requirements = collectRequirements('docs', []);
-
-            requirements.forEach(requirement => {
-                expect(fs.statSync(requirement).isFile()).toBeTruthy();
-            });
-        });
-
-        test('returns an array of markdown files', () => {
-            const requirements = collectRequirements('docs', []);
-
-            requirements.forEach(requirement => {
-                expect(path.parse(requirement).ext).toEqual('.md');
-            });
-        });
-    });
-
-    describe('parseFrontmatter()', () => {
-        const testData = mockAbstractSyntaxTree();
-
-        test('parses frontmatter into an object', () => {
-            expect(parseFrontmatter(testData)).toEqual(expect.objectContaining({
-                id: expect.any(String),
-            }));
-        });
-    });
-
-    describe('getRequirementId()', () => {
-        const testData = mockAbstractSyntaxTree();
-
-        test('returns the correct id', () => {
-            expect(getRequirementId(testData)).toEqual('REQ_01');
-        });
-    });
 
     describe('createRequirement()', () => {
         const testData = [

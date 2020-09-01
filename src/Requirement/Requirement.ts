@@ -3,7 +3,7 @@ import { Node, Parent } from 'unist';
 import { Root } from 'mdast';
 import { Requirement, RequirementConfiguration } from '../Shared/types';
 import { parse, stringify, parseFrontmatter } from '../Markdown/Markdown';
-import * as RequirementCollector from './Collector';
+import { collect } from './RequirementCollector';
 
 export const createRequirement = (file: string): Requirement => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
@@ -61,7 +61,7 @@ export const save = (requirement: Requirement) => {
     fs.writeFileSync(requirement.file, stringify(<Root>requirement.ast));
 };
 
-export const list = (configuration: RequirementConfiguration): Requirement[] => createRequirements(RequirementCollector.collect(configuration.startingpoint, configuration.excludes));
+export const list = (configuration: RequirementConfiguration): Requirement[] => createRequirements(collect(configuration.startingpoint, configuration.excludes));
 
 /**
  * @requirement TraceLink
