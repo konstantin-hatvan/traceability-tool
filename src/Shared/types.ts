@@ -1,4 +1,3 @@
-//External dependencies
 import { Node } from 'unist';
 
 export type TraceabilityLocationType = 'requirement' | 'implementation';
