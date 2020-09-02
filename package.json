@@ -39,5 +39,8 @@
         "remark-frontmatter": "^2.0.0",
         "unified": "^9.0.0",
         "yaml": "^1.10.0"
-    }
+    },
+    "files": [
+        "build/**/*"
+    ]
 }
