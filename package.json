@@ -42,5 +42,6 @@
     },
     "files": [
         "build/**/*"
-    ]
+    ],
+    "bin": "./build/Application/Application.js"
 }

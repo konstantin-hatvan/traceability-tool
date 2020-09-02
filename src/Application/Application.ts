@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { cosmiconfigSync } from 'cosmiconfig';
 import { createText, createLink, createTable, createTableCell, createTableRow, createTraceyBlock } from '../Markdown/Markdown';
 import * as Requirement from '../Requirement';
