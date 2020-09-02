@@ -2,7 +2,7 @@ import remark from 'remark';
 import remarkFrontmatter, { YamlNode } from 'remark-frontmatter';
 import visit from 'unist-util-visit';
 import YAML from 'yaml';
-import { Link, TableCell, TableRow, Table, Text, Root } from 'mdast';
+import { Link, TableCell, TableRow, Table, Text, Root, PhrasingContent } from 'mdast';
 import { KeyValueStore } from '../Shared/types';
 
 export const parse = (markdown: string): Root => <Root>remark()
@@ -39,43 +39,27 @@ export const createLink = (value: string, url: string): Link => ({
     url,
 });
 
-/**
- * @requirement TraceLink
- */
-export const createTableCell = (link: Link | string): TableCell => {
-    if (typeof link === 'string') {
-        return {
-            type: 'tableCell',
-            children: [
-                createText(link),
-            ],
-        }
-    }
-    else {
-        return {
-            type: 'tableCell',
-            children: [
-                link,
-            ],
-        }
-    }
-};
-
-/**
- * @requirement TraceLink
- */
-export const createTableRow = (tableCell: TableCell): TableRow => ({
-    type: 'tableRow',
+export const createTableCell = (node: PhrasingContent): TableCell => ({
+    type: 'tableCell',
     children: [
-        tableCell,
+        node,
     ],
 });
 
-/**
- * @requirement TraceLink
- */
+export const createTableRow = (tableCells: TableCell[]): TableRow => ({
+    type: 'tableRow',
+    children: [
+        ...tableCells,
+    ],
+});
+
 export const createTable = (tableRows: TableRow[]): Table => {
-    const header: TableRow = createTableRow(createTableCell('Traceability Link'));
+    const headerCells: TableCell[] = [
+        createTableCell(createText('File')),
+        createTableCell(createText('Line')),
+    ];
+
+    const header: TableRow = createTableRow(headerCells);
 
     return {
         type: 'table',
@@ -86,9 +70,6 @@ export const createTable = (tableRows: TableRow[]): Table => {
     };
 };
 
-/**
- * @requirement TraceLink
- */
 export const createTraceyBlock = (table: Table) => {
     const startBlock = {
         type: 'html',

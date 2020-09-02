@@ -32,8 +32,8 @@ id: ImplementationAnnotation
 
 <div class="tracey">
 
-| Traceability Link                                                                                         |
-| --------------------------------------------------------------------------------------------------------- |
-| [src/Implementation/ImplementationAnnotation.ts](../../src/Implementation/ImplementationAnnotation.ts#L2) |
+| File                                                                                                      | Line |
+| --------------------------------------------------------------------------------------------------------- | ---- |
+| [src/Implementation/ImplementationAnnotation.ts](../../src/Implementation/ImplementationAnnotation.ts#L2) | 2    |
 
 </div>

@@ -31,15 +31,11 @@ Here comes the specification
 
 <div class="tracey">
 
-| Traceability Link                                                                     |
-| ------------------------------------------------------------------------------------- |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L43)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L65)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L75)                        |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L90)                        |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L28)            |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L45)            |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L67)            |
-| [src/Traceability/TraceabilityLink.ts](../../src/Traceability/TraceabilityLink.ts#L5) |
+| File                                                                                  | Line |
+| ------------------------------------------------------------------------------------- | ---- |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L28)            | 28   |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L45)            | 45   |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L67)            | 67   |
+| [src/Traceability/TraceabilityLink.ts](../../src/Traceability/TraceabilityLink.ts#L5) | 5    |
 
 </div>
