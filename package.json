@@ -43,5 +43,5 @@
     "files": [
         "build/**/*"
     ],
-    "bin": "./build/Application/Application.js"
+    "bin": "./build/index.js"
 }
