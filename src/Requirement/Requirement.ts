@@ -4,7 +4,7 @@ import visit from 'unist-util-visit';
 import { Root } from 'mdast';
 import { Requirement, RequirementConfiguration } from '../Shared/types';
 import { parse, stringify, parseFrontmatter } from '../Markdown';
-import { collect } from './Collector';
+import { collect } from './Collector/Collector';
 
 export const createRequirement = (file: string): Requirement => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));

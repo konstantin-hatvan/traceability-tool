@@ -3,7 +3,7 @@
  */
 
 import path from 'path';
-import readdirRecursive from '../Shared/readdirRecursive';
+import readdirRecursive from '../../Shared/readdirRecursive';
 
 /**
  * Check if the provided file is a markdown file
