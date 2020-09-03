@@ -1,7 +1,7 @@
 import { Table, TableRow } from 'mdast';
 import { createTableRow, createTableCell, createText, createTable, createLink } from "./Generator";
 import { TraceLink } from '../Shared/types';
-import { toRelativeLink } from '../Trace/Link';
+import { toRelativeLink } from '../Trace';
 
 const wrapTraceyTable = (table: Table) => {
     const startBlock = {

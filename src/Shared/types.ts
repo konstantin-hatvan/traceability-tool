@@ -1,9 +1,7 @@
 import { Node } from 'unist';
 
-export type TraceLocationType = 'requirement' | 'implementation';
-
 export interface TraceLocation {
-    type: TraceLocationType;
+    type: string;
     file: string;
 };
 

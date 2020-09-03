@@ -1,6 +1,6 @@
 import mock from 'mock-fs';
 import { mockFileSystemData, mockAbstractSyntaxTree } from '../Test/TestUtility';
-import { getLocationsByType, getIncidentLinks } from './Graph';
+import { getIncidentLinks } from './Graph';
 import { TraceGraph, Requirement, Implementation } from '../Shared/types';
 
 describe('Traceability', () => {
@@ -10,64 +10,6 @@ describe('Traceability', () => {
     });
 
     afterEach(mock.restore);
-
-    describe('getLocationsByType()', () => {
-        const requirements: Requirement[] = [
-            {
-                type: 'requirement',
-                file: 'docs/requirement_01.md',
-                id: 'REQ_01',
-                ast: mockAbstractSyntaxTree(),
-            },
-            {
-                type: 'requirement',
-                file: 'docs/requirement_02.md',
-                id: 'REQ_02',
-                ast: mockAbstractSyntaxTree(),
-            },
-            {
-                type: 'requirement',
-                file: 'docs/nestedRequirments/requirement_03.md',
-                id: 'REQ_03',
-                ast: mockAbstractSyntaxTree(),
-            },
-        ];
-
-        const implementations: Implementation[] = [
-            {
-                type: 'implementation',
-                file: 'src/Resources/Private/JavaScript/main.ts',
-                line: 1,
-                requirement: 'REQ_01',
-            },
-            {
-                type: 'implementation',
-                file: 'src/Resources/Private/Scss/styles.scss',
-                line: 3,
-                requirement: 'REQ_02',
-            },
-        ];
-
-        const traceabilityGraph: TraceGraph = {
-            locations: [
-                ...requirements,
-                ...implementations,
-            ],
-            links: [],
-        };
-
-        test('returns a list of TraceabilityLocations by the specified type', () => {
-            expect(getLocationsByType(traceabilityGraph, 'requirement')).toEqual(expect.arrayContaining([
-                expect.objectContaining({
-                    type: 'requirement',
-                }),
-            ]));
-        });
-
-        test('returns all TraceabilityLocations by the specified type within the given graph', () => {
-            expect(getLocationsByType(traceabilityGraph, 'requirement').length).toEqual(requirements.length);
-        });
-    });
 
     describe('getIncidentLinks()', () => {
         const requirements: Requirement[] = [
