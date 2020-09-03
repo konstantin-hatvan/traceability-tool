@@ -1,32 +1,32 @@
 import { Node } from 'unist';
 
-export type TraceabilityLocationType = 'requirement' | 'implementation';
+export type TraceLocationType = 'requirement' | 'implementation';
 
-export interface TraceabilityLocation {
-    type: TraceabilityLocationType;
+export interface TraceLocation {
+    type: TraceLocationType;
     file: string;
 };
 
-export interface Requirement extends TraceabilityLocation {
+export interface Requirement extends TraceLocation {
     type: 'requirement';
     ast: Node;
     id: string;
 };
 
-export interface Implementation extends TraceabilityLocation {
+export interface Implementation extends TraceLocation {
     type: 'implementation';
     line: number;
     requirement: string;
 };
 
-export interface TraceabilityLink {
+export interface TraceLink {
     origin: Requirement;
     destination: Implementation;
 };
 
-export interface TraceabilityGraph {
-    links: TraceabilityLink[];
-    locations: TraceabilityLocation[];
+export interface TraceGraph {
+    links: TraceLink[];
+    locations: TraceLocation[];
 };
 
 export interface RequirementConfiguration {

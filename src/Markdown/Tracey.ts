@@ -1,7 +1,7 @@
 import { Table, TableRow } from 'mdast';
 import { createTableRow, createTableCell, createText, createTable, createLink } from "./Generator";
-import { TraceabilityLink } from '../Shared/types';
-import { toRelativeLink } from '../Traceability/TraceabilityLink';
+import { TraceLink } from '../Shared/types';
+import { toRelativeLink } from '../Trace/Link';
 
 const wrapTraceyTable = (table: Table) => {
     const startBlock = {
@@ -33,7 +33,7 @@ const createTraceyTable = (tableRows: TableRow[]): Table => {
     ]);
 };
 
-export const createTraceyBlock = (traceabilityLinks: TraceabilityLink[]) => {
+export const createTraceyBlock = (traceabilityLinks: TraceLink[]) => {
     const tableRows = traceabilityLinks.map(traceabilityLink => createTableRow([
         createTableCell(createLink(traceabilityLink.destination.file, toRelativeLink(traceabilityLink))),
         createTableCell(createText(traceabilityLink.destination.line.toString()))

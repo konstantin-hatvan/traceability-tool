@@ -1,7 +1,7 @@
 import mock from 'mock-fs';
 import { mockFileSystemData, mockAbstractSyntaxTree } from '../Test/TestUtility';
-import { getEndpoints, toRelativeLink } from './TraceabilityLink';
-import { TraceabilityLink, Requirement, Implementation } from '../Shared/types';
+import { getEndpoints, toRelativeLink } from './Link';
+import { TraceLink, Requirement, Implementation } from '../Shared/types';
 
 describe('Traceability', () => {
     beforeEach(() => {
@@ -26,7 +26,7 @@ describe('Traceability', () => {
             requirement: 'REQ_01',
         };
 
-        const testData: TraceabilityLink = {
+        const testData: TraceLink = {
             origin: requirement,
             destination: implementation,
         };
@@ -54,7 +54,7 @@ describe('Traceability', () => {
             requirement: 'REQ_01',
         };
 
-        const testData: TraceabilityLink = {
+        const testData: TraceLink = {
             origin: requirement,
             destination: implementation,
         };

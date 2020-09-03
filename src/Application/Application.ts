@@ -3,8 +3,8 @@
 import { createTraceyBlock } from "../Markdown/Tracey";
 import * as Requirement from '../Requirement';
 import * as Implementation from '../Implementation';
-import { TraceabilityLink, Configuration } from '../Shared/types';
-import { getIncidentLinks } from '../Traceability/TraceabilityGraph';
+import { TraceLink, Configuration } from '../Shared/types';
+import { getIncidentLinks } from '../Trace/Graph';
 
 export const main = async (configuration: Configuration) => {
     // Gather Requirements and Implementations
@@ -13,7 +13,7 @@ export const main = async (configuration: Configuration) => {
 
     // Build Traceability Graph
     const locations = [...requirements, ...implementations];
-    const links: TraceabilityLink[] = requirements.flatMap(requirement => implementations.flatMap(implementation => implementation.requirement === requirement.id ? [{ origin: requirement, destination: implementation }] : []));
+    const links: TraceLink[] = requirements.flatMap(requirement => implementations.flatMap(implementation => implementation.requirement === requirement.id ? [{ origin: requirement, destination: implementation }] : []));
     const graph = { locations, links };
 
     // Update Requirements
