@@ -29,14 +29,14 @@ export interface TraceGraph {
     locations: TraceLocation[];
 };
 
-export interface RequirementConfiguration {
+export interface TraceLocationConfiguration {
     startingpoint: string;
     excludes: string[];
-};
+}
 
-export interface ImplementationConfiguration {
-    startingpoint: string;
-    excludes: string[];
+export interface RequirementConfiguration extends TraceLocationConfiguration {};
+
+export interface ImplementationConfiguration extends TraceLocationConfiguration {
     annotation: string;
 };
 
