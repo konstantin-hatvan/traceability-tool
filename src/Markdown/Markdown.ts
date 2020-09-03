@@ -48,42 +48,10 @@ export const createTableCell = (node: PhrasingContent): TableCell => ({
 
 export const createTableRow = (tableCells: TableCell[]): TableRow => ({
     type: 'tableRow',
-    children: [
-        ...tableCells,
-    ],
+    children: tableCells,
 });
 
-export const createTable = (tableRows: TableRow[]): Table => {
-    const headerCells: TableCell[] = [
-        createTableCell(createText('File')),
-        createTableCell(createText('Line')),
-    ];
-
-    const header: TableRow = createTableRow(headerCells);
-
-    return {
-        type: 'table',
-        children: [
-            header,
-            ...tableRows,
-        ],
-    };
-};
-
-export const createTraceyBlock = (table: Table) => {
-    const startBlock = {
-        type: 'html',
-        value: '<div class="tracey">',
-    };
-
-    const endBlock = {
-        type: 'html',
-        value: '</div>',
-    };
-
-    return [
-        startBlock,
-        table,
-        endBlock,
-    ];
-};
+export const createTable = (tableRows: TableRow[]): Table => ({
+    type: 'table',
+    children: tableRows,
+});

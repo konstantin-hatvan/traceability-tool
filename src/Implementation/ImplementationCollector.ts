@@ -38,4 +38,9 @@ const rules = [
  */
 const shouldCollect = (excludes: string[]) => (file: string) => rules.every(rule => rule(file, excludes));
 
+/**
+ * Collect implementation files
+ * @param startingpoint The directory startingpoint
+ * @param excludes A collection of regular expressions to exclude
+ */
 export const collect = (startingpoint: string, excludes: string[]): string[] => readdirRecursive(startingpoint).filter(shouldCollect(excludes));
