@@ -2,8 +2,10 @@
  * @requirement RequirementCollector
  */
 
+import fs from 'fs';
 import path from 'path';
 import readdirRecursive from '../../Shared/readdirRecursive';
+import { parseFrontmatter, parse } from '../../Markdown';
 
 /**
  * Check if the provided file is a markdown file
@@ -21,11 +23,21 @@ const isNotExcluded = (file: string, excludes: string[]): boolean => excludes
     .every(exclude => !exclude.test(file));
 
 /**
+ * Check if the provided markdown file has a frontmatter identifier
+ * @param file The file name
+ */
+const hasFrontmatterIdentifier = (file: string): boolean => {
+    const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
+    return Boolean(parseFrontmatter(ast)?.id);
+};
+
+/**
  * Collection of all rules that have to be passed
  */
 const rules = [
     isMarkdownFile,
     isNotExcluded,
+    hasFrontmatterIdentifier,
 ];
 
 /**

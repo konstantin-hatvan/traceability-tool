@@ -1,2 +1,2 @@
-import { list, update } from './Requirement';
+import { list, update } from './Requirement/Requirement';
 export { list, update };

@@ -2,28 +2,23 @@ import fs from 'fs';
 import { Node, Parent } from 'unist';
 import visit from 'unist-util-visit';
 import { Root } from 'mdast';
-import { Requirement, RequirementConfiguration } from '../Shared/types';
-import { parse, stringify, parseFrontmatter } from '../Markdown';
-import { collect } from './Collector/Collector';
+import { Requirement, RequirementConfiguration } from '../../Shared/types';
+import { parse, stringify, parseFrontmatter } from '../../Markdown';
+import { collect } from '../Collector/Collector';
 
-export const createRequirement = (file: string): Requirement => {
+const createRequirements = (files: string[]): Requirement[] => files.flatMap(file => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
     const { id } = parseFrontmatter(ast);
 
-    return {
+    return [{
         type: 'requirement',
         file,
         id,
         ast,
-    };
-};
+    }];
+});
 
-export const createRequirements = (files: string[]): Requirement[] => files.map(createRequirement);
-
-/**
- * @requirement TraceLink
- */
-export const removeTraceyBlock = (requirement: Requirement): Requirement => {
+const removeTraceyBlock = (requirement: Requirement): Requirement => {
     visit(requirement.ast, 'html', (node, index, parent) => {
         if (node.value === '<div class="tracey">' && parent) {
             parent.children.splice(index);
@@ -33,12 +28,12 @@ export const removeTraceyBlock = (requirement: Requirement): Requirement => {
     return requirement;
 };
 
-export const shouldUpdate = (traceabilityInformation: Node[]): boolean => {
+const shouldUpdate = (traceabilityInformation: Node[]): boolean => {
     const table = <Parent>traceabilityInformation[1];
     return table.children.length > 1;
 };
 
-export const save = (requirement: Requirement) => {
+const save = (requirement: Requirement) => {
     fs.writeFileSync(requirement.file, stringify(<Root>requirement.ast));
 };
 
