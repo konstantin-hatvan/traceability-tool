@@ -33,9 +33,8 @@ Here comes the specification
 
 | File                                                                                  | Line |
 | ------------------------------------------------------------------------------------- | ---- |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L28)            | 28   |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L45)            | 45   |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L67)            | 67   |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L24)            | 24   |
+| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L48)            | 48   |
 | [src/Traceability/TraceabilityLink.ts](../../src/Traceability/TraceabilityLink.ts#L5) | 5    |
 
 </div>

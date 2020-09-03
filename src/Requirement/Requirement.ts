@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { Node, Parent } from 'unist';
+import visit from 'unist-util-visit';
 import { Root } from 'mdast';
 import { Requirement, RequirementConfiguration } from '../Shared/types';
 import { parse, stringify, parseFrontmatter } from '../Markdown/Markdown';
@@ -19,35 +20,15 @@ export const createRequirement = (file: string): Requirement => {
 
 export const createRequirements = (files: string[]): Requirement[] => files.map(createRequirement);
 
-const hasTraceyBlock = (requirement: Requirement): boolean => {
-    const ast = <Parent>requirement.ast;
-    return ast.children.filter(child => child.value === '<div class="tracey">').length > 0;
-};
-
 /**
  * @requirement TraceLink
  */
 export const removeTraceyBlock = (requirement: Requirement): Requirement => {
-    const ast = <Parent>requirement.ast;
-
-    return {
-        ...requirement,
-        ast: {
-            ...ast,
-            children: [
-                ...ast.children.slice(0, ast.children.length - 3),
-            ],
-        },
-    };
-};
-
-/**
- * @requirement TraceLink
- */
-export const removeExistingTraceyBlock = (requirement: Requirement): Requirement => {
-    if (hasTraceyBlock(requirement)) {
-        return removeTraceyBlock(requirement);
-    }
+    visit(requirement.ast, 'html', (node, index, parent) => {
+        if (node.value === '<div class="tracey">' && parent) {
+            parent.children.splice(index);
+        }
+    });
 
     return requirement;
 };
@@ -67,7 +48,7 @@ export const list = (configuration: RequirementConfiguration): Requirement[] => 
  * @requirement TraceLink
  */
 export const update = (requirement: Requirement, traceabilityInformation: Node[]) => {
-    const cleanRequirement = removeExistingTraceyBlock(requirement);
+    const cleanRequirement = removeTraceyBlock(requirement);
 
     if (shouldUpdate(traceabilityInformation)) {
         const ast = <Parent>cleanRequirement.ast;
