@@ -10,5 +10,6 @@ module.exports = {
             'TestUtility.ts',
             'constants.ts',
         ],
+        annotation: '@requirement',
     }
 };

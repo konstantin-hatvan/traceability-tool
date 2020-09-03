@@ -3,7 +3,7 @@ import { Node, Parent } from 'unist';
 import visit from 'unist-util-visit';
 import { Root } from 'mdast';
 import { Requirement, RequirementConfiguration } from '../Shared/types';
-import { parse, stringify, parseFrontmatter } from '../Markdown/Markdown';
+import { parse, stringify, parseFrontmatter } from '../Markdown';
 import { collect } from './Collector';
 
 export const createRequirement = (file: string): Requirement => {

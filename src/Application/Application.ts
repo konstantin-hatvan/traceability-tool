@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { createTraceyBlock } from "../Markdown/Tracey";
+import { createTraceyBlock } from "../Markdown";
 import * as Requirement from '../Requirement';
 import * as Implementation from '../Implementation';
 import { TraceLink, Configuration } from '../Shared/types';

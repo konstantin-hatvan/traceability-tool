@@ -3,16 +3,16 @@
  */
 
 import fs from 'fs';
-import { constants } from '../Shared/constants';
 import readdirRecursive from '../Shared/readdirRecursive';
+import { ImplementationConfiguration } from '../Shared/types';
 
 /**
  * Check if the provided file has a requirement annotation
  * @param file The file name
  */
-const hasRequirementAnnotation = (file: string): boolean => {
+const hasRequirementAnnotation = (file: string, configuration: ImplementationConfiguration): boolean => {
     const content = fs.readFileSync(file);
-    return content.indexOf(constants.requirement.annotation) >= 0;
+    return content.indexOf(configuration.annotation) >= 0;
 };
 
 /**
@@ -20,7 +20,7 @@ const hasRequirementAnnotation = (file: string): boolean => {
  * @param excludes A collection of regular expressions to exclude
  * @param file The file name
  */
-const isNotExcluded = (file: string, excludes: string[]) => excludes
+const isNotExcluded = (file: string, configuration: ImplementationConfiguration) => configuration.excludes
     .map(exclude => new RegExp(exclude))
     .every(exclude => !exclude.test(file));
 
@@ -36,11 +36,11 @@ const rules = [
  * Check if the provided file should be collected
  * @param excludes A collection of regular expressions to exclude
  */
-const shouldCollect = (excludes: string[]) => (file: string) => rules.every(rule => rule(file, excludes));
+const shouldCollect = (configuration: ImplementationConfiguration) => (file: string) => rules.every(rule => rule(file, configuration));
 
 /**
  * Collect implementation files
  * @param startingpoint The directory startingpoint
  * @param excludes A collection of regular expressions to exclude
  */
-export const collect = (startingpoint: string, excludes: string[]): string[] => readdirRecursive(startingpoint).filter(shouldCollect(excludes));
+export const collect = (configuration: ImplementationConfiguration): string[] => readdirRecursive(configuration.startingpoint).filter(shouldCollect(configuration));
