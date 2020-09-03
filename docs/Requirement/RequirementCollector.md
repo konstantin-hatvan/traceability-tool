@@ -10,8 +10,8 @@ id: RequirementCollector
 
 <div class="tracey">
 
-| File                                                                  | Line |
-| --------------------------------------------------------------------- | ---- |
-| [src/Requirement/Collector.ts](../../src/Requirement/Collector.ts#L2) | 2    |
+| File                                                                                      | Line |
+| ----------------------------------------------------------------------------------------- | ---- |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L2) | 2    |
 
 </div>

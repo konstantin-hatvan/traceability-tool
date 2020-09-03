@@ -31,10 +31,9 @@ Here comes the specification
 
 <div class="tracey">
 
-| File                                                                       | Line |
-| -------------------------------------------------------------------------- | ---- |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L24) | 24   |
-| [src/Requirement/Requirement.ts](../../src/Requirement/Requirement.ts#L48) | 48   |
-| [src/Trace/Link.ts](../../src/Trace/Link.ts#L5)                            | 5    |
+| File                                                                                               | Line |
+| -------------------------------------------------------------------------------------------------- | ---- |
+| [src/Requirement/Requirement/Requirement.ts](../../src/Requirement/Requirement/Requirement.ts#L43) | 43   |
+| [src/Trace/Link.ts](../../src/Trace/Link.ts#L5)                                                    | 5    |
 
 </div>
