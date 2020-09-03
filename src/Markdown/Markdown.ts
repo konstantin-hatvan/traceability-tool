@@ -2,7 +2,7 @@ import remark from 'remark';
 import remarkFrontmatter, { YamlNode } from 'remark-frontmatter';
 import visit from 'unist-util-visit';
 import YAML from 'yaml';
-import { Link, TableCell, TableRow, Table, Text, Root, PhrasingContent } from 'mdast';
+import { Root } from 'mdast';
 import { KeyValueStore } from '../Shared/types';
 
 export const parse = (markdown: string): Root => <Root>remark()
@@ -22,36 +22,3 @@ export const parseFrontmatter = (markdown: Root): KeyValueStore => {
 
     return output;
 };
-
-export const createText = (text: string): Text => ({
-    type: 'text',
-    value: text
-});
-
-export const createLink = (value: string, url: string): Link => ({
-    type: 'link',
-    children: [
-        {
-            type: 'text',
-            value,
-        },
-    ],
-    url,
-});
-
-export const createTableCell = (node: PhrasingContent): TableCell => ({
-    type: 'tableCell',
-    children: [
-        node,
-    ],
-});
-
-export const createTableRow = (tableCells: TableCell[]): TableRow => ({
-    type: 'tableRow',
-    children: tableCells,
-});
-
-export const createTable = (tableRows: TableRow[]): Table => ({
-    type: 'table',
-    children: tableRows,
-});

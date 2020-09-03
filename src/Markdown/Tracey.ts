@@ -1,5 +1,5 @@
 import { Table, TableRow } from 'mdast';
-import { createTableRow, createTableCell, createText, createTable, createLink } from './Markdown';
+import { createTableRow, createTableCell, createText, createTable, createLink } from "./Generator";
 import { TraceabilityLink } from '../Shared/types';
 import { toRelativeLink } from '../Traceability/TraceabilityLink';
 
