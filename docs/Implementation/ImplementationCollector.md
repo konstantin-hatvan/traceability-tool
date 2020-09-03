@@ -48,8 +48,8 @@ the resulting file list is going to be
 
 <div class="tracey">
 
-| File                                                                                                    | Line |
-| ------------------------------------------------------------------------------------------------------- | ---- |
-| [src/Implementation/ImplementationCollector.ts](../../src/Implementation/ImplementationCollector.ts#L2) | 2    |
+| File                                                                        | Line |
+| --------------------------------------------------------------------------- | ---- |
+| [src/Implementation/Collector.ts](../../src/Implementation/Collector.ts#L2) | 2    |
 
 </div>

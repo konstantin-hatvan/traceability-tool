@@ -44,8 +44,8 @@ the resulting file list is going to be
 
 <div class="tracey">
 
-| File                                                                                        | Line |
-| ------------------------------------------------------------------------------------------- | ---- |
-| [src/Requirement/RequirementCollector.ts](../../src/Requirement/RequirementCollector.ts#L2) | 2    |
+| File                                                                  | Line |
+| --------------------------------------------------------------------- | ---- |
+| [src/Requirement/Collector.ts](../../src/Requirement/Collector.ts#L2) | 2    |
 
 </div>
