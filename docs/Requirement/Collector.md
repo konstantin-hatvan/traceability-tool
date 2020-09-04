@@ -2,9 +2,9 @@
 id: RequirementCollector
 ---
 
-# RequirementCollector
+# Collecting Requirements
 
-Requirements will be collected from the file system starting in `requirement.startingpoint`.
+Requirements will be collected from the file system starting at the configured `requirement.startingpoint`.
 Requirements have to meet the following criteria to be collected:
 
 -   Requirements must be Markdown files
