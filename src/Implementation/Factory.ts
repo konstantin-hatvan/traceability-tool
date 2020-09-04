@@ -1,7 +1,6 @@
 import fs from 'fs';
 import readline from 'readline';
 import { Implementation, ImplementationConfiguration } from '../Shared/types';
-import { collect } from './Collector';
 import { parse } from './Annotation';
 
 export const createImplementations = async (files: string[], configuration: ImplementationConfiguration): Promise<Implementation[]> => {
@@ -33,5 +32,3 @@ export const createImplementations = async (files: string[], configuration: Impl
 
     return output;
 };
-
-export const list = (configuration: ImplementationConfiguration): Promise<Implementation[]> => createImplementations(collect(configuration), configuration);
