@@ -2,8 +2,8 @@ import fs from 'fs';
 import { Node, Parent } from 'unist';
 import visit from 'unist-util-visit';
 import { Root } from 'mdast';
-import { Requirement, RequirementConfiguration } from '../../Shared/types';
-import { parse, stringify, parseFrontmatter } from '../../Markdown';
+import { Requirement, RequirementConfiguration, TraceLink } from '../../Shared/types';
+import { parse, stringify, parseFrontmatter, createTraceyBlock } from '../../Markdown';
 import { collect } from '../Collector/Collector';
 
 const createRequirements = (files: string[]): Requirement[] => files.flatMap(file => {
@@ -42,10 +42,11 @@ export const list = (configuration: RequirementConfiguration): Requirement[] => 
 /**
  * @requirement TraceLink
  */
-export const update = (requirement: Requirement, traceabilityInformation: Node[]) => {
+export const update = (requirement: Requirement, traceLinks: TraceLink[]) => {
     const cleanRequirement = removeTraceyBlock(requirement);
+    const traceyBlock = createTraceyBlock(traceLinks);
 
-    if (shouldUpdate(traceabilityInformation)) {
+    if (shouldUpdate(traceyBlock)) {
         const ast = <Parent>cleanRequirement.ast;
 
         save({
@@ -54,7 +55,7 @@ export const update = (requirement: Requirement, traceabilityInformation: Node[]
                 ...ast,
                 children: [
                     ...ast.children,
-                    ...traceabilityInformation,
+                    ...traceyBlock,
                 ],
             },
         });

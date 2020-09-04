@@ -18,8 +18,7 @@ export const main = async (configuration: Configuration) => {
 
     // Update Requirements
     requirements.forEach(requirement => {
-        const traceabilityLinks = getIncidentLinks(graph, requirement);
-        const traceyBlock = createTraceyBlock(traceabilityLinks);
-        Requirement.update(requirement, traceyBlock);
+        const traceLinks = getIncidentLinks(graph, requirement);
+        Requirement.update(requirement, traceLinks);
     })
 };
