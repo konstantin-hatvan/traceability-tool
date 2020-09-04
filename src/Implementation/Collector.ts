@@ -40,7 +40,6 @@ const shouldCollect = (configuration: ImplementationConfiguration) => (file: str
 
 /**
  * Collect implementation files
- * @param startingpoint The directory startingpoint
- * @param excludes A collection of regular expressions to exclude
+ * @param configuration The configuration object
  */
 export const collect = (configuration: ImplementationConfiguration): string[] => readdirRecursive(configuration.startingpoint).filter(shouldCollect(configuration));

@@ -6,6 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import readdirRecursive from '../../Shared/readdirRecursive';
 import { parseFrontmatter, parse } from '../../Markdown';
+import { RequirementConfiguration } from '../../Shared/types';
 
 /**
  * Check if the provided file is a markdown file
@@ -48,7 +49,6 @@ const shouldCollect = (excludes: string[]) => (file: string) => rules.every(rule
 
 /**
  * Collect requirement files
- * @param startingpoint The directory startingpoint
- * @param excludes A collection of regular expressions to exclude
+ * @param configuration The configuration object
  */
-export const collect = (startingpoint: string, excludes: string[]): string[] => readdirRecursive(startingpoint).filter(shouldCollect(excludes));
+export const collect = (configuration: RequirementConfiguration): string[] => readdirRecursive(configuration.startingpoint).filter(shouldCollect(configuration.excludes));
