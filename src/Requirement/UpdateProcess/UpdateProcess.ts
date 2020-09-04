@@ -1,5 +1,5 @@
 /**
- * @requirement RequirementUpdate
+ * @requirement RequirementUpdateProcess
  */
 
 import fs from 'fs';

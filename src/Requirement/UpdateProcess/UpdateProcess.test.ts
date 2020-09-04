@@ -1,5 +1,5 @@
 import mock from 'mock-fs';
-import { list } from '../Requirement/Requirement'
+import { list } from '../ListProcess/ListProcess'
 import { update } from './UpdateProcess';
 import { RequirementConfiguration, Requirement, TraceLink } from '../../Shared/types';
 import { Parent } from 'unist';
@@ -10,7 +10,7 @@ beforeEach(() => {
 
 afterEach(mock.restore);
 
-describe('Requirement/Requirement:update()', () => {
+describe('Requirement/UpdateProcess:update()', () => {
     test('adds a tracey block when there are new trace links', () => {
         mock({
             src: {

@@ -1,5 +1,5 @@
 import mock from 'mock-fs';
-import { list } from './Requirement';
+import { list } from './ListProcess';
 import { RequirementConfiguration } from '../../Shared/types';
 
 beforeEach(() => {
@@ -8,7 +8,7 @@ beforeEach(() => {
 
 afterEach(mock.restore);
 
-describe('Requirement/Requirement:list()', () => {
+describe('Requirement/ListProcess:list()', () => {
     test('returns a collection of requirement data structures', () => {
         mock({
             src: {
