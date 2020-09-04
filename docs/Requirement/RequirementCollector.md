@@ -3,6 +3,7 @@ id: RequirementCollector
 ---
 
 # RequirementCollector
+
 Requirements will be collected from the file system starting in `requirement.startingpoint`.
 Requirements have to meet the following criteria to be collected:
 

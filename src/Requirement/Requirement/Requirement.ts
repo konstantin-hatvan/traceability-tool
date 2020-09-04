@@ -18,6 +18,9 @@ const createRequirements = (files: string[]): Requirement[] => files.flatMap(fil
     }];
 });
 
+/**
+ * @requirement RequirementUpdate
+ */
 const removeTraceyBlock = (requirement: Requirement): Requirement => {
     visit(requirement.ast, 'html', (node, index, parent) => {
         if (node.value === '<div class="tracey">' && parent) {
@@ -28,6 +31,9 @@ const removeTraceyBlock = (requirement: Requirement): Requirement => {
     return requirement;
 };
 
+/**
+ * @requirement RequirementUpdate
+ */
 const shouldUpdate = (traceabilityInformation: Node[]): boolean => {
     const table = <Parent>traceabilityInformation[1];
     return table.children.length > 1;
@@ -40,7 +46,7 @@ const save = (requirement: Requirement) => {
 export const list = (configuration: RequirementConfiguration): Requirement[] => createRequirements(collect(configuration.startingpoint, configuration.excludes));
 
 /**
- * @requirement TraceLink
+ * @requirement RequirementUpdate
  */
 export const update = (requirement: Requirement, traceLinks: TraceLink[]) => {
     const cleanRequirement = removeTraceyBlock(requirement);
