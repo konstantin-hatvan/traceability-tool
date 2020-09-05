@@ -29,7 +29,7 @@ Another markdown file`,
             excludes: [],
         };
 
-        expect(collect(configuration.startingpoint, configuration.excludes)).toEqual([ 'src/index.md', 'src/test_01.md' ]);
+        expect(collect(configuration)).toEqual([ 'src/index.md', 'src/test_01.md' ]);
     });
 
     test('collects only markdown files that are not excluded', () => {
@@ -54,7 +54,7 @@ Another markdown file`,
             ],
         };
 
-        expect(collect(configuration.startingpoint, configuration.excludes)).toEqual([ 'src/test_01.md' ]);
+        expect(collect(configuration)).toEqual([ 'src/test_01.md' ]);
     });
 
     test('collects only markdown files with a frontmatter identifier', () => {
@@ -74,7 +74,7 @@ Another markdown file`,
             excludes: [],
         };
 
-        expect(collect(configuration.startingpoint, configuration.excludes)).toEqual([ 'src/test_01.md' ]);
+        expect(collect(configuration)).toEqual([ 'src/test_01.md' ]);
     });
 
     test('returns an empty array when no files match the criteria for collection', () => {
@@ -93,6 +93,6 @@ Another markdown file`,
             ],
         };
 
-        expect(collect(configuration.startingpoint, configuration.excludes)).toEqual([]);
+        expect(collect(configuration)).toEqual([]);
     });
 });
