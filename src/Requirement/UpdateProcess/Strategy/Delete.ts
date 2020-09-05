@@ -1,5 +1,5 @@
 /**
- * @requirement Requirement/TraceabilityTable/Delete
+ * @requirement [Requirement/TraceabilityTable/Delete] (The delete action of the update process)
  */
 
 import fs from 'fs';

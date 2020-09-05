@@ -17,13 +17,14 @@ export const createImplementations = async (files: string[], configuration: Impl
 
         for await (const content of rl) {
             if (content.indexOf(configuration.annotation) >= 0) {
-                const requirements = parse(content, configuration.annotation);
+                const { description, requirements } = parse(content, configuration.annotation);
 
                 requirements.forEach(requirement => output.push({
                     type: 'implementation',
                     file,
                     line,
                     requirement,
+                    description,
                 }));
             }
             line++;

@@ -1,5 +1,5 @@
 /**
- * @requirement ImplementationCollector
+ * @requirement [ImplementationCollector] (Implement requirements for collecting implementation files)
  */
 
 import fs from 'fs';

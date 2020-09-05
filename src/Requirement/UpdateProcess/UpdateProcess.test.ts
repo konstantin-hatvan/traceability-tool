@@ -19,7 +19,7 @@ id: Index
 ---
 
 # My Markdown file`,
-                'main.ts': 'console.log("Test"); // @requirement Index'
+                'main.ts': 'console.log("Test"); // @requirement [Index] (Example description)'
             },
         });
 
@@ -38,6 +38,7 @@ id: Index
                     file: 'src/main.ts',
                     line: 1,
                     requirement: 'Index',
+                    description: 'Example description',
                 },
             },
         ];
@@ -124,7 +125,7 @@ id: Index
 </div>
 `,
                 'styles.scss': `html {
-    background: red; // @requirement Index
+    background: red; // @requirement [Index] (Example description)
 }
 `
             },
@@ -189,7 +190,7 @@ id: Index
 
 </div>
 `,
-                'main.ts': 'console.log("Test"); // @requirement Index'
+                'main.ts': 'console.log("Test"); // @requirement [Index] (Example description)'
             },
         });
 

@@ -32,8 +32,8 @@ id: ImplementationAnnotation
 
 <div class="tracey">
 
-| File                                                                          | Line |
-| ----------------------------------------------------------------------------- | ---- |
-| [src/Implementation/Annotation.ts](../../src/Implementation/Annotation.ts#L2) | 2    |
+| File                                                                          | Line | Description                       |
+| ----------------------------------------------------------------------------- | ---- | --------------------------------- |
+| [src/Implementation/Annotation.ts](../../src/Implementation/Annotation.ts#L2) | 2    | Implement annotation requirements |
 
 </div>

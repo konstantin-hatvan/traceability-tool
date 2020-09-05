@@ -1,7 +1,3 @@
-/**
- * @requirement RequirementUpdateProcess
- */
-
 import { TraceLink, Requirement } from '../../../Shared/types';
 import { createStrategy, UpdateProcessCondition } from './Conditions';
 

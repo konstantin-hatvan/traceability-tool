@@ -15,6 +15,12 @@ export interface Implementation extends TraceLocation {
     type: 'implementation';
     line: number;
     requirement: string;
+    description: string;
+};
+
+export interface ImplementationAnnotation {
+    requirements: string[];
+    description: string;
 };
 
 export interface TraceLink {

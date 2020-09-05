@@ -1,5 +1,5 @@
 /**
- * @requirement RequirementCollector
+ * @requirement [RequirementCollector] (Implement requirements for collecting requirement files)
  */
 
 import fs from 'fs';

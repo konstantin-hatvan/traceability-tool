@@ -31,8 +31,8 @@ Here comes the specification
 
 <div class="tracey">
 
-| File                                            | Line |
-| ----------------------------------------------- | ---- |
-| [src/Trace/Link.ts](../../src/Trace/Link.ts#L5) | 5    |
+| File                                            | Line | Description                                             |
+| ----------------------------------------------- | ---- | ------------------------------------------------------- |
+| [src/Trace/Link.ts](../../src/Trace/Link.ts#L5) | 5    | Generate a relative link between traceability artifacts |
 
 </div>

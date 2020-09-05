@@ -1,6 +1,8 @@
 /**
- * @requirement ImplementationAnnotation
+ * @requirement [ImplementationAnnotation] (Implement annotation requirements)
  */
+
+import { ImplementationAnnotation } from "../Shared/types";
 
 /**
  * Remove any characters before the requirement annotation from the given string
@@ -14,29 +16,49 @@ const stripComment = (str: string, annotation: string): string => str.substring(
  */
 const stripAnnotation = (str: string, annotation: string): string => str.substring(annotation.length).trim();
 
-/**
- * Remove any whitespace from the given string
- * @param str A string
- */
-const stripWhitespace = (str: string): string => str.replace(/\s*/g, '');
-
-/**
- * A collection of sanitizers to perform on a string
- */
-const sanitizers = [
+const preprocessors = [
     stripComment,
     stripAnnotation,
-    stripWhitespace,
 ];
 
-/**
- * Sanitize the given string
- * @param lineWithAnnotation A string containing a requirement annotation
- */
-const sanitize = (lineWithAnnotation: string, annotation: string): string => sanitizers.reduce((result, sanitizer) => sanitizer(result, annotation), lineWithAnnotation);
+const preprocess = (lineWithAnnotation: string, annotation: string): string => preprocessors.reduce((result, preprocessor) => preprocessor(result, annotation), lineWithAnnotation);
 
-/**
- * Parse the given requirement annotation into a list of requirement identifiers
- * @param lineWithAnnotation A string containing a requirement annotation
- */
-export const parse = (lineWithAnnotation: string, annotation: string): string[] => sanitize(lineWithAnnotation, annotation).split(',');
+const sliceBetween = (str: string, begin: string, end: string): string => str.slice(str.indexOf(begin), str.indexOf(end))
+
+const splitProperties = (lineWithAnnotation: string) => {
+    const descriptionData = sliceBetween(lineWithAnnotation, '(', ')');
+    const requirementsData = sliceBetween(lineWithAnnotation, '[', ']');
+
+    return {
+        descriptionData,
+        requirementsData,
+    };
+};
+
+const removeWrapper = (wrappedString: string): string => wrappedString.slice(1, wrappedString.length);
+
+const processDescription = (rawDescription: string): string => removeWrapper(rawDescription).trim();
+
+const processRequirements = (rawRequirements: string): string[] => removeWrapper(rawRequirements).split(',').map(requirement => requirement.trim());
+
+const processProperties = ({ descriptionData, requirementsData }: { descriptionData: string, requirementsData: string }): ImplementationAnnotation => {
+    const description = processDescription(descriptionData);
+    const requirements = processRequirements(requirementsData);
+
+    return {
+        description,
+        requirements,
+    };
+};
+
+const process = (lineWithAnnotation: string): ImplementationAnnotation => processProperties(splitProperties(lineWithAnnotation));
+
+export const parse = (lineWithAnnotation: string, annotation: string): ImplementationAnnotation => {
+    const sanitizedLineWithAnnotation = preprocess(lineWithAnnotation, annotation);
+    const { description, requirements } = process(sanitizedLineWithAnnotation);
+
+    return {
+        description,
+        requirements,
+    };
+};
