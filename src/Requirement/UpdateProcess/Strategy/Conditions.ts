@@ -1,3 +1,7 @@
+/**
+ * @requirement RequirementUpdateProcess
+ */
+
 import visit from 'unist-util-visit';
 import { Requirement, TraceLink } from "../../../Shared/types";
 

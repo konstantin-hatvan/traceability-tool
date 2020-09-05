@@ -1,3 +1,7 @@
+/**
+ * @requirement RequirementUpdateProcess
+ */
+
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { stringify } from '../../../Markdown';

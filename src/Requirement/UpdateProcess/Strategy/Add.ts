@@ -1,3 +1,7 @@
+/**
+ * @requirement RequirementUpdateProcess
+ */
+
 import fs from 'fs';
 import { stringify } from '../../../Markdown'
 import { TraceLink, Requirement } from '../../../Shared/types';
