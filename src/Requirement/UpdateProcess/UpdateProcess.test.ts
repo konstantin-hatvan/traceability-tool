@@ -146,6 +146,7 @@ id: Index
                     file: 'src/styles.scss',
                     line: 2,
                     requirement: 'Index',
+                    description: 'Example description',
                 },
             },
         ];
@@ -209,6 +210,7 @@ id: Index
                     file: 'src/main.ts',
                     line: 1,
                     requirement: 'Index',
+                    description: 'Example description',
                 },
             },
         ];
