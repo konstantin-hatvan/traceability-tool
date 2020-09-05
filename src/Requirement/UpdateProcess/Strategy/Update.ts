@@ -1,11 +1,11 @@
 import fs from 'fs';
 import visit from 'unist-util-visit';
-import { TraceLink, Requirement } from '../../Shared/types';
-import { hasTraceyBlock, hasTraceLinks, UpdateProcessRule, createStrategy } from './Rules';
-import { createTraceyBlock, stringify } from '../../Markdown';
+import { TraceLink, Requirement } from '../../../Shared/types';
+import { hasTraceyBlock, hasTraceLinks, UpdateProcessCondition, createStrategy } from './Conditions';
+import { createTraceyBlock, stringify } from '../../../Markdown';
 import { Root } from 'mdast';
 
-const rules: UpdateProcessRule[] = [
+const conditions: UpdateProcessCondition[] = [
     hasTraceyBlock,
     hasTraceLinks,
 ];
@@ -25,4 +25,4 @@ const updateTraceyBlock = (requirement: Requirement, traceLinks: TraceLink[]) =>
     fs.writeFileSync(requirement.file, stringify(<Root>ast));
 };
 
-export const strategy = createStrategy(rules, updateTraceyBlock);
+export const strategy = createStrategy(conditions, updateTraceyBlock);
