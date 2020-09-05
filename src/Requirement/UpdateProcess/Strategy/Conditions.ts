@@ -9,6 +9,11 @@ export type UpdateProcessCondition = (requirement: Requirement, traceLinks: Trac
 
 export type UpdateProcessAction = (requirement: Requirement, traceLinks: TraceLink[]) => void;
 
+export interface UpdateProcessStrategy {
+    condition: UpdateProcessCondition;
+    action: UpdateProcessAction;
+};
+
 export const hasTraceyBlock: UpdateProcessCondition = (requirement) => {
     let output = false;
 
@@ -29,7 +34,7 @@ export const hasNoTraceLinks: UpdateProcessCondition = (requirement, traceLinks)
 
 export const combinedCondition = (rules: UpdateProcessCondition[]) => (requirement: Requirement, traceLinks: TraceLink[]): boolean => rules.every(rule => rule(requirement, traceLinks));
 
-export const createStrategy = (rules: UpdateProcessCondition[], action: UpdateProcessAction) => {
+export const createStrategy = (rules: UpdateProcessCondition[], action: UpdateProcessAction): UpdateProcessStrategy => {
     const condition = combinedCondition(rules);
 
     return {
