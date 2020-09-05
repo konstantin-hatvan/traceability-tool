@@ -1,5 +1,5 @@
 /**
- * @requirement RequirementUpdateProcess
+ * @requirement Requirement/TraceabilityTable
  */
 
 import { Requirement, TraceLink } from '../../Shared/types';

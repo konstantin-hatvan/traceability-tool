@@ -1,5 +1,5 @@
 /**
- * @requirement RequirementUpdateProcess
+ * @requirement Requirement/TraceabilityTable
  */
 
 import { strategy as addTraceyStrategy } from './Add';
