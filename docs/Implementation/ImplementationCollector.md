@@ -48,8 +48,8 @@ the resulting file list is going to be
 
 <div class="tracey">
 
-| File                                                                        | Line | Description                                                |
-| --------------------------------------------------------------------------- | ---- | ---------------------------------------------------------- |
-| [src/Implementation/Collector.ts](../../src/Implementation/Collector.ts#L2) | 2    | Implement requirements for collecting implementation files |
+| File                                                                                            | Line | Description                                                |
+| ----------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------- |
+| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L2) | 2    | Implement requirements for collecting implementation files |
 
 </div>

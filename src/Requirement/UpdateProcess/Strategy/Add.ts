@@ -1,11 +1,10 @@
 /**
  * @requirement [Requirement/TraceabilityTable/Add] (The add action of the update process)
  */
-
 import fs from 'fs';
 import { stringify } from '../../../Markdown'
-import { TraceLink, Requirement } from '../../../Shared/types';
-import { hasNoTraceyBlock, hasTraceLinks, UpdateProcessCondition, createStrategy } from './Conditions';
+import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
+import { hasNoTraceyBlock, hasTraceLinks, createStrategy } from './Conditions';
 import { createTraceyBlock } from '../../../Markdown';
 import { Root } from 'mdast';
 

@@ -1,11 +1,10 @@
 /**
  * @requirement [Requirement/TraceabilityTable/Update] (The update action of the update process)
  */
-
 import fs from 'fs';
 import visit from 'unist-util-visit';
-import { TraceLink, Requirement } from '../../../Shared/types';
-import { hasTraceyBlock, hasTraceLinks, UpdateProcessCondition, createStrategy } from './Conditions';
+import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
+import { hasTraceyBlock, hasTraceLinks, createStrategy } from './Conditions';
 import { createTraceyBlock, stringify } from '../../../Markdown';
 import { Root } from 'mdast';
 

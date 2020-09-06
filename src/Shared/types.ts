@@ -1,5 +1,18 @@
 import { Node } from 'unist';
 
+export interface UpdateProcessCondition {
+    (requirement: Requirement, traceLinks: TraceLink[]): boolean;
+};
+
+export interface UpdateProcessAction {
+    (requirement: Requirement, traceLinks: TraceLink[]): void;
+};
+
+export interface UpdateProcessStrategy {
+    condition: UpdateProcessCondition;
+    action: UpdateProcessAction;
+};
+
 export interface TraceLocation {
     type: string;
     file: string;

@@ -1,5 +1,5 @@
-import { TraceLink, Requirement } from '../../../Shared/types';
-import { createStrategy, UpdateProcessCondition } from './Conditions';
+import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
+import { createStrategy } from './Conditions';
 
 const conditions: UpdateProcessCondition[] = [];
 

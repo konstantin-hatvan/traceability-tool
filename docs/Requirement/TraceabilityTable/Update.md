@@ -14,8 +14,8 @@ An existing traceability table is updated if
 
 | File                                                                                                                      | Line | Description                             |
 | ------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------- |
-| [src/Requirement/UpdateProcess/Strategy/Conditions.ts](../../../src/Requirement/UpdateProcess/Strategy/Conditions.ts#L18) | 18   | Check if a tracey block exists          |
-| [src/Requirement/UpdateProcess/Strategy/Conditions.ts](../../../src/Requirement/UpdateProcess/Strategy/Conditions.ts#L38) | 38   | Check if trace links exist              |
+| [src/Requirement/UpdateProcess/Strategy/Conditions.ts](../../../src/Requirement/UpdateProcess/Strategy/Conditions.ts#L8)  | 8    | Check if a tracey block exists          |
+| [src/Requirement/UpdateProcess/Strategy/Conditions.ts](../../../src/Requirement/UpdateProcess/Strategy/Conditions.ts#L28) | 28   | Check if trace links exist              |
 | [src/Requirement/UpdateProcess/Strategy/Update.ts](../../../src/Requirement/UpdateProcess/Strategy/Update.ts#L2)          | 2    | The update action of the update process |
 
 </div>

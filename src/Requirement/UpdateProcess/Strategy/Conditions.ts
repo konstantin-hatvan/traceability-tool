@@ -1,18 +1,8 @@
 /**
  * @requirement [Requirement/TraceabilityTable] (The conditions to determine the action for the update process)
  */
-
- import visit from 'unist-util-visit';
-import { Requirement, TraceLink } from "../../../Shared/types";
-
-export type UpdateProcessCondition = (requirement: Requirement, traceLinks: TraceLink[]) => boolean;
-
-export type UpdateProcessAction = (requirement: Requirement, traceLinks: TraceLink[]) => void;
-
-export interface UpdateProcessStrategy {
-    condition: UpdateProcessCondition;
-    action: UpdateProcessAction;
-};
+import visit from 'unist-util-visit';
+import { Requirement, TraceLink, UpdateProcessCondition, UpdateProcessAction, UpdateProcessStrategy } from "../../../Shared/types";
 
 /**
  * @requirement [Requirement/TraceabilityTable/Update, Requirement/TraceabilityTable/Delete] (Check if a tracey block exists)
