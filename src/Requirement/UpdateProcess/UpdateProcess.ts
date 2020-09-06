@@ -1,7 +1,4 @@
-/**
- * @requirement [Requirement/TraceabilityTable] (Determine and run the action of the update process)
- */
-
+/** @requirement [Requirement/TraceabilityTable] (Determine and run the action of the update process) */
 import { Requirement, TraceLink } from '../../Shared/types';
 import { strategies, defaultStrategy } from './Strategy/Strategies';
 

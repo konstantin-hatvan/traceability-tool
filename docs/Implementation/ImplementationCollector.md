@@ -50,6 +50,6 @@ the resulting file list is going to be
 
 | File                                                                                            | Line | Description                                                |
 | ----------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------- |
-| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L2) | 2    | Implement requirements for collecting implementation files |
+| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L1) | 1    | Implement requirements for collecting implementation files |
 
 </div>

@@ -1,6 +1,4 @@
-/**
- * @requirement [ImplementationCollector] (Implement requirements for collecting implementation files)
- */
+/** @requirement [ImplementationCollector] (Implement requirements for collecting implementation files) */
 import readdirRecursive from '../../Shared/readdirRecursive';
 import { ImplementationConfiguration } from '../../Shared/types';
 import { hasRequirementAnnotation, isNotExcluded } from './Conditions';

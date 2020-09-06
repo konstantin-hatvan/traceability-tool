@@ -1,6 +1,4 @@
-/**
- * @requirement [RequirementCollector] (Implement requirements for collecting requirement files)
- */
+/** @requirement [RequirementCollector] (Implement requirements for collecting requirement files) */
 import readdirRecursive from '../../Shared/readdirRecursive';
 import { RequirementConfiguration } from '../../Shared/types';
 import { isMarkdownFile, isNotExcluded, hasFrontmatterIdentifier } from './Conditions';

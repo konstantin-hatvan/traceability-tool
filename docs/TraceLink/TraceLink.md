@@ -33,6 +33,6 @@ Here comes the specification
 
 | File                                            | Line | Description                                             |
 | ----------------------------------------------- | ---- | ------------------------------------------------------- |
-| [src/Trace/Link.ts](../../src/Trace/Link.ts#L5) | 5    | Generate a relative link between traceability artifacts |
+| [src/Trace/Link.ts](../../src/Trace/Link.ts#L4) | 4    | Generate a relative link between traceability artifacts |
 
 </div>

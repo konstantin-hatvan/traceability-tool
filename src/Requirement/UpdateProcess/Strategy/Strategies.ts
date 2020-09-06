@@ -1,7 +1,4 @@
-/**
- * @requirement [Requirement/TraceabilityTable] (All possible actions of the update process)
- */
-
+/** @requirement [Requirement/TraceabilityTable] (All possible actions of the update process) */
 import { strategy as addTraceyStrategy } from './Add';
 import { strategy as updateTraceyStrategy } from './Update';
 import { strategy as deleteTraceyStrategy } from './Delete';

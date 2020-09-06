@@ -1,6 +1,4 @@
-/**
- * @requirement [Requirement/TraceabilityTable/Update] (The update action of the update process)
- */
+/** @requirement [Requirement/TraceabilityTable/Update] (The update action of the update process) */
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
