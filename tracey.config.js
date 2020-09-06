@@ -7,7 +7,6 @@ module.exports = {
         startingpoint: 'src',
         excludes: [
             '.*\\.test\\..*',
-            'TestUtility.ts',
         ],
         annotation: '@requirement',
     }
