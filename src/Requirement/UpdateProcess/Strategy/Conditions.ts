@@ -2,7 +2,7 @@
  * @requirement [Requirement/TraceabilityTable] (The conditions to determine the action for the update process)
  */
 import visit from 'unist-util-visit';
-import { Requirement, TraceLink, UpdateProcessCondition, UpdateProcessAction, UpdateProcessStrategy } from "../../../Shared/types";
+import { Requirement, TraceLink, UpdateProcessCondition, UpdateProcessAction, UpdateProcessStrategy } from '../../../Shared/types';
 
 /**
  * @requirement [Requirement/TraceabilityTable/Update, Requirement/TraceabilityTable/Delete] (Check if a tracey block exists)

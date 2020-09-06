@@ -1,7 +1,7 @@
 import fs from 'fs';
 import readline from 'readline';
-import { Implementation, ImplementationConfiguration } from '../Shared/types';
-import { parse } from './Annotation/Annotation';
+import { Implementation, ImplementationConfiguration } from '../../Shared/types';
+import { parse } from '../Annotation/Annotation';
 
 export const createImplementations = async (files: string[], configuration: ImplementationConfiguration): Promise<Implementation[]> => {
     let output: Implementation[] = [];

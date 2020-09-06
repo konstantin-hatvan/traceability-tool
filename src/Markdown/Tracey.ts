@@ -1,5 +1,5 @@
 import { Table, TableRow, HTML } from 'mdast';
-import { createTableRow, createTableCell, createText, createTable, createLink } from "./Generator";
+import { createTableRow, createTableCell, createText, createTable, createLink } from './Generator';
 import { TraceLink } from '../Shared/types';
 import { toRelativeLink } from '../Trace';
 

@@ -1,5 +1,5 @@
-import { ImplementationAnnotation } from "../../Shared/types";
-import { sliceBetween, unWrap } from "../../Shared/String";
+import { ImplementationAnnotation } from '../../Shared/types';
+import { sliceBetween, unWrap } from '../../Shared/String';
 
 /**
  * Split the provided line into properties
