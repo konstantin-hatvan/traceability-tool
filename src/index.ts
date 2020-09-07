@@ -10,9 +10,9 @@ const result = <Configuration>explorer.search()?.config;
 
 const defaultConfiguration: Configuration = {
     implementation: {
-        startingpoint: '.',
+        startingpoint: '.', /** @requirement [ Imlementation/Collector ] ( Implementation files will be collected from the file system starting at the configured startingpoint ) */
         annotation: '@requirement', /** @requirement [ Implementation/Annotation ] ( The annotation uses a default property ) */
-        excludes: [],
+        excludes: [], /** @requirement [ Implementation/Collector ] ( Implementation files can be excluded in the configuration ) */
     },
     requirement: {
         excludes: [], /** @requirement [ Requirement/Collector ] ( Requirements can be excluded in the configuration ) */

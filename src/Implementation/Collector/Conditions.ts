@@ -4,6 +4,7 @@ import { ImplementationConfiguration } from '../../Shared/types';
 /**
  * Check if the provided file has a requirement annotation
  * @param file The file name
+ * @requirement [ Implementation/Collector ] ( Implementation files must have a requirement annotation )
  */
 export const hasRequirementAnnotation = (file: string, configuration: ImplementationConfiguration): boolean => {
     const content = fs.readFileSync(file);
@@ -14,6 +15,7 @@ export const hasRequirementAnnotation = (file: string, configuration: Implementa
  * Check if the provided file should be excluded
  * @param excludes A collection of regular expressions to exclude
  * @param file The file name
+ * @requirement [ Implementation/Collector ] ( Implementation files can be excluded using regular expressions )
  */
 export const isNotExcluded = (file: string, configuration: ImplementationConfiguration) => configuration.excludes
     .map(exclude => new RegExp(exclude))
