@@ -11,12 +11,6 @@ id: Implementation/Annotation
 -   Multiple requirement identifiers are listed in a comma separated list
 -   The description is listed within round parenthesis
 
-## Example
-
-\---js
-
-## /\*_ @requirement [MyRequirement] \(This is a description) _/
-
 <div class="tracey">
 
 | File                                                                                                | Line | Description                                                           |
