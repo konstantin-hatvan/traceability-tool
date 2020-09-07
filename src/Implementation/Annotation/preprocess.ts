@@ -1,3 +1,5 @@
+/** @requirement [ Implementation/Annotation ] ( Preprocess the raw annotation ) */
+
 type StringAnnotationTransformer = (str: string, annotation: string) => string;
 
 /**

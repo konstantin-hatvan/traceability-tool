@@ -11,7 +11,7 @@ const result = <Configuration>explorer.search()?.config;
 const defaultConfiguration: Configuration = {
     implementation: {
         startingpoint: '.',
-        annotation: '@requirement',
+        annotation: '@requirement', /** @requirement [ Implementation/Annotation ] ( The annotation uses a default property ) */
         excludes: [],
     },
     requirement: {
@@ -20,6 +20,7 @@ const defaultConfiguration: Configuration = {
     },
 };
 
+/** @requirement [ Implementation/Annotation ] ( The annotation property is configurable ) */
 const configuration: Configuration = merge(defaultConfiguration, result);
 
 Application.main(configuration).then(() => {

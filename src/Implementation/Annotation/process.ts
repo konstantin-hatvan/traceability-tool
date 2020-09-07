@@ -6,7 +6,9 @@ import { sliceBetween, unWrap } from '../../Shared/String';
  * @param lineWithAnnotation A string with an annotation
  */
 const splitProperties = (lineWithAnnotation: string) => {
+    /** @requirement [ Implementation/Annotation ] ( The description is listed in round parenthesis ) */
     const descriptionData = sliceBetween(lineWithAnnotation, '(', ')');
+    /** @requirement [ Implementation/Annotation ] ( Requirement identifiers are listed in square brackets ) */
     const requirementsData = sliceBetween(lineWithAnnotation, '[', ']');
 
     return {
@@ -25,7 +27,10 @@ const processDescription = (rawDescription: string): string => unWrap(rawDescrip
  * Process the unprocessed requirements string
  * @param rawRequirements The unprocessed requirements string
  */
-const processRequirements = (rawRequirements: string): string[] => unWrap(rawRequirements).split(',').map(requirement => requirement.trim());
+const processRequirements = (rawRequirements: string): string[] => unWrap(rawRequirements)
+    /** @requirement [ Implementation/Annotation ] ( Multiple requirement identifiers are listed in a comma separated list ) */
+    .split(',')
+    .map(requirement => requirement.trim());
 
 /**
  * Process the unprocessed annotation properties
