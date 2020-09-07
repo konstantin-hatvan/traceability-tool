@@ -15,8 +15,8 @@ const defaultConfiguration: Configuration = {
         excludes: [],
     },
     requirement: {
-        excludes: [],
-        startingpoint: '.'
+        excludes: [], /** @requirement [ Requirement/Collector ] ( Requirements can be excluded in the configuration ) */
+        startingpoint: '.' /** @requirement [ Requirement/Collector ] ( Requirements will be collected from the file system starting at the configured startingpoint ) */
     },
 };
 
