@@ -13,8 +13,9 @@ Requirements have to meet the following criteria to be collected:
 
 <div class="tracey">
 
-| File                                                                                      | Line | Description                                             |
-| ----------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------- |
-| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L1) | 1    | Implement requirements for collecting requirement files |
+| File                                                                                        | Line | Description                                             |
+| ------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------- |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L1)   | 1    | Implement requirements for collecting requirement files |
+| [src/Requirement/Collector/Conditions.ts](../../src/Requirement/Collector/Conditions.ts#L1) | 1    | Implement conditions for collecting requirement files   |
 
 </div>

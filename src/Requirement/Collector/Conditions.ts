@@ -1,3 +1,4 @@
+/** @requirement [RequirementCollector] (Implement conditions for collecting requirement files) */
 import fs from 'fs';
 import path from 'path';
 import { parseFrontmatter, parse } from '../../Markdown';
