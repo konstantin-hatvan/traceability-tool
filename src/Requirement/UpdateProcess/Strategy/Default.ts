@@ -1,4 +1,3 @@
-/** @requirement [Requirement/TraceabilityTable/Delete] (The default action of the update process) */
 import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
 import { createStrategy } from './Conditions';
 
