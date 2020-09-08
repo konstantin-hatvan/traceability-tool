@@ -1,4 +1,4 @@
-/** @requirement [Requirement/TraceabilityTable/Delete] (The delete action of the update process) */
+/** @requirement #[Requirement/TraceabilityTable/Delete]# #(The delete action of the update process)# */
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { stringify } from '../../../Markdown';

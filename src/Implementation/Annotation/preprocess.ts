@@ -1,4 +1,4 @@
-/** @requirement [ Implementation/Annotation ] ( Preprocess the raw annotation ) */
+/** @requirement #[ Implementation/Annotation ]# #( Preprocess the raw annotation )# */
 
 /**
  * Remove any characters before the requirement annotation from the given string

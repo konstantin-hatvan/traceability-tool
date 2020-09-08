@@ -12,7 +12,7 @@ describe('Implementation/Annotation:parse()', () => {
         {
             // Regular Case
             configuration: '@requirement',
-            rawAnnotation: '/** @requirement [MyRequirement] (My Description) */',
+            rawAnnotation: '/** @requirement #[MyRequirement]# #(My Description)# */',
             expectedResult: {
                 description: 'My Description',
                 requirements: [
@@ -23,7 +23,7 @@ describe('Implementation/Annotation:parse()', () => {
         {
             // Multiple Requirement Identifiers
             configuration: '@requirement',
-            rawAnnotation: '/** @requirement [MyRequirement, MySecondRequirement] (My Description) */',
+            rawAnnotation: '/** @requirement #[MyRequirement, MySecondRequirement]# #(My Description)# */',
             expectedResult: {
                 description: 'My Description',
                 requirements: [
@@ -35,7 +35,7 @@ describe('Implementation/Annotation:parse()', () => {
         {
             // Different annotation
             configuration: '@myannotation',
-            rawAnnotation: '/** @myannotation [MyRequirement, MySecondRequirement] (My Description) */',
+            rawAnnotation: '/** @myannotation #[MyRequirement, MySecondRequirement]# #(My Description)# */',
             expectedResult: {
                 description: 'My Description',
                 requirements: [
@@ -47,7 +47,7 @@ describe('Implementation/Annotation:parse()', () => {
         {
             // Weird whitespace
             configuration: '@requirement',
-            rawAnnotation: '/** @requirement [ MyRequirement,    MySecondRequirement ] (  My Description     ) */',
+            rawAnnotation: '/** @requirement #[ MyRequirement,    MySecondRequirement ]# #(  My Description     )# */',
             expectedResult: {
                 description: 'My Description',
                 requirements: [
@@ -59,7 +59,7 @@ describe('Implementation/Annotation:parse()', () => {
         {
             // Single line comment
             configuration: '@requirement',
-            rawAnnotation: '// @requirement [ MyRequirement, MySecondRequirement ] ( My Description )',
+            rawAnnotation: '// @requirement #[ MyRequirement, MySecondRequirement ]# #( My Description )#',
             expectedResult: {
                 description: 'My Description',
                 requirements: [

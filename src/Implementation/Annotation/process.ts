@@ -1,20 +1,20 @@
 import { ImplementationAnnotation } from '../../Shared/types';
-import { unWrap, sliceBetween } from '../../Shared/String';
+import { sliceBetween } from '../../Shared/String';
 
 /**
  * Extract the description from a raw annotation
  * @param lineWithAnnotation The raw annotation
- * @requirement [ Implementation/Annotation ] ( The description is listed in round parenthesis )
+ * @requirement #[ Implementation/Annotation ]# #( The description is delimited by #( )#
  */
-const extractDescription = (lineWithAnnotation: string) => unWrap(sliceBetween(lineWithAnnotation, '(', ')')).trim();
+const extractDescription = (lineWithAnnotation: string) => sliceBetween(lineWithAnnotation, '#(', ')#').trim();
 
 /**
  * Extract requirement identifiers from a raw annotation
  * @param lineWithAnnotation The raw annotatoin
- * @requirement [ Implementation/Annotation ] ( Requirement identifiers are listed in square brackets )
- * @requirement [ Implementation/Annotation ] ( Multiple requirement identifiers are listed in a comma separated list )
+ * @requirement #[ Implementation/Annotation ]# #( Requirement identifiers are delimited by #[ )#
+ * @requirement #[ Implementation/Annotation ]# #( Multiple requirement identifiers are listed in a comma separated list )#
  */
-const extractRequirements = (lineWithAnnotation: string) => unWrap(sliceBetween(lineWithAnnotation, '[', ']'))
+const extractRequirements = (lineWithAnnotation: string) => sliceBetween(lineWithAnnotation, '#[', ']#')
     .split(',')
     .map(token => token.trim());
 

@@ -1,4 +1,4 @@
-/** @requirement [Requirement/TraceabilityTable/Add] (The add action of the update process) */
+/** @requirement #[Requirement/TraceabilityTable/Add]# #(The add action of the update process)# */
 import fs from 'fs';
 import { stringify } from '../../../Markdown'
 import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';

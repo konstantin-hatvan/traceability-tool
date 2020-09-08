@@ -1,4 +1,4 @@
-/** @requirement [Implementation/Annotation] (Parse the raw annotation string) */
+/** @requirement #[Implementation/Annotation]# #(Parse the raw annotation string)# */
 import { ImplementationAnnotation } from '../../Shared/types';
 import { preprocess } from './preprocess';
 import { process } from './process';
