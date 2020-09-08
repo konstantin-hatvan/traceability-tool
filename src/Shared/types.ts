@@ -54,6 +54,7 @@ export interface RequirementConfiguration {
 export interface ImplementationConfiguration {
     startingpoint: string;
     excludes: string[];
+    annotation: string;
 };
 
 export interface Configuration {
