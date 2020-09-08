@@ -1,4 +1,3 @@
-/** @requirement #[Requirement/TraceabilityTable/Add]# #(The add action of the update process)# */
 import fs from 'fs';
 import { stringify } from '../../../Markdown'
 import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
@@ -18,4 +17,5 @@ const addTraceyBlock = (requirement: Requirement, traceLinks: TraceLink[]) => {
     fs.writeFileSync(requirement.file, stringify(<Root>ast));
 };
 
+/** @requirement #[Requirement/TraceabilityTable/Add]# #(The add action of the update process)# */
 export const strategy = createStrategy(conditions, addTraceyBlock);

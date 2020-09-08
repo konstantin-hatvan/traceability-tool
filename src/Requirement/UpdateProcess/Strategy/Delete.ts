@@ -1,4 +1,3 @@
-/** @requirement #[Requirement/TraceabilityTable/Delete]# #(The delete action of the update process)# */
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { stringify } from '../../../Markdown';
@@ -20,4 +19,5 @@ const removeTraceyBlock = (requirement: Requirement, traceLinks: TraceLink[]) =>
     fs.writeFileSync(requirement.file, stringify(<Root>requirement.ast));
 };
 
+/** @requirement #[Requirement/TraceabilityTable/Delete]# #(The delete action of the update process)# */
 export const strategy = createStrategy(conditions, removeTraceyBlock);

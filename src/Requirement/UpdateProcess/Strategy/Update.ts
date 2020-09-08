@@ -1,4 +1,3 @@
-/** @requirement #[Requirement/TraceabilityTable/Update]# #(The update action of the update process)# */
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
@@ -26,4 +25,5 @@ const updateTraceyBlock = (requirement: Requirement, traceLinks: TraceLink[]) =>
     fs.writeFileSync(requirement.file, stringify(<Root>ast));
 };
 
+/** @requirement #[ Requirement/TraceabilityTable/Update ]# #( The update action of the update process )# */
 export const strategy = createStrategy(conditions, updateTraceyBlock);
