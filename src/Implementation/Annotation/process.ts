@@ -12,9 +12,9 @@ const extractDescription = (lineWithAnnotation: string) => unWrap(sliceBetween(l
  * Extract requirement identifiers from a raw annotation
  * @param lineWithAnnotation The raw annotatoin
  * @requirement [ Implementation/Annotation ] ( Requirement identifiers are listed in square brackets )
+ * @requirement [ Implementation/Annotation ] ( Multiple requirement identifiers are listed in a comma separated list )
  */
 const extractRequirements = (lineWithAnnotation: string) => unWrap(sliceBetween(lineWithAnnotation, '[', ']'))
-    /** @requirement [ Implementation/Annotation ] ( Multiple requirement identifiers are listed in a comma separated list ) */
     .split(',')
     .map(token => token.trim());
 
