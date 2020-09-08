@@ -23,7 +23,7 @@ export const hasTraceLinks: UpdateProcessCondition = (requirement, traceLinks) =
 /** @requirement #[Requirement/TraceabilityTable/Delete]# #(Check if no trace links exist)# */
 export const hasNoTraceLinks: UpdateProcessCondition = (requirement, traceLinks) => !hasTraceLinks(requirement, traceLinks);
 
-export const combinedCondition = (rules: UpdateProcessCondition[]) => (requirement: Requirement, traceLinks: TraceLink[]): boolean => rules.every(rule => rule(requirement, traceLinks));
+const combinedCondition = (rules: UpdateProcessCondition[]) => (requirement: Requirement, traceLinks: TraceLink[]): boolean => rules.every(rule => rule(requirement, traceLinks));
 
 export const createStrategy = (rules: UpdateProcessCondition[], action: UpdateProcessAction): UpdateProcessStrategy => {
     const condition = combinedCondition(rules);

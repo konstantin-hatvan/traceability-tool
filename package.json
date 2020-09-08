@@ -6,7 +6,8 @@
     "scripts": {
         "test": "jest",
         "build": "tsc -p .",
-        "check:loc": "find . -name '*.ts' ! -name '*.test.ts' -not -path './node_modules/*' | xargs wc -l | sort -n -r"
+        "check:loc": "find . -name '*.ts' ! -name '*.test.ts' -not -path './node_modules/*' | xargs wc -l | sort -n -r",
+        "check:dead-exports": "npx ts-unused-exports ./tsconfig.json"
     },
     "repository": {
         "type": "git",

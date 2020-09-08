@@ -46,15 +46,14 @@ export interface TraceGraph {
     locations: TraceLocation[];
 };
 
-export interface TraceLocationConfiguration {
+export interface RequirementConfiguration {
     startingpoint: string;
     excludes: string[];
-}
+};
 
-export interface RequirementConfiguration extends TraceLocationConfiguration {};
-
-export interface ImplementationConfiguration extends TraceLocationConfiguration {
-    annotation: string;
+export interface ImplementationConfiguration {
+    startingpoint: string;
+    excludes: string[];
 };
 
 export interface Configuration {
