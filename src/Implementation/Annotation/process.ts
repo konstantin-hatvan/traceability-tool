@@ -1,52 +1,28 @@
 import { ImplementationAnnotation } from '../../Shared/types';
-import { sliceBetween, unWrap } from '../../Shared/String';
+import { unWrap, sliceBetween } from '../../Shared/String';
 
 /**
- * Split the provided line into properties
- * @param lineWithAnnotation A string with an annotation
+ * Extract the description from a raw annotation
+ * @param lineWithAnnotation The raw annotation
+ * @requirement [ Implementation/Annotation ] ( The description is listed in round parenthesis )
  */
-const splitProperties = (lineWithAnnotation: string) => {
-    /** @requirement [ Implementation/Annotation ] ( The description is listed in round parenthesis ) */
-    const descriptionData = sliceBetween(lineWithAnnotation, '(', ')');
-    /** @requirement [ Implementation/Annotation ] ( Requirement identifiers are listed in square brackets ) */
-    const requirementsData = sliceBetween(lineWithAnnotation, '[', ']');
-
-    return {
-        descriptionData,
-        requirementsData,
-    };
-};
+const extractDescription = (lineWithAnnotation: string) => unWrap(sliceBetween(lineWithAnnotation, '(', ')')).trim();
 
 /**
- * Process the unprocessed description string
- * @param rawDescription The unprocessed description string
+ * Extract requirement identifiers from a raw annotation
+ * @param lineWithAnnotation The raw annotatoin
+ * @requirement [ Implementation/Annotation ] ( Requirement identifiers are listed in square brackets )
  */
-const processDescription = (rawDescription: string): string => unWrap(rawDescription).trim();
-
-/**
- * Process the unprocessed requirements string
- * @param rawRequirements The unprocessed requirements string
- */
-const processRequirements = (rawRequirements: string): string[] => unWrap(rawRequirements)
+const extractRequirements = (lineWithAnnotation: string) => unWrap(sliceBetween(lineWithAnnotation, '[', ']'))
     /** @requirement [ Implementation/Annotation ] ( Multiple requirement identifiers are listed in a comma separated list ) */
     .split(',')
-    .map(requirement => requirement.trim());
-
-/**
- * Process the unprocessed annotation properties
- */
-const processProperties = ({ descriptionData, requirementsData }: { descriptionData: string, requirementsData: string }): ImplementationAnnotation => {
-    const description = processDescription(descriptionData);
-    const requirements = processRequirements(requirementsData);
-
-    return {
-        description,
-        requirements,
-    };
-};
+    .map(token => token.trim());
 
 /**
  * Process the unprocessed annotation string
  * @param lineWithAnnotation A string with an annotation
  */
-export const process = (lineWithAnnotation: string): ImplementationAnnotation => processProperties(splitProperties(lineWithAnnotation));
+export const process = (lineWithAnnotation: string): ImplementationAnnotation => ({
+    description: extractDescription(lineWithAnnotation),
+    requirements: extractRequirements(lineWithAnnotation),
+});
