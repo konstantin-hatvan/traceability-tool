@@ -1,4 +1,5 @@
-import { Link, TableCell, TableRow, Table, Text, PhrasingContent } from 'mdast';
+import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent } from 'mdast';
+import remark from 'remark';
 
 export const createText = (text: string): Text => ({
     type: 'text',
@@ -15,6 +16,17 @@ export const createLink = (value: string, url: string): Link => ({
     ],
     url,
 });
+
+export const createTableCellFromText = (str: string): TableCell => {
+    const ast = <Parent>remark().parse(str);
+    const paragraph = <Paragraph>ast.children[0];
+    const children = paragraph.children;
+
+    return {
+        type: 'tableCell',
+        children,
+    };
+};
 
 export const createTableCell = (node: PhrasingContent): TableCell => ({
     type: 'tableCell',

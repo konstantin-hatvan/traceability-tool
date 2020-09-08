@@ -4,14 +4,14 @@ import { sliceBetween } from '../../Shared/String';
 /**
  * Extract the description from a raw annotation
  * @param lineWithAnnotation The raw annotation
- * @requirement #[ Implementation/Annotation ]# #( The description is delimited by #( )#
+ * @requirement #[ Implementation/Annotation ]# #( The description is delimited by `#(` )#
  */
 const extractDescription = (lineWithAnnotation: string) => sliceBetween(lineWithAnnotation, '#(', ')#').trim();
 
 /**
  * Extract requirement identifiers from a raw annotation
  * @param lineWithAnnotation The raw annotatoin
- * @requirement #[ Implementation/Annotation ]# #( Requirement identifiers are delimited by #[ )#
+ * @requirement #[ Implementation/Annotation ]# #( Requirement identifiers are delimited by `#[` )#
  * @requirement #[ Implementation/Annotation ]# #( Multiple requirement identifiers are listed in a comma separated list )#
  */
 const extractRequirements = (lineWithAnnotation: string) => sliceBetween(lineWithAnnotation, '#[', ']#')
