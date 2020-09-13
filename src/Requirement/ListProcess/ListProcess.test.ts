@@ -31,7 +31,7 @@ Another markdown file`,
 
         expect(list(configuration)).toEqual(expect.arrayContaining([
             expect.objectContaining({
-                type: expect.any(String),
+                type: 'requirement',
                 file: expect.any(String),
                 id: expect.any(String),
                 ast: expect.any(Object),
