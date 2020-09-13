@@ -2,16 +2,15 @@ import fs from 'fs';
 import { Requirement } from '../../Shared/types';
 import { parse, parseFrontmatter } from '../../Markdown';
 
-const createFromFile = (file: string): Requirement => {
+export const createRequirements = (files: string[]): Requirement[] => files.flatMap(file => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
-    const { id } = parseFrontmatter(ast);
+    const { id, synopsis = '' } = parseFrontmatter(ast);
 
     return {
         type: 'requirement',
         file,
         id,
         ast,
+        synopsis,
     };
-};
-
-export const createRequirements = (files: string[]): Requirement[] => files.map(createFromFile);
+});

@@ -20,4 +20,7 @@ export const main = async (configuration: Configuration) => {
         const traceLinks = getIncidentLinks(graph, requirement);
         Requirement.update(requirement, traceLinks);
     });
+
+    // Generate overview
+    Requirement.Overview.generate(requirements, configuration.requirement);
 };
