@@ -14,20 +14,17 @@ id: Requirement/Collector
 
 <div class="tracey">
 
-| File                                                                                         | Line | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------- |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L9)                                | 9    | Requirement identifiers must use yaml frontmatter                                            |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L14)                               | 14   | Requirement identifiers must use yaml frontmatter                                            |
-| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L21)                               | 21   | Requirement identifiers must use yaml frontmatter                                            |
-| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L9)    | 9    | Requirements must be Markdown files                                                          |
-| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L10)   | 10   | Requirements must not be excluded                                                            |
-| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L11)   | 11   | Requirements must have a frontmatter identifier                                              |
-| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L23)   | 23   | Requirements will be collected from the file system starting at the configured startingpoint |
-| [src/Requirement/Collector/Conditions.ts](../../src/Requirement/Collector/Conditions.ts#L10) | 10   | Requirements must be Markdown files                                                          |
-| [src/Requirement/Collector/Conditions.ts](../../src/Requirement/Collector/Conditions.ts#L18) | 18   | Requirements can be excluded using regular expressions                                       |
-| [src/Requirement/Collector/Conditions.ts](../../src/Requirement/Collector/Conditions.ts#L27) | 27   | Requirements must have a frontmatter identifier                                              |
-| [src/Requirement/Collector/Conditions.ts](../../src/Requirement/Collector/Conditions.ts#L28) | 28   | Requirement identifiers must use the key {id}                                                |
-| [src/index.ts](../../src/index.ts#L18)                                                       | 18   | Requirements can be excluded in the configuration                                            |
-| [src/index.ts](../../src/index.ts#L19)                                                       | 19   | Requirements will be collected from the file system starting at the configured startingpoint |
+| File                                                                                       | Line | Description                                                                                  |
+| ------------------------------------------------------------------------------------------ | ---- | -------------------------------------------------------------------------------------------- |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L9)                              | 9    | Requirement identifiers must use yaml frontmatter                                            |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L14)                             | 14   | Requirement identifiers must use yaml frontmatter                                            |
+| [src/Markdown/Markdown.ts](../../src/Markdown/Markdown.ts#L21)                             | 21   | Requirement identifiers must use yaml frontmatter                                            |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L10) | 10   | Requirements must be Markdown files                                                          |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L17) | 17   | Requirements must have a frontmatter identifier                                              |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L18) | 18   | Requirement identifiers must use the key {id}                                                |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L29) | 29   | Requirements can be excluded using regular expressions                                       |
+| [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L44) | 44   | Requirements will be collected from the file system starting at the configured startingpoint |
+| [src/index.ts](../../src/index.ts#L18)                                                     | 18   | Requirements can be excluded in the configuration                                            |
+| [src/index.ts](../../src/index.ts#L19)                                                     | 19   | Requirements will be collected from the file system starting at the configured startingpoint |
 
 </div>

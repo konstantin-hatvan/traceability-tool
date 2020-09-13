@@ -1,21 +1,42 @@
+import fs from 'fs';
+import path from 'path';
 import readdirRecursive from '../../Shared/readdirRecursive';
 import { RequirementConfiguration } from '../../Shared/types';
-import { isMarkdownFile, isNotExcluded, hasFrontmatterIdentifier } from './Conditions';
+import { parseFrontmatter, parse } from '../../Markdown';
 
 /**
- * Collection of all rules that have to be passed
+ * Check if the provided file is a markdown file
+ * @param file The file name
+ * @requirement #[ Requirement/Collector ]# #( Requirements must be Markdown files )#
  */
-const rules = [
-    isMarkdownFile, /** @requirement #[ Requirement/Collector ]# #( Requirements must be Markdown files )# */
-    isNotExcluded, /** @requirement #[ Requirement/Collector ]# #( Requirements must not be excluded )# */
-    hasFrontmatterIdentifier, /** @requirement #[ Requirement/Collector ]# #( Requirements must have a frontmatter identifier )# */
-];
+const isMarkdownFile = (file: string): boolean => path.parse(file).ext === '.md';
+
+/**
+ * Check if the provided markdown file has a frontmatter identifier
+ * @param file The file name
+ * @requirement #[ Requirement/Collector ]# #( Requirements must have a frontmatter identifier )#
+ * @requirement #[ Requirement/Collector ]# #( Requirement identifiers must use the key {id} )#
+ */
+const hasFrontmatterIdentifier = (file: string): boolean => {
+    const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
+    return Boolean(parseFrontmatter(ast)?.id);
+};
+
+/**
+ * Check if the provided file should be excluded
+ * @param excludes A collection of regular expressions to exclude
+ * @param file The file name
+ * @requirement #[ Requirement/Collector ]# #( Requirements can be excluded using regular expressions )#
+ */
+const isNotExcluded = (file: string, configuration: RequirementConfiguration): boolean => configuration.excludes
+.map(exclude => new RegExp(exclude))
+.every(exclude => !exclude.test(file));
 
 /**
  * Check if the provided file should be collected
  * @param excludes A collection of regular expressions to exclude
  */
-const shouldCollect = (configuration: RequirementConfiguration) => (file: string) => rules.every(rule => rule(file, configuration));
+const shouldCollect = (configuration: RequirementConfiguration) => (file: string) => isMarkdownFile(file) && hasFrontmatterIdentifier(file) && isNotExcluded(file, configuration);
 
 /**
  * Collect requirement files
