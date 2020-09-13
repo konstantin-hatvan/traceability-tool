@@ -19,5 +19,5 @@ export const main = async (configuration: Configuration) => {
     requirements.forEach(requirement => {
         const traceLinks = getIncidentLinks(graph, requirement);
         Requirement.update(requirement, traceLinks);
-    })
+    });
 };
