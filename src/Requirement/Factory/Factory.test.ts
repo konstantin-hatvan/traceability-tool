@@ -31,6 +31,7 @@ id: MyRequirement
                 type: 'requirement',
                 file: 'docs/index.md',
                 id: 'MyRequirement',
+                synopsis: '',
                 ast: expect.objectContaining({
                     type: 'root',
                     children: [

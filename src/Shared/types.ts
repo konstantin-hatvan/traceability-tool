@@ -22,6 +22,7 @@ export interface Requirement extends TraceLocation {
     type: 'requirement';
     ast: Node;
     id: string;
+    synopsis: string;
 };
 
 export interface Implementation extends TraceLocation {

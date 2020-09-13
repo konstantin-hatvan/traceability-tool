@@ -1,5 +1,21 @@
-import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent } from 'mdast';
+import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent, Heading, Root, Content } from 'mdast';
 import remark from 'remark';
+
+export const createDocument = (children: Content[]): Root => ({
+    type: 'root',
+    children,
+});
+
+export const createHeading = (text: string, depth: 1 | 2 | 3 | 4 | 5 | 6): Heading => ({
+    type: 'heading',
+    depth,
+    children: [
+        {
+            type: 'text',
+            value: text,
+        }
+    ]
+});
 
 export const createText = (text: string): Text => ({
     type: 'text',
