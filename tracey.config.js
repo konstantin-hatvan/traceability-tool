@@ -1,6 +1,6 @@
 module.exports = {
     requirement: {
-        startingpoint: 'docs',
+        startingpoint: 'requirements',
     },
     implementation: {
         startingpoint: 'src',

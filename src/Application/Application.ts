@@ -22,5 +22,5 @@ export const main = async (configuration: Configuration) => {
     });
 
     // Generate overview
-    Requirement.Overview.generate(requirements, configuration.requirement);
+    // Requirement.Overview.generate(requirements, configuration.requirement);
 };

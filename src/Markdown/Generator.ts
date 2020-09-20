@@ -10,25 +10,19 @@ export const createHeading = (text: string, depth: 1 | 2 | 3 | 4 | 5 | 6): Headi
     type: 'heading',
     depth,
     children: [
-        {
-            type: 'text',
-            value: text,
-        }
-    ]
+        createText(text),
+    ],
 });
 
-export const createText = (text: string): Text => ({
+export const createText = (value: string): Text => ({
     type: 'text',
-    value: text
+    value,
 });
 
 export const createLink = (value: string, url: string): Link => ({
     type: 'link',
     children: [
-        {
-            type: 'text',
-            value,
-        },
+        createText(value),
     ],
     url,
 });
@@ -51,12 +45,12 @@ export const createTableCell = (node: PhrasingContent): TableCell => ({
     ],
 });
 
-export const createTableRow = (tableCells: TableCell[]): TableRow => ({
+export const createTableRow = (children: TableCell[]): TableRow => ({
     type: 'tableRow',
-    children: tableCells,
+    children,
 });
 
-export const createTable = (tableRows: TableRow[]): Table => ({
+export const createTable = (children: TableRow[]): Table => ({
     type: 'table',
-    children: tableRows,
+    children,
 });

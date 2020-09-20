@@ -1,4 +1,4 @@
-import { Node } from 'unist';
+import { Root } from 'mdast';
 
 export interface UpdateProcessCondition {
     (requirement: Requirement, traceLinks: TraceLink[]): boolean;
@@ -20,7 +20,7 @@ export interface TraceLocation {
 
 export interface Requirement extends TraceLocation {
     type: 'requirement';
-    ast: Node;
+    ast: Root;
     id: string;
     synopsis: string;
 };
@@ -64,5 +64,5 @@ export interface Configuration {
 };
 
 export interface KeyValueStore {
-    [key: string]: string;
+    [key: string]: any;
 };
