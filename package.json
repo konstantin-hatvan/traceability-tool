@@ -6,6 +6,7 @@
     "scripts": {
         "test": "jest",
         "build": "tsc -p .",
+        "tracey": "node build/index.js",
         "check:loc": "find . -name '*.ts' ! -name '*.test.ts' -not -path './node_modules/*' | xargs wc -l | sort -n -r",
         "check:dead-exports": "npx ts-unused-exports ./tsconfig.json",
         "prepare": "npm run build",

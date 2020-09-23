@@ -1,5 +1,5 @@
 import mock from 'mock-fs';
-import { list } from './ListProcess';
+import { listWithRequirement } from './ListProcess';
 import { ImplementationConfiguration } from '../../Shared/types';
 
 beforeEach(() => {
@@ -8,7 +8,7 @@ beforeEach(() => {
 
 afterEach(mock.restore);
 
-describe('Implementation/ListProcess:list()', () => {
+describe('Implementation/ListProcess:listWithRequirement()', () => {
     test('returns a collection of implementation data structures', async () => {
         mock({
             src: {
@@ -22,7 +22,7 @@ describe('Implementation/ListProcess:list()', () => {
             annotation: '@requirement',
         };
 
-        const result = await list(configuration);
+        const result = await listWithRequirement(configuration, 'MyRequirement');
 
         expect(result).toEqual([
             {
@@ -31,14 +31,7 @@ describe('Implementation/ListProcess:list()', () => {
                 requirement: 'MyRequirement',
                 line: 1,
                 description: 'My description'
-            },
-            {
-                type: 'implementation',
-                file: 'src/main.ts',
-                requirement: 'MySecondRequirement',
-                line: 1,
-                description: 'My description'
-            },
+            }
         ]);
     });
 });

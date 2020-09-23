@@ -42,11 +42,6 @@ export interface TraceLink {
     destination: Implementation;
 };
 
-export interface TraceGraph {
-    links: TraceLink[];
-    locations: TraceLocation[];
-};
-
 export interface RequirementConfiguration {
     startingpoint: string;
     excludes: string[];

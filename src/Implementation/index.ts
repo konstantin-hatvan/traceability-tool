@@ -1,5 +1,5 @@
-import { list } from './ListProcess/ListProcess';
+import { listWithRequirement } from './ListProcess/ListProcess';
 
 export {
-    list,
+    listWithRequirement,
 };

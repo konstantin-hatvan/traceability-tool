@@ -1,7 +1,7 @@
-import { createRequirements } from './Factory';
+import { create } from './Factory';
 import mock from 'mock-fs';
 
-describe('Requirement/Factory:createRequirements()', () => {
+describe('Requirement/Factory:create()', () => {
     beforeEach(() => {
         // console.log('beforeEach'); // workaround for mock-fs problem with console.log
     });
@@ -24,7 +24,7 @@ id: MyRequirement
             'docs/index.md',
         ];
 
-        const result = await createRequirements(files);
+        const result = await create(files);
 
         expect(result).toEqual([
             {

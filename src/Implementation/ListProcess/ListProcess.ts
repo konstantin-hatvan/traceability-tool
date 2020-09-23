@@ -1,5 +1,8 @@
 import { Implementation, ImplementationConfiguration } from '../../Shared/types';
 import { collect } from '../Collector/Collector';
-import { createImplementations } from '../Factory/Factory';
+import { create } from '../Factory/Factory';
 
-export const list = (configuration: ImplementationConfiguration): Promise<Implementation[]> => createImplementations(collect(configuration), configuration);
+export const listWithRequirement = async (configuration: ImplementationConfiguration, requirementId: string): Promise<Implementation[]> => {
+    const implementations = await create(collect(configuration), configuration);
+    return implementations.filter((implementation: Implementation) => implementation.requirement === requirementId);
+};
