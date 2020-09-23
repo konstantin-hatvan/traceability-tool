@@ -3,7 +3,7 @@ import readline from 'readline';
 import { Implementation, ImplementationConfiguration } from '../../Shared/types';
 import { parse } from '../Annotation/Annotation';
 
-export const createImplementations = async (files: string[], configuration: ImplementationConfiguration): Promise<Implementation[]> => {
+export const create = async (files: string[], configuration: ImplementationConfiguration): Promise<Implementation[]> => {
     let output: Implementation[] = [];
 
     for (let index = 0; index < files.length; index++) {

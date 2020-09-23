@@ -1,8 +1,8 @@
-import { createImplementations } from './Factory';
+import { create } from './Factory';
 import mock from 'mock-fs';
 import { ImplementationConfiguration } from '../../Shared/types';
 
-describe('Implementation/Factory:createImplementations()', () => {
+describe('Implementation/Factory:create()', () => {
     beforeEach(() => {
         // console.log('beforeEach'); // workaround for mock-fs problem with console.log
     });
@@ -26,7 +26,7 @@ describe('Implementation/Factory:createImplementations()', () => {
             annotation: '@requirement',
         };
 
-        const result = await createImplementations(files, configuration);
+        const result = await create(files, configuration);
 
         expect(result).toEqual([
             {
@@ -56,7 +56,7 @@ describe('Implementation/Factory:createImplementations()', () => {
             annotation: '@requirement',
         };
 
-        const result = await createImplementations(files, configuration);
+        const result = await create(files, configuration);
 
         expect(result).toEqual([
             {
