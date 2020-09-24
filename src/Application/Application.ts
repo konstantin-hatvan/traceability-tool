@@ -7,11 +7,12 @@ import { TraceLink, Configuration } from '../Shared/types';
 export const main = async (configuration: Configuration) => {
     // Gather Requirements and Implementations
     const requirements = Requirement.list(configuration.requirement);
+    const implementations = await Implementation.list(configuration.implementation);
 
     // Update Requirements
     requirements.forEach(async requirement => {
-        const implementations = await Implementation.listWithRequirement(configuration.implementation, requirement.id);
-        const traceLinks: TraceLink[] = implementations.map(implementation => ({
+        const linkedImplementations = implementations.filter(implementation => implementation.requirement === requirement.id);
+        const traceLinks: TraceLink[] = linkedImplementations.map(implementation => ({
             origin: requirement,
             destination: implementation,
         }));
