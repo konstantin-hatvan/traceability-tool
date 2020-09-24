@@ -22,13 +22,20 @@ describe('Implementation/ListProcess:list()', () => {
             annotation: '@requirement',
         };
 
-        const result = await list(configuration, 'MyRequirement');
+        const result = await list(configuration);
 
         expect(result).toEqual([
             {
                 type: 'implementation',
                 file: 'src/main.ts',
                 requirement: 'MyRequirement',
+                line: 1,
+                description: 'My description'
+            },
+            {
+                type: 'implementation',
+                file: 'src/main.ts',
+                requirement: 'MySecondRequirement',
                 line: 1,
                 description: 'My description'
             }
