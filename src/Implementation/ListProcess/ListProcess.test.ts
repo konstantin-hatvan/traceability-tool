@@ -1,5 +1,5 @@
 import mock from 'mock-fs';
-import { listWithRequirement } from './ListProcess';
+import { list } from './ListProcess';
 import { ImplementationConfiguration } from '../../Shared/types';
 
 beforeEach(() => {
@@ -8,7 +8,7 @@ beforeEach(() => {
 
 afterEach(mock.restore);
 
-describe('Implementation/ListProcess:listWithRequirement()', () => {
+describe('Implementation/ListProcess:list()', () => {
     test('returns a collection of implementation data structures', async () => {
         mock({
             src: {
@@ -22,7 +22,7 @@ describe('Implementation/ListProcess:listWithRequirement()', () => {
             annotation: '@requirement',
         };
 
-        const result = await listWithRequirement(configuration, 'MyRequirement');
+        const result = await list(configuration, 'MyRequirement');
 
         expect(result).toEqual([
             {
