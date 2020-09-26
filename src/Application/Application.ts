@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import * as Requirement from '../Requirement';
-import * as Implementation from '../Implementation';
+import * as Requirement from 'Requirement';
+import * as Implementation from 'Implementation';
 import { TraceLink, Configuration } from '../Shared/types';
 
 export const main = async (configuration: Configuration) => {
