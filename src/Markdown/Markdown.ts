@@ -3,7 +3,10 @@ import remarkFrontmatter, { YamlNode } from 'remark-frontmatter';
 import visit from 'unist-util-visit';
 import YAML from 'yaml';
 import { Root } from 'mdast';
-import { KeyValueStore } from '../Shared/types';
+
+interface KeyValueStore {
+    [key: string]: any;
+};
 
 export const parse = (markdown: string): Root => <Root>remark()
     /** @requirement #[ Requirement/Collector ]# #( Requirement identifiers must use yaml frontmatter )# */
