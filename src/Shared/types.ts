@@ -1,19 +1,6 @@
 import { Root } from 'mdast';
 
-export interface UpdateProcessCondition {
-    (requirement: Requirement, traceLinks: TraceLink[]): boolean;
-};
-
-export interface UpdateProcessAction {
-    (requirement: Requirement, traceLinks: TraceLink[]): void;
-};
-
-export interface UpdateProcessStrategy {
-    condition: UpdateProcessCondition;
-    action: UpdateProcessAction;
-};
-
-export interface TraceLocation {
+interface TraceLocation {
     type: string;
     file: string;
 };
@@ -56,8 +43,4 @@ export interface ImplementationConfiguration {
 export interface Configuration {
     requirement: RequirementConfiguration;
     implementation: ImplementationConfiguration;
-};
-
-export interface KeyValueStore {
-    [key: string]: any;
 };
