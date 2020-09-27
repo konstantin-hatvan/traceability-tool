@@ -36,6 +36,7 @@
         "@types/mock-fs": "^4.10.0",
         "@types/node": "^14.6.4",
         "@types/unist": "^2.0.3",
+        "husky": "^4.3.0",
         "jest": "^26.4.2",
         "mock-fs": "^4.13.0",
         "ts-jest": "^26.3.0",
@@ -54,5 +55,11 @@
     ],
     "bin": {
         "tracey": "./build/index.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test",
+            "pre-push": "npm test"
+        }
     }
 }
