@@ -2,3 +2,4 @@ node_modules
 example_project
 coverage
 build
+progress-reports/*.pdf
