@@ -1,0 +1,8 @@
+{
+  "name": "requirement",
+  "version": "1.0.0",
+  "description": "tracey-cli: Requirement Module",
+  "main": "index.js",
+  "author": "Konstantin Hatvan",
+  "license": "ISC"
+}

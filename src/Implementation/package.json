@@ -1,0 +1,8 @@
+{
+  "name": "implementation",
+  "version": "1.0.0",
+  "description": "tracey-cli: Implementation Module",
+  "main": "index.js",
+  "author": "Konstantin Hatvan",
+  "license": "ISC"
+}
