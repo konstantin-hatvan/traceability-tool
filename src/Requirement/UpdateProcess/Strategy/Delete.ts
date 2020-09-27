@@ -1,9 +1,10 @@
 import fs from 'fs';
 import visit from 'unist-util-visit';
 import { stringify } from '../../../Markdown';
-import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
+import { TraceLink, Requirement } from '../../../Shared/types';
 import { hasTraceyBlock, hasNoTraceLinks, createStrategy } from './Conditions';
 import { Root } from 'mdast';
+import { UpdateProcessCondition } from '../UpdateProcess';
 
 const conditions: UpdateProcessCondition[] = [
     hasTraceyBlock,

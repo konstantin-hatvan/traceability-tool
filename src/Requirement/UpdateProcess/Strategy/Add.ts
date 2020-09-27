@@ -1,9 +1,10 @@
 import fs from 'fs';
 import { stringify } from '../../../Markdown'
-import { TraceLink, Requirement, UpdateProcessCondition } from '../../../Shared/types';
+import { TraceLink, Requirement } from '../../../Shared/types';
 import { hasNoTraceyBlock, hasTraceLinks, createStrategy } from './Conditions';
 import { createTraceyBlock } from '../../../Markdown';
 import { Root } from 'mdast';
+import { UpdateProcessCondition } from '../UpdateProcess';
 
 const conditions: UpdateProcessCondition[] = [
     hasNoTraceyBlock,

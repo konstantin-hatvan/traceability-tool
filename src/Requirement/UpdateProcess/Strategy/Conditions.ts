@@ -1,18 +1,6 @@
 import visit from 'unist-util-visit';
 import { Requirement, TraceLink } from '../../../Shared/types';
-
-interface UpdateProcessCondition {
-    (requirement: Requirement, traceLinks: TraceLink[]): boolean;
-};
-
-interface UpdateProcessAction {
-    (requirement: Requirement, traceLinks: TraceLink[]): void;
-};
-
-interface UpdateProcessStrategy {
-    condition: UpdateProcessCondition;
-    action: UpdateProcessAction;
-};
+import { UpdateProcessAction, UpdateProcessCondition, UpdateProcessStrategy } from '../UpdateProcess';
 
 /** @requirement #[Requirement/TraceabilityTable/Update, Requirement/TraceabilityTable/Delete]# #(Check if a tracey block exists)# */
 export const hasTraceyBlock: UpdateProcessCondition = (requirement) => {
