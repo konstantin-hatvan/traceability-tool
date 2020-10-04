@@ -21,6 +21,5 @@ id: Implementation/Annotation
 | [src/Implementation/Annotation/process.ts](../../src/Implementation/Annotation/process.ts#L21)       | 21   | Requirement identifiers are delimited by `#[`                         |
 | [src/Implementation/Annotation/process.ts](../../src/Implementation/Annotation/process.ts#L22)       | 22   | Multiple requirement identifiers are listed in a comma separated list |
 | [src/index.ts](../../src/index.ts#L13)                                                               | 13   | The annotation uses a default property                                |
-| [src/index.ts](../../src/index.ts#L23)                                                               | 23   | The annotation property is configurable                               |
 
 </div>
