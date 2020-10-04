@@ -3,3 +3,4 @@ example_project
 coverage
 build
 progress-reports/*.pdf
+*.code-workspace
