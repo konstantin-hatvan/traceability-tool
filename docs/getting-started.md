@@ -35,10 +35,14 @@ Create a `tracey.config.js` in the project root and configure it according to th
 ```js
 module.exports = {
     requirement: {
-        startingpoint: 'requirements', // The startingpoint directory for requirement files
+        startingpoints: [
+            'requirements', // The startingpoint directory for requirement files
+        ],
     },
     implementation: {
-        startingpoint: 'src', // The startingpoint directory for source code files
+        startingpoints: [
+            'src', // The startingpoint directory for source code files
+        ],
     },
 };
 ```

@@ -17,7 +17,9 @@ describe('Implementation/ListProcess:list()', () => {
         });
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
             annotation: '@requirement',
         };

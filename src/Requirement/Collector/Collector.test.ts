@@ -25,7 +25,9 @@ Another markdown file`,
         });
 
         const configuration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -48,7 +50,9 @@ Another markdown file`,
         });
 
         const configuration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [
                 'index.md'
             ],
@@ -70,7 +74,9 @@ Another markdown file`,
         });
 
         const configuration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -87,7 +93,9 @@ Another markdown file`,
         });
 
         const configuration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [
                 'index.md'
             ],

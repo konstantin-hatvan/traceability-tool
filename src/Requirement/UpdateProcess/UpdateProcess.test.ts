@@ -24,7 +24,9 @@ id: Index
         });
 
         const requirementConfiguration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -89,7 +91,9 @@ id: Index
         });
 
         const requirementConfiguration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -132,7 +136,9 @@ id: Index
         });
 
         const requirementConfiguration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -196,7 +202,9 @@ id: Index
         });
 
         const requirementConfiguration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 
@@ -260,7 +268,9 @@ id: Index
         });
 
         const requirementConfiguration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 

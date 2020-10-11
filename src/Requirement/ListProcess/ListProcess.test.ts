@@ -25,7 +25,9 @@ Another markdown file`,
         });
 
         const configuration: RequirementConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
         };
 

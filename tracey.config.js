@@ -1,9 +1,13 @@
 module.exports = {
     requirement: {
-        startingpoint: 'requirements',
+        startingpoints: [
+            'requirements',
+        ],
     },
     implementation: {
-        startingpoint: 'src',
+        startingpoints: [
+            'src',
+        ],
         excludes: [
             '.*\\.test\\..*',
         ],

@@ -21,7 +21,9 @@ describe('Implementation/Collector:collect()', () => {
         });
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
             annotation: '@requirement'
         };
@@ -41,7 +43,9 @@ describe('Implementation/Collector:collect()', () => {
         });
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [
                 'main.ts'
             ],
@@ -63,7 +67,9 @@ describe('Implementation/Collector:collect()', () => {
         });
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [],
             annotation: '@special'
         };
@@ -84,7 +90,9 @@ describe('Implementation/Collector:collect()', () => {
         });
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src'
+            ],
             excludes: [
                 'main.ts',
             ],

@@ -21,7 +21,9 @@ describe('Implementation/Factory:create()', () => {
         ];
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src',
+            ],
             excludes: [],
             annotation: '@requirement',
         };
@@ -51,7 +53,9 @@ describe('Implementation/Factory:create()', () => {
         ];
 
         const configuration: ImplementationConfiguration = {
-            startingpoint: 'src',
+            startingpoints: [
+                'src',
+            ],
             excludes: [],
             annotation: '@requirement',
         };
