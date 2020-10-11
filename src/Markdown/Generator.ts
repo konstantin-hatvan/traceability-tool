@@ -1,19 +1,6 @@
 import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent, Heading, Root, Content } from 'mdast';
 import remark from 'remark';
 
-export const createDocument = (children: Content[]): Root => ({
-    type: 'root',
-    children,
-});
-
-export const createHeading = (text: string, depth: 1 | 2 | 3 | 4 | 5 | 6): Heading => ({
-    type: 'heading',
-    depth,
-    children: [
-        createText(text),
-    ],
-});
-
 export const createText = (value: string): Text => ({
     type: 'text',
     value,
