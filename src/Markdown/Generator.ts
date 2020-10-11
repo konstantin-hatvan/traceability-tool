@@ -1,4 +1,4 @@
-import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent, Heading, Root, Content } from 'mdast';
+import { Link, TableCell, TableRow, Table, Text, PhrasingContent, Paragraph, Parent } from 'mdast';
 import remark from 'remark';
 
 export const createText = (value: string): Text => ({
