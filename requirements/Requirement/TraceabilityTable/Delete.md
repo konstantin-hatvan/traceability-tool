@@ -1,6 +1,5 @@
 ---
 id: Requirement/TraceabilityTable/Delete
-synopsis: An existing traceability table is deleted if no trace links exist
 ---
 
 # Delete an existing traceability table

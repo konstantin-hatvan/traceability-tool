@@ -1,6 +1,5 @@
 ---
 id: Requirement/TraceabilityTable/Add
-synopsis: A traceability table is added if trace links exist
 ---
 
 # Add a new traceability table

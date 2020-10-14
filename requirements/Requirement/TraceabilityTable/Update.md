@@ -1,6 +1,5 @@
 ---
 id: Requirement/TraceabilityTable/Update
-synopsis: An existing traceability table is updated if trace links have changed
 ---
 
 # Update an existing traceability table

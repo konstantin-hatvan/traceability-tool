@@ -1,0 +1,112 @@
+import { createTraceyBlock, parse, parseFrontmatter, stringify } from './index';
+import mock from 'mock-fs';
+import { TraceLink } from '../../../TraceLink/types';
+import { Implementation, Requirement } from '../../types';
+
+describe('TraceLocation', () => {
+    beforeEach(() => {
+        // console.log('beforeEach'); // workaround for mock-fs problem with console.log
+    });
+
+    afterEach(mock.restore);
+
+    describe('Requirement', () => {
+        test('Markdown.parse(): parses a Markdown Document into an abstract syntax tree', () => {
+            const content = `---
+id: MyRequirement
+---
+
+# My Requirement
+`;
+            const expectedResult = expect.objectContaining({
+                children: expect.arrayContaining([
+                    expect.objectContaining({
+                        type: 'yaml',
+                        value: 'id: MyRequirement',
+                    }),
+                    expect.objectContaining({
+                        type: 'heading',
+                    }),
+                ]),
+                type: 'root',
+            });
+
+            expect(parse(content)).toEqual(expectedResult);
+        });
+
+        test('Markdown.parseFrontmatter(): parses AST frontmatter into object', () => {
+            const content = `---
+id: MyRequirement
+---
+
+# My Requirement
+`;
+            const ast = parse(content);
+            const expectedResult = {
+                id: 'MyRequirement',
+            };
+
+            expect(parseFrontmatter(ast)).toEqual(expectedResult);
+        });
+
+        test('Markdown.stringify(): stringifies Markdown AST', () => {
+            const content = `---
+id: MyRequirement
+---
+
+# My Requirement
+`;
+            const ast = parse(content);
+
+            expect(stringify(ast)).toEqual(content);
+        });
+
+        test('Markdown.createTraceyBlock(): creates a Tracey AST block', () => {
+            const requirements: Requirement[] = [
+                {
+                    ast: {
+                        children: [],
+                        type: 'root',
+                    },
+                    file: 'requirements/MyRequirement.md',
+                    id: 'MyRequirement',
+                    type: 'requirement',
+                },
+            ];
+            const implementations: Implementation[] = [
+                {
+                    file: 'src/source.ts',
+                    type: 'implementation',
+                },
+            ];
+
+            const traceLinks: TraceLink[] = [
+                {
+                    annotation: {
+                        location: implementations[0],
+                        description: 'Description',
+                        identifier: 'MyRequirement',
+                        line: 1
+                    },
+                    destination: requirements[0],
+                },
+            ];
+
+            const expectedResult = expect.arrayContaining([
+                expect.objectContaining({
+                    type: 'html',
+                    value: '<div class="tracey">',
+                }),
+                expect.objectContaining({
+                    type: 'table',
+                }),
+                expect.objectContaining({
+                    type: 'html',
+                    value: '</div>',
+                }),
+            ]);
+
+            expect(createTraceyBlock(traceLinks)).toEqual(expectedResult);
+        });
+    });
+});
