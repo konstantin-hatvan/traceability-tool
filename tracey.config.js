@@ -10,6 +10,7 @@ module.exports = {
         ],
         excludes: [
             '.*\\.test\\..*',
+            'constants\\.ts'
         ],
     }
 };
