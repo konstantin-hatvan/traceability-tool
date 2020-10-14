@@ -9,6 +9,7 @@
         "tracey": "node build/index.js",
         "check:loc": "find . -name '*.ts' ! -name '*.test.ts' -not -path './node_modules/*' | xargs wc -l | sort -n -r",
         "check:dead-exports": "npx ts-unused-exports ./tsconfig.json",
+        "check:circular-dependencies": "npx madge --circular --extensions ts ./src/",
         "prepare": "npm run build",
         "prepublishOnly": "npm test",
         "preversion": "npm test",
