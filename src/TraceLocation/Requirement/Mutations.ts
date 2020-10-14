@@ -1,9 +1,9 @@
 import { Requirement } from '../types';
 import visit from 'unist-util-visit';
-import { createTraceyBlock } from './Markdown/Tracey';
+import { createTraceyBlock } from './Markdown';
 import { TraceLink } from '../../TraceLink/types';
 
-export const removeTraceLinks = (original: Requirement): Requirement => {
+const removeTraceLinks = (original: Requirement): Requirement => {
     const requirement = { ...original };
 
     visit(requirement.ast, 'html', (node, index, parent) => {
@@ -15,7 +15,7 @@ export const removeTraceLinks = (original: Requirement): Requirement => {
     return requirement;
 };
 
-export const addTraceLinks = (original: Requirement, traceLinks: TraceLink[]): Requirement => {
+const addTraceLinks = (original: Requirement, traceLinks: TraceLink[]): Requirement => {
     const requirement = { ...original };
     const cleanRequirement = removeTraceLinks(requirement);
     const traceyBlock = createTraceyBlock(traceLinks);

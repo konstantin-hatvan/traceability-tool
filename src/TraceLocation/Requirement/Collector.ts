@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { parseFrontmatter, parse } from '../../Markdown';
+import { parseFrontmatter, parse } from './Markdown';
 import { CollectorConfiguration } from '../../Shared/types';
 import { createCollector, isNotExcluded } from '../../Collector';
 import { CollectorCondition } from '../../Collector/types';

@@ -7,14 +7,6 @@ export interface TraceLinkAnnotation {
     description: string;
 };
 
-export interface RequirementTraceLinkAnnotation {
-    type: 'requirement';
-}
-
-export interface ImplementationTraceLinkAnnotation {
-    type: 'implementation';
-}
-
 export interface TraceLink {
     destination: TraceLocation;
     annotation: TraceLinkAnnotation;

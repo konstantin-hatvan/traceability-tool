@@ -3,24 +3,6 @@ import { createTableRow, createTableCell, createText, createTable, createLink, c
 import { TraceLink } from '../../../TraceLink/types';
 import { Mutations as TraceLinkMutations } from '../../../TraceLink';
 
-const wrapTraceyTable = (table: Table): (Table | HTML)[] => {
-    const startBlock: HTML = {
-        type: 'html',
-        value: '<div class="tracey">',
-    };
-
-    const endBlock: HTML = {
-        type: 'html',
-        value: '</div>',
-    };
-
-    return [
-        startBlock,
-        table,
-        endBlock,
-    ];
-};
-
 const createTraceyTable = (tableRows: TableRow[]): Table => {
     const tableHeaderRow = createTableRow([
         createTableCell(createText('File')),
@@ -40,6 +22,22 @@ export const createTraceyBlock = (traceabilityLinks: TraceLink[]): (Table | HTML
         createTableCell(createText(traceabilityLink.annotation.line.toString())),
         createTableCellFromText(traceabilityLink.annotation.description),
     ]));
+
     const table = createTraceyTable(tableRows);
-    return wrapTraceyTable(table);
+
+    const startBlock: HTML = {
+        type: 'html',
+        value: '<div class="tracey">',
+    };
+
+    const endBlock: HTML = {
+        type: 'html',
+        value: '</div>',
+    };
+
+    return [
+        startBlock,
+        table,
+        endBlock,
+    ];
 };
