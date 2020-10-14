@@ -4,9 +4,6 @@ id: Implementation/Annotation
 
 # Annotating requirements in the source code
 
--   By default, the annotation uses the property `@requirement`
--   The annotation property can be configured by using `implementation.annotation`
--   The annotation uses the schema `@requirement #[ __identifiers__ ]# #( __description__ )#`
 -   Requirement identifiers are delimited by `#[ ... ]#`
 -   Multiple requirement identifiers are listed in a comma separated list
 -   The description is delimited by `#( ... )#`
