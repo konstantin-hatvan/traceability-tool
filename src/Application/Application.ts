@@ -1,20 +1,17 @@
-import * as Requirement from '../Requirement';
-import * as Implementation from '../Implementation';
-import { TraceLink, Configuration } from '../Shared/types';
+import { Service as TraceLocationService } from '../TraceLocation';
+import { Service as TraceLinkService } from '../TraceLink';
+import { Mutations as RequirementMutations, Service as RequirementService } from '../TraceLocation/Requirement'
+import { Configuration } from '../Shared/types';
+import { Requirement } from '../TraceLocation/types';
 
 export const main = async (configuration: Configuration) => {
-    // Gather Requirements and Implementations
-    const requirements = Requirement.list(configuration.requirement);
-    const implementations = await Implementation.list(configuration.implementation);
+    const traceLocations = TraceLocationService.list(configuration);
+    const traceLinks = await TraceLinkService.list(traceLocations);
+    const requirements = <Requirement[]>traceLocations.filter(traceLocation => traceLocation.type === 'requirement');
 
-    // Update Requirements
-    requirements.forEach(async requirement => {
-        const linkedImplementations = implementations.filter(implementation => implementation.requirement === requirement.id);
-        const traceLinks: TraceLink[] = linkedImplementations.map(implementation => ({
-            origin: requirement,
-            destination: implementation,
-        }));
-
-        Requirement.update(requirement, traceLinks);
+    requirements.forEach(requirement => {
+        const linkedTraceLinks = traceLinks.filter(traceLink => traceLink.destination === requirement);
+        const updatedRequirement = RequirementMutations.updateTraceLinks(requirement, linkedTraceLinks);
+        RequirementService.persist(updatedRequirement);
     });
 };

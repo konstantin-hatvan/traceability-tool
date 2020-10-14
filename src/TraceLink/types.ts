@@ -1,8 +1,7 @@
 import { TraceLocation } from '../TraceLocation/types'
 
 export interface TraceLinkAnnotation {
-    type: string;
-    file: string;
+    location: TraceLocation;
     line: number;
     identifier: string;
     description: string;
@@ -17,7 +16,6 @@ export interface ImplementationTraceLinkAnnotation {
 }
 
 export interface TraceLink {
-    origin: TraceLocation;
     destination: TraceLocation;
     annotation: TraceLinkAnnotation;
 };

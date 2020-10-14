@@ -17,14 +17,12 @@ const parseAnnotation = (content: string) => ({
     identifiers: sliceBetween(content, '#[', ']#').trim().split(',').map(identifier => identifier.trim()),
 });
 
-export const create = async (traceLocation: TraceLocation): Promise<TraceLinkAnnotation[]> => {
-    const file = traceLocation.file;
-    const type = traceLocation.type;
+export const create = async (location: TraceLocation): Promise<TraceLinkAnnotation[]> => {
     let line = 1;
     let output: TraceLinkAnnotation[] = [];
 
     const rl = readline.createInterface({
-        input: fs.createReadStream(file),
+        input: fs.createReadStream(location.file),
         crlfDelay: Infinity,
     });
 
@@ -33,8 +31,7 @@ export const create = async (traceLocation: TraceLocation): Promise<TraceLinkAnn
             const { description, identifiers } = parseAnnotation(content);
 
             identifiers.forEach(identifier => output.push({
-                type,
-                file,
+                location,
                 line,
                 identifier,
                 description,
