@@ -1,6 +1,6 @@
 import { create } from './Factory';
 import mock from 'mock-fs';
-import { ImplementationConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 
 describe('Implementation/Factory:create()', () => {
     beforeEach(() => {
@@ -20,15 +20,7 @@ describe('Implementation/Factory:create()', () => {
             'src/main.ts',
         ];
 
-        const configuration: ImplementationConfiguration = {
-            startingpoints: [
-                'src',
-            ],
-            excludes: [],
-            annotation: '@requirement',
-        };
-
-        const result = await create(files, configuration);
+        const result = await create(files);
 
         expect(result).toEqual([
             {
@@ -52,15 +44,7 @@ describe('Implementation/Factory:create()', () => {
             'src/multiple.ts',
         ];
 
-        const configuration: ImplementationConfiguration = {
-            startingpoints: [
-                'src',
-            ],
-            excludes: [],
-            annotation: '@requirement',
-        };
-
-        const result = await create(files, configuration);
+        const result = await create(files);
 
         expect(result).toEqual([
             {

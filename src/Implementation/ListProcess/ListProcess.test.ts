@@ -1,6 +1,6 @@
 import mock from 'mock-fs';
 import { list } from './ListProcess';
-import { ImplementationConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 
 beforeEach(() => {
     // console.log('beforeEach'); // workaround for mock-fs problem with console.log
@@ -16,12 +16,11 @@ describe('Implementation/ListProcess:list()', () => {
             },
         });
 
-        const configuration: ImplementationConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
             excludes: [],
-            annotation: '@requirement',
         };
 
         const result = await list(configuration);

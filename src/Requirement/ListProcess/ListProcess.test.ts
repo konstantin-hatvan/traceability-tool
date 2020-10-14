@@ -1,6 +1,6 @@
 import mock from 'mock-fs';
 import { list } from './ListProcess';
-import { RequirementConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 
 beforeEach(() => {
     // console.log('beforeEach'); // workaround for mock-fs problem with console.log
@@ -24,7 +24,7 @@ Another markdown file`,
             }
         });
 
-        const configuration: RequirementConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],

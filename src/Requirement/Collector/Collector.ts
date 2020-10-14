@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { parseFrontmatter, parse } from '../../Markdown';
-import { RequirementConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 import { createCollector, isNotExcluded } from '../../Collector';
 import { CollectorCondition } from '../../Collector/types';
 
@@ -31,7 +31,7 @@ Fix this warning by adding a frontmatter identifier or excluding the file in the
 };
 
 
-export const collect = (configuration: RequirementConfiguration): string[] => createCollector([
+export const collect = (configuration: CollectorConfiguration): string[] => createCollector([
     isNotExcluded(configuration.excludes), /** @requirement #[ Requirement/Collector ]# #( Requirements must not be excluded )# */
     isMarkdownFile, /** @requirement #[ Requirement/Collector ]# #( Requirements must be markdown files )# */
     hasFrontmatterIdentifier, /** @requirement #[ Requirement/Collector ]# #( Requirements must have a frontmatter identifier )# */

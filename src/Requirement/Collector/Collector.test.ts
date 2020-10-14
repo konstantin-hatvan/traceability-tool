@@ -1,6 +1,6 @@
 import { collect } from './Collector';
 import mock from 'mock-fs';
-import { RequirementConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 
 describe('Requirement/Collector:collect()', () => {
     beforeEach(() => {
@@ -24,7 +24,7 @@ Another markdown file`,
             }
         });
 
-        const configuration: RequirementConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -49,7 +49,7 @@ Another markdown file`,
             }
         });
 
-        const configuration: RequirementConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -73,7 +73,7 @@ Another markdown file`,
             }
         });
 
-        const configuration: RequirementConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -92,7 +92,7 @@ Another markdown file`,
             }
         });
 
-        const configuration: RequirementConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],

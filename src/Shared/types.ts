@@ -29,18 +29,12 @@ export interface TraceLink {
     destination: Implementation;
 };
 
-interface CollectorConfiguration {
+export interface CollectorConfiguration {
     startingpoints: string[];
     excludes: string[];
 }
 
-export interface RequirementConfiguration extends CollectorConfiguration { };
-
-export interface ImplementationConfiguration extends CollectorConfiguration {
-    annotation: string;
-};
-
 export interface Configuration {
-    requirement: RequirementConfiguration;
-    implementation: ImplementationConfiguration;
+    requirement: CollectorConfiguration;
+    implementation: CollectorConfiguration;
 };

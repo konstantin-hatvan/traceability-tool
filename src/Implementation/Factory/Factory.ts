@@ -1,9 +1,10 @@
 import fs from 'fs';
 import readline from 'readline';
-import { Implementation, ImplementationConfiguration } from '../../Shared/types';
+import { Implementation } from '../../Shared/types';
 import { parse } from '../Annotation/Annotation';
+import * as constants from '../../Shared/constants';
 
-export const create = async (files: string[], configuration: ImplementationConfiguration): Promise<Implementation[]> => {
+export const create = async (files: string[]): Promise<Implementation[]> => {
     let output: Implementation[] = [];
 
     for (let index = 0; index < files.length; index++) {
@@ -16,8 +17,8 @@ export const create = async (files: string[], configuration: ImplementationConfi
         });
 
         for await (const content of rl) {
-            if (content.indexOf(configuration.annotation) >= 0) {
-                const { description, requirements } = parse(content, configuration.annotation);
+            if (content.indexOf(constants.annotation) >= 0) {
+                const { description, requirements } = parse(content, constants.annotation);
 
                 requirements.forEach(requirement => output.push({
                     type: 'implementation',

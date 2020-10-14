@@ -10,7 +10,6 @@ const loadConfiguration = () => {
 
     const defaultConfiguration: Configuration = {
         implementation: {
-            annotation: '@requirement', /** @requirement #[ Implementation/Annotation ]# #( The annotation uses a default property )# */
             excludes: [], /** @requirement #[ Implementation/Collector ]# #( Implementation files can be excluded in the configuration )# */
             startingpoints: [
                 '.', /** @requirement #[ Imlementation/Collector ]# #( Implementation files will be collected from the file system starting at the configured startingpoint )# */

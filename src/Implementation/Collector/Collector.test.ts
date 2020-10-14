@@ -1,6 +1,6 @@
 import { collect } from './Collector';
 import mock from 'mock-fs';
-import { ImplementationConfiguration } from '../../Shared/types';
+import { CollectorConfiguration } from '../../Shared/types';
 
 describe('Implementation/Collector:collect()', () => {
     beforeEach(() => {
@@ -20,12 +20,11 @@ describe('Implementation/Collector:collect()', () => {
             },
         });
 
-        const configuration: ImplementationConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
             excludes: [],
-            annotation: '@requirement'
         };
 
         expect(collect(configuration)).toEqual([ 'src/main.ts' ]);
@@ -42,36 +41,13 @@ describe('Implementation/Collector:collect()', () => {
             },
         });
 
-        const configuration: ImplementationConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
             excludes: [
                 'main.ts'
             ],
-            annotation: '@requirement'
-        };
-
-        expect(collect(configuration)).toEqual([ 'src/another.ts' ]);
-    });
-
-    test('can be configured with a custom implementation annotation', () => {
-        mock({
-            test: {
-                'main.ts': 'console.log("Has annotation!"); /* @requirement #[ MyRequirement ]# #( My description )# */',
-            },
-            src: {
-                'main.ts': 'console.log("Has annotation!");',
-                'another.ts': 'console.log("No annotation!"); /* @special #[ MyRequirement ]# #( My description )# */',
-            },
-        });
-
-        const configuration: ImplementationConfiguration = {
-            startingpoints: [
-                'src'
-            ],
-            excludes: [],
-            annotation: '@special'
         };
 
         expect(collect(configuration)).toEqual([ 'src/another.ts' ]);
@@ -85,18 +61,16 @@ describe('Implementation/Collector:collect()', () => {
             src: {
                 'main.ts': 'Not a markdown file /* @special #[ MyRequirement ]# #( My description )# */', // excluded
                 'another.ts': 'Not a markdown file', // no implementation annotation
-                'wrong-annotation.ts': 'Not a markdown file /* @requirement #[ MyRequirement ]# #( My description )# */', // wrong implementation annotation
             }
         });
 
-        const configuration: ImplementationConfiguration = {
+        const configuration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
             excludes: [
                 'main.ts',
             ],
-            annotation: '@special',
         };
 
         expect(collect(configuration)).toEqual([]);

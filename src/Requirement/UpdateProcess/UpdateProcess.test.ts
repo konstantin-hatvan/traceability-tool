@@ -1,7 +1,7 @@
 import mock from 'mock-fs';
 import { list } from '../ListProcess/ListProcess'
 import { update } from './UpdateProcess';
-import { RequirementConfiguration, Requirement, TraceLink } from '../../Shared/types';
+import { CollectorConfiguration, Requirement, TraceLink } from '../../Shared/types';
 import { Parent } from 'unist';
 
 beforeEach(() => {
@@ -23,7 +23,7 @@ id: Index
             },
         });
 
-        const requirementConfiguration: RequirementConfiguration = {
+        const requirementConfiguration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -90,7 +90,7 @@ id: Index
             },
         });
 
-        const requirementConfiguration: RequirementConfiguration = {
+        const requirementConfiguration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -135,7 +135,7 @@ id: Index
             },
         });
 
-        const requirementConfiguration: RequirementConfiguration = {
+        const requirementConfiguration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -201,7 +201,7 @@ id: Index
             },
         });
 
-        const requirementConfiguration: RequirementConfiguration = {
+        const requirementConfiguration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],
@@ -267,7 +267,7 @@ id: Index
             },
         });
 
-        const requirementConfiguration: RequirementConfiguration = {
+        const requirementConfiguration: CollectorConfiguration = {
             startingpoints: [
                 'src'
             ],

@@ -4,12 +4,6 @@ The configuration is separated into multiple blocks.
 
 ## Requirement
 
-### `requirement.annotation`
-
-**Default**: `@requirement`
-
-Use this configuration option to use a different annotation marker.
-
 ### `requirement.excludes`
 
 **Default**: `[]`
