@@ -1,6 +1,5 @@
 ---
 id: Requirement/TraceabilityTable
-synopsis: Traceability tables are updated according to trace links
 ---
 
 # Traceability Table
