@@ -14,8 +14,8 @@ id: Implementation/Collector
 
 | File                                                                                             | Line | Description                                               |
 | ------------------------------------------------------------------------------------------------ | ---- | --------------------------------------------------------- |
-| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L13) | 13   | Implementation files must not be excluded                 |
-| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L14) | 14   | Implementation files must have an annotation              |
-| [src/index.ts](../../src/index.ts#L14)                                                           | 14   | Implementation files can be excluded in the configuration |
+| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L14) | 14   | Implementation files must not be excluded                 |
+| [src/Implementation/Collector/Collector.ts](../../src/Implementation/Collector/Collector.ts#L15) | 15   | Implementation files must have an annotation              |
+| [src/index.ts](../../src/index.ts#L13)                                                           | 13   | Implementation files can be excluded in the configuration |
 
 </div>

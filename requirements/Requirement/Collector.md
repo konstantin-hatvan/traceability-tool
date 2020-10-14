@@ -23,7 +23,7 @@ id: Requirement/Collector
 | [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L35) | 35   | Requirements must not be excluded                                                            |
 | [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L36) | 36   | Requirements must be markdown files                                                          |
 | [src/Requirement/Collector/Collector.ts](../../src/Requirement/Collector/Collector.ts#L37) | 37   | Requirements must have a frontmatter identifier                                              |
-| [src/index.ts](../../src/index.ts#L20)                                                     | 20   | Requirements can be excluded in the configuration                                            |
-| [src/index.ts](../../src/index.ts#L22)                                                     | 22   | Requirements will be collected from the file system starting at the configured startingpoint |
+| [src/index.ts](../../src/index.ts#L19)                                                     | 19   | Requirements can be excluded in the configuration                                            |
+| [src/index.ts](../../src/index.ts#L21)                                                     | 21   | Requirements will be collected from the file system starting at the configured startingpoint |
 
 </div>
