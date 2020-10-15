@@ -1,20 +1,20 @@
 import { TraceLink } from './types';
-import { TraceLocation, Requirement } from '../TraceLocation/types';
+import { Requirement } from '../Requirement/types';
 import { Service as TraceLinkAnnotationService } from './Annotation';
+import { collect } from './Collector';
+import { CollectorConfiguration } from '../Shared/types';
 
 /**
  * List all tracelinks
- * @param traceLocations A list of tracelocations
+ * @param requirements A list of tracelocations
  */
-export const list = async (traceLocations: TraceLocation[]): Promise<TraceLink[]> => {
-    const traceLinkAnnotations = await TraceLinkAnnotationService.list(traceLocations);
+export const list = async (configuration: CollectorConfiguration, requirements: Requirement[]): Promise<TraceLink[]> => {
+    const files = collect(configuration);
+    const traceLinkAnnotations = await TraceLinkAnnotationService.list(files);
     return traceLinkAnnotations.flatMap(annotation => {
-        const destination = traceLocations.find(traceLocation => {
-            if (traceLocation.type === 'requirement') {
-                const requirement = <Requirement>traceLocation;
-                if (requirement.id === annotation.identifier) {
-                    return true;
-                }
+        const destination = requirements.find(requirement => {
+            if (requirement.id === annotation.identifier) {
+                return true;
             }
 
             return false;
@@ -29,7 +29,7 @@ export const list = async (traceLocations: TraceLocation[]): Promise<TraceLink[]
 
         if (!destination) {
             console.log(`
-WARNING: Requirement with the ID ${annotation.identifier} does not exist but was annotated in ${annotation.location.file} on line ${annotation.line}
+WARNING: Requirement with the ID ${annotation.identifier} does not exist but was annotated in ${annotation.file} on line ${annotation.line}
 Possible errors:
 - The Requirement file with the identifier ${annotation.identifier} is excluded
 - The annotation is wrong

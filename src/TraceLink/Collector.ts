@@ -1,8 +1,8 @@
-import { CollectorConfiguration } from '../../Shared/types';
-import { createCollector, isNotExcluded, hasAnnotation } from '../../Collector';
+import { CollectorConfiguration } from '../Shared/types';
+import { createCollector, isNotExcluded, hasAnnotation } from '../Collector';
 
 /**
- * Collect all implementation files that pass all conditions
+ * Collect all files that pass all conditions
  * @param configuration The configuration
  */
 export const collect = (configuration: CollectorConfiguration): string[] => createCollector([

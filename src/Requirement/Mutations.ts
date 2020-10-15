@@ -1,7 +1,7 @@
-import { Requirement } from '../types';
+import { Requirement } from './types';
 import visit from 'unist-util-visit';
 import { createTraceyBlock } from './Markdown';
-import { TraceLink } from '../../TraceLink/types';
+import { TraceLink } from '../TraceLink/types';
 
 /**
  * Remove tracelinks

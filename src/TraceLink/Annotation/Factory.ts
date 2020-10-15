@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
 import * as constants from '../../Shared/constants'
-import { TraceLocation } from '../../TraceLocation/types';
 import { TraceLinkAnnotation } from '../types';
 
 /**
@@ -27,12 +26,12 @@ const parseAnnotation = (content: string) => ({
  * Create trace link annotations
  * @param location A trace location
  */
-export const create = async (location: TraceLocation): Promise<TraceLinkAnnotation[]> => {
+export const create = async (file: string): Promise<TraceLinkAnnotation[]> => {
     let line = 1;
     let output: TraceLinkAnnotation[] = [];
 
     const rl = readline.createInterface({
-        input: fs.createReadStream(location.file),
+        input: fs.createReadStream(file),
         crlfDelay: Infinity,
     });
 
@@ -41,7 +40,7 @@ export const create = async (location: TraceLocation): Promise<TraceLinkAnnotati
             const { description, identifiers } = parseAnnotation(content);
 
             identifiers.forEach(identifier => output.push({
-                location,
+                file,
                 line,
                 identifier,
                 description,

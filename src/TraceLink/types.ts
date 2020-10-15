@@ -1,13 +1,13 @@
-import { TraceLocation } from '../TraceLocation/types'
+import { Requirement } from '../Requirement/types'
 
 export interface TraceLinkAnnotation {
-    location: TraceLocation;
+    file: string;
     line: number;
     identifier: string;
     description: string;
 };
 
 export interface TraceLink {
-    destination: TraceLocation;
+    destination: Requirement;
     annotation: TraceLinkAnnotation;
 };

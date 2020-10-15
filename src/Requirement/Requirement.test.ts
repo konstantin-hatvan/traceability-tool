@@ -1,10 +1,10 @@
 import * as fs from 'fs';
 import { Service, Mutations } from './index';
 import mock from 'mock-fs';
-import { CollectorConfiguration } from '../../Shared/types';
-import { Implementation, Requirement } from '../types';
+import { CollectorConfiguration } from '../Shared/types';
+import { Requirement } from './types';
 import { parse } from './Markdown';
-import { TraceLink } from '../../TraceLink/types';
+import { TraceLink } from '../TraceLink/types';
 
 describe('TraceLocation', () => {
     beforeEach(() => {
@@ -77,7 +77,6 @@ id: Nested/SecondRequirement
 
         const expectedResult: Requirement[] = [
             {
-                type: 'requirement',
                 ast: expect.objectContaining({
                     type: 'root',
                 }),
@@ -85,7 +84,6 @@ id: Nested/SecondRequirement
                 file: 'requirements/nested/requirement.md'
             },
             {
-                type: 'requirement',
                 ast: expect.objectContaining({
                     type: 'root',
                 }),
@@ -109,7 +107,6 @@ id: MyRequirement
             ast: ast,
             file: 'requirements/MyRequirement.md',
             id: 'MyRequirement',
-            type: 'requirement',
         };
 
         mock({
@@ -144,18 +141,12 @@ id: MyRequirement
             ast: ast,
             file: 'requirements/MyRequirement.md',
             id: 'MyRequirement',
-            type: 'requirement',
-        };
-
-        const implementation: Implementation = {
-            file: 'src/source.ts',
-            type: 'implementation',
         };
 
         const traceLinks: TraceLink[] = [
             {
                 annotation: {
-                    location: implementation,
+                    file: 'src/source.ts',
                     description: 'Description',
                     identifier: 'MyRequirement',
                     line: 1,

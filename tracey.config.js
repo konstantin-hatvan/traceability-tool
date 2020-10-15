@@ -4,10 +4,7 @@ module.exports = {
             'requirements',
         ],
     },
-    implementation: {
-        startingpoints: [
-            'src',
-        ],
+    tracelink: {
         excludes: [
             '.*\\.test\\..*',
             'constants\\.ts',

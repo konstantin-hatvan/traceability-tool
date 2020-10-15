@@ -1,4 +1,4 @@
-import { TraceLocation } from '../../TraceLocation/types';
+import { Requirement } from '../../Requirement/types';
 import { Service } from './index';
 import mock from 'mock-fs';
 import { TraceLinkAnnotation } from '../types';
@@ -12,60 +12,35 @@ describe('TraceLink', () => {
 
     describe('Annotation', () => {
         test('Service.list(): lists all annotations', async () => {
-            const traceLocations: TraceLocation[] = [
-                {
-                    type: 'implementation',
-                    file: 'src/source.ts',
-                },
-                {
-                    type: 'implementation',
-                    file: 'src/source-2.ts',
-                },
-                {
-                    type: 'requirement',
-                    file: 'requirements/MyRequirement.md',
-                },
-                {
-                    type: 'requirement',
-                    file: 'requirements/MySecondRequirement.md',
-                },
-            ];
-
             mock({
-                src: {
-                    'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // has annotation
-                    'source-2.ts': 'Text', // has no annotation
-                },
-                requirements: {
-                    'MyRequirement.md': `Text
+                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // has annotation
+                'source-2.ts': 'Text', // has no annotation
+                'MyRequirement.md': `Text
 
 <!-- @requirement #[ MySecondRequirement ]# #( My second description )# -->`, // has annotation
-                    'MySecondRequirement.md': 'Text', // has no annotation
-                },
             });
+
+            const files = [
+                'source.ts',
+                'MyRequirement.md',
+            ];
 
             const expectedResult: TraceLinkAnnotation[] = [
                 {
                     description: 'My description',
                     identifier: 'MyRequirement',
                     line: 1,
-                    location: {
-                        file: 'src/source.ts',
-                        type: 'implementation',
-                    },
+                    file: 'source.ts',
                 },
                 {
                     description: 'My second description',
                     identifier: 'MySecondRequirement',
                     line: 3,
-                    location: {
-                        file: 'requirements/MyRequirement.md',
-                        type: 'requirement',
-                    },
+                    file: 'MyRequirement.md',
                 },
             ];
 
-            const list = await Service.list(traceLocations);
+            const list = await Service.list(files);
 
             expect(list).toEqual(expectedResult);
         });

@@ -1,7 +1,7 @@
 import { createTraceyBlock, parse, parseFrontmatter, stringify } from './index';
 import mock from 'mock-fs';
-import { TraceLink } from '../../../TraceLink/types';
-import { Implementation, Requirement } from '../../types';
+import { TraceLink } from '../../TraceLink/types';
+import { Requirement } from '../types';
 
 describe('TraceLocation', () => {
     beforeEach(() => {
@@ -70,20 +70,13 @@ id: MyRequirement
                     },
                     file: 'requirements/MyRequirement.md',
                     id: 'MyRequirement',
-                    type: 'requirement',
-                },
-            ];
-            const implementations: Implementation[] = [
-                {
-                    file: 'src/source.ts',
-                    type: 'implementation',
                 },
             ];
 
             const traceLinks: TraceLink[] = [
                 {
                     annotation: {
-                        location: implementations[0],
+                        file: 'src/source.ts',
                         description: 'Description',
                         identifier: 'MyRequirement',
                         line: 1

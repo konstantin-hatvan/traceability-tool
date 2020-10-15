@@ -1,7 +1,7 @@
 import { Table, TableRow, HTML } from 'mdast';
 import { createTableRow, createTableCell, createText, createTable, createLink, createTableCellFromText } from './Generator';
-import { TraceLink } from '../../../TraceLink/types';
-import { Mutations as TraceLinkMutations } from '../../../TraceLink';
+import { TraceLink } from '../../TraceLink/types';
+import { Mutations as TraceLinkMutations } from '../../TraceLink';
 
 /**
  * Create a markdown table with File, Line and Description as header
@@ -28,7 +28,7 @@ const createTraceyTable = (tableRows: TableRow[]): Table => {
 export const createTraceyBlock = (traceLinks: TraceLink[]): (Table | HTML)[] => {
     /** @requirement #[ Requirement.TraceTable ]# #( Each row consists of a relative link, a line number and a description )# */
     const tableRows = traceLinks.map(traceLink => createTableRow([
-        createTableCell(createLink(traceLink.annotation.location.file, TraceLinkMutations.toRelativeLink(traceLink))),
+        createTableCell(createLink(traceLink.annotation.file, TraceLinkMutations.toRelativeLink(traceLink))),
         createTableCell(createText(traceLink.annotation.line.toString())),
         createTableCellFromText(traceLink.annotation.description),
     ]));

@@ -1,7 +1,8 @@
 import { Service, Mutations } from './index';
 import mock from 'mock-fs';
-import { Implementation, Requirement, TraceLocation } from '../TraceLocation/types';
+import { Requirement } from '../Requirement/types';
 import { TraceLink } from './types';
+import { CollectorConfiguration } from '../Shared/types';
 
 describe('Tracelink', () => {
     beforeEach(() => {
@@ -13,7 +14,6 @@ describe('Tracelink', () => {
     test('Service.list(): list all TraceLinks', async () => {
         const requirements: Requirement[] = [
             {
-                type: 'requirement',
                 ast: {
                     type: 'root',
                     children: [],
@@ -22,7 +22,6 @@ describe('Tracelink', () => {
                 id: 'MyRequirement',
             },
             {
-                type: 'requirement',
                 ast: {
                     type: 'root',
                     children: [],
@@ -30,20 +29,6 @@ describe('Tracelink', () => {
                 file: 'requirements/MySecondRequirement.md',
                 id: 'MySecondRequirement',
             },
-        ];
-        const implementations: Implementation[] = [
-            {
-                file: 'src/source.ts',
-                type: 'implementation',
-            },
-            {
-                file: 'src/not-existing.ts',
-                type: 'implementation',
-            },
-        ];
-        const traceLocations: TraceLocation[] = [
-            ...requirements,
-            ...implementations,
         ];
 
         mock({
@@ -63,27 +48,33 @@ id: MySecondRequirement
             },
         });
 
+        const configuration: CollectorConfiguration = {
+            excludes: [],
+            startingpoints: [
+                'src',
+            ],
+        };
+
         const expectedResult: TraceLink[] = [
             {
                 annotation: {
                     description: 'My description',
                     identifier: requirements[0].id,
                     line: 1,
-                    location: implementations[0],
+                    file: 'src/source.ts',
                 },
                 destination: requirements[0],
             },
         ];
 
-        const list = await Service.list(traceLocations);
+        const list = await Service.list(configuration, requirements);
 
         expect(list).toEqual(expectedResult);
     });
 
-    test('Mutations.toRelativeLink(): Generates relative links between TraceLocations', () => {
+    test('Mutations.toRelativeLink(): Generates relative links', () => {
         const requirements: Requirement[] = [
             {
-                type: 'requirement',
                 ast: {
                     children: [],
                     type: 'root',
@@ -92,7 +83,6 @@ id: MySecondRequirement
                 id: 'MyRequirement',
             },
             {
-                type: 'requirement',
                 ast: {
                     children: [],
                     type: 'root',
@@ -101,19 +91,13 @@ id: MySecondRequirement
                 id: 'MySecondRequirement',
             },
         ];
-        const implementations: Implementation[] = [
-            {
-                file: 'src/source.ts',
-                type: 'implementation',
-            },
-        ];
         const traceLinks: TraceLink[] = [
             {
                 annotation: {
                     description: 'My description',
                     identifier: 'MyRequirement',
                     line: 1,
-                    location: implementations[0],
+                    file: 'src/source.ts',
                 },
                 destination: requirements[0],
             },
@@ -122,7 +106,7 @@ id: MySecondRequirement
                     description: 'My description',
                     identifier: 'MyRequirement',
                     line: 1,
-                    location: requirements[1],
+                    file: requirements[1].file,
                 },
                 destination: requirements[0],
             },
@@ -134,7 +118,7 @@ id: MySecondRequirement
             },
             {
                 traceLink: traceLinks[1],
-                expectedResult: 'MySecondRequirement.md',
+                expectedResult: 'MySecondRequirement.md#L1',
             },
         ];
 

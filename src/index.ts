@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 import { Configuration } from './Shared/types';
-import { Service as TraceLocationService } from './TraceLocation';
 import { Service as TraceLinkService } from './TraceLink';
-import { Mutations as RequirementMutations, Service as RequirementService } from './TraceLocation/Requirement'
-import { Requirement } from './TraceLocation/types';
+import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement'
 import merge from 'lodash.merge';
 import * as path from 'path';
 
@@ -15,7 +13,7 @@ const loadConfiguration = () => {
     const result = require(path.resolve(process.cwd(), 'tracey.config.js'));
 
     const defaultConfiguration: Configuration = {
-        implementation: {
+        tracelink: {
             excludes: [],
             startingpoints: [
                 '.',
@@ -37,9 +35,8 @@ const loadConfiguration = () => {
  * @param configuration The configuratio
  */
 const main = async (configuration: Configuration) => {
-    const traceLocations = TraceLocationService.list(configuration);
-    const traceLinks = await TraceLinkService.list(traceLocations);
-    const requirements = <Requirement[]>traceLocations.filter(traceLocation => traceLocation.type === 'requirement');
+    const requirements = RequirementService.list(configuration.requirement);
+    const traceLinks = await TraceLinkService.list(configuration.tracelink, requirements);
 
     requirements.forEach(requirement => {
         const linkedTraceLinks = traceLinks.filter(traceLink => traceLink.destination === requirement);
