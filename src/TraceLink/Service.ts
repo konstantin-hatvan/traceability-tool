@@ -2,6 +2,10 @@ import { TraceLink } from './types';
 import { TraceLocation, Requirement } from '../TraceLocation/types';
 import { Service as TraceLinkAnnotationService } from './Annotation';
 
+/**
+ * List all tracelinks
+ * @param traceLocations A list of tracelocations
+ */
 export const list = async (traceLocations: TraceLocation[]): Promise<TraceLink[]> => {
     const traceLinkAnnotations = await TraceLinkAnnotationService.list(traceLocations);
     return traceLinkAnnotations.flatMap(annotation => {

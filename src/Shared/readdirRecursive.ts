@@ -18,6 +18,7 @@ const readdirPreserveRelativePath = (location: string) => fs.readdirSync(locatio
  * Recursively list the contents of the provided directory
  * while preserving the relative path to the origin
  * @param location The origin directory
+ * @requirement #[ Requirement.Collect, TraceLink.Collect ]# #( The file system is walked recursively from the configured startingpoints )#
  */
 const readdirRecursive = (location: string) => readdirPreserveRelativePath(location)
     .reduce((result: string[], currentValue: string): string[] => fs.statSync(currentValue).isDirectory()

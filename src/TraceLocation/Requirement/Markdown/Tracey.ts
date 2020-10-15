@@ -3,7 +3,12 @@ import { createTableRow, createTableCell, createText, createTable, createLink, c
 import { TraceLink } from '../../../TraceLink/types';
 import { Mutations as TraceLinkMutations } from '../../../TraceLink';
 
+/**
+ * Create a markdown table with File, Line and Description as header
+ * @param tableRows Table rows
+ */
 const createTraceyTable = (tableRows: TableRow[]): Table => {
+    /** @requirement #[ Requirement.TraceTable ]# #( Each row consists of a relative link, a line number and a description )# */
     const tableHeaderRow = createTableRow([
         createTableCell(createText('File')),
         createTableCell(createText('Line')),
@@ -16,11 +21,16 @@ const createTraceyTable = (tableRows: TableRow[]): Table => {
     ]);
 };
 
-export const createTraceyBlock = (traceabilityLinks: TraceLink[]): (Table | HTML)[] => {
-    const tableRows = traceabilityLinks.map(traceabilityLink => createTableRow([
-        createTableCell(createLink(traceabilityLink.annotation.location.file, TraceLinkMutations.toRelativeLink(traceabilityLink))),
-        createTableCell(createText(traceabilityLink.annotation.line.toString())),
-        createTableCellFromText(traceabilityLink.annotation.description),
+/**
+ * Create a markdown table wrapped in a HTML div from given tracelinks
+ * @param traceLinks A list of tracelinks
+ */
+export const createTraceyBlock = (traceLinks: TraceLink[]): (Table | HTML)[] => {
+    /** @requirement #[ Requirement.TraceTable ]# #( Each row consists of a relative link, a line number and a description )# */
+    const tableRows = traceLinks.map(traceLink => createTableRow([
+        createTableCell(createLink(traceLink.annotation.location.file, TraceLinkMutations.toRelativeLink(traceLink))),
+        createTableCell(createText(traceLink.annotation.line.toString())),
+        createTableCellFromText(traceLink.annotation.description),
     ]));
 
     const table = createTraceyTable(tableRows);
