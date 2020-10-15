@@ -30,9 +30,12 @@ Fix this warning by adding a frontmatter identifier or excluding the file in the
     return output;
 };
 
-
+/**
+ * Collect all requirement files that pass all conditions
+ * @param configuration The configuration
+ */
 export const collect = (configuration: CollectorConfiguration): string[] => createCollector([
-    isNotExcluded(configuration.excludes), /** @requirement #[ Requirement/Collector ]# #( Requirements must not be excluded )# */
-    isMarkdownFile, /** @requirement #[ Requirement/Collector ]# #( Requirements must be markdown files )# */
-    hasFrontmatterIdentifier, /** @requirement #[ Requirement/Collector ]# #( Requirements must have a frontmatter identifier )# */
+    isNotExcluded(configuration.excludes), /** @requirement #[ Requirement.Collect ]# #( Requirements must not be excluded )# */
+    isMarkdownFile, /** @requirement #[ Requirement.Collect ]# #( Requirements must be stored in markdown files )# */
+    hasFrontmatterIdentifier, /** @requirement #[ Requirement.Collect ]# #( Requirements must have a unique yaml frontmatter identifier )# */
 ])(configuration.startingpoints);

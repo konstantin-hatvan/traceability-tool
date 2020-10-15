@@ -13,15 +13,15 @@ const loadConfiguration = () => {
 
     const defaultConfiguration: Configuration = {
         implementation: {
-            excludes: [], /** @requirement #[ Implementation/Collector ]# #( Implementation files can be excluded in the configuration )# */
+            excludes: [],
             startingpoints: [
-                '.', /** @requirement #[ Implementation/Collector ]# #( Implementation files will be collected from the file system starting at the configured startingpoint )# */
+                '.',
             ],
         },
         requirement: {
-            excludes: [], /** @requirement #[ Requirement/Collector ]# #( Requirements can be excluded in the configuration )# */
+            excludes: [],
             startingpoints: [
-                '.', /** @requirement #[ Requirement/Collector ]# #( Requirements will be collected from the file system starting at the configured startingpoint )# */
+                '.',
             ],
         },
     };

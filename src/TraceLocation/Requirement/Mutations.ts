@@ -3,6 +3,10 @@ import visit from 'unist-util-visit';
 import { createTraceyBlock } from './Markdown';
 import { TraceLink } from '../../TraceLink/types';
 
+/**
+ * Remove tracelinks
+ * @param original A requirement
+ */
 const removeTraceLinks = (original: Requirement): Requirement => {
     const requirement = { ...original };
 
@@ -15,6 +19,11 @@ const removeTraceLinks = (original: Requirement): Requirement => {
     return requirement;
 };
 
+/**
+ * Add tracelinks
+ * @param original A requirement
+ * @param traceLinks A list of tracelinks
+ */
 const addTraceLinks = (original: Requirement, traceLinks: TraceLink[]): Requirement => {
     const requirement = { ...original };
     const cleanRequirement = removeTraceLinks(requirement);
@@ -25,10 +34,19 @@ const addTraceLinks = (original: Requirement, traceLinks: TraceLink[]): Requirem
     return cleanRequirement;
 };
 
+/**
+ * Update tracelinks
+ * @param original A requirement
+ * @param traceLinks A list of trace links
+ */
 export const updateTraceLinks = (original: Requirement, traceLinks: TraceLink[]): Requirement => {
     const requirement = { ...original };
     const cleanRequirement = removeTraceLinks(requirement);
-    const updatedRequirement = addTraceLinks(cleanRequirement, traceLinks);
+    let outputRequirement = cleanRequirement;
 
-    return updatedRequirement;
+    if (traceLinks.length) {
+        outputRequirement = addTraceLinks(cleanRequirement, traceLinks);
+    }
+
+    return outputRequirement;
 };
