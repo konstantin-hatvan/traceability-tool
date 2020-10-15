@@ -5,9 +5,14 @@ module.exports = {
         ],
     },
     tracelink: {
+        startingpoints: [
+            'src',
+            'requirements',
+        ],
         excludes: [
             '.*\\.test\\..*',
             'constants\\.ts',
+            'requirements/TraceLink/Annotation.md',
         ],
     }
 };
