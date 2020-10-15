@@ -11,7 +11,6 @@ module.exports = {
         excludes: [
             '.*\\.test\\..*',
             'constants\\.ts',
-            'TraceLink\\.md',
         ],
     }
 };
