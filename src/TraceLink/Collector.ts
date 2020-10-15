@@ -9,7 +9,7 @@ import { CollectorCondition } from '../Collector/types';
  * @param annotation The annotation marker
  * @requirement #[ TraceLink.Collect ]# #( Files must contain an annotation )#
  */
-export const hasAnnotation: CollectorCondition = (file: string) => fs.readFileSync(file).indexOf(constants.annotation) >= 0;
+const hasAnnotation: CollectorCondition = (file: string) => fs.readFileSync(file).indexOf(constants.annotation) >= 0;
 
 /**
  * Collect all files that pass all conditions
