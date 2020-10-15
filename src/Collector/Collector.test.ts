@@ -1,4 +1,4 @@
-import { createCollector, hasAnnotation, isNotExcluded } from './index';
+import { createCollector, isNotExcluded } from './index';
 import mock from 'mock-fs';
 
 describe('Collector', () => {
@@ -7,35 +7,6 @@ describe('Collector', () => {
     });
 
     afterEach(mock.restore);
-
-    test('hasAnnotation(): filters files that do not contain an annotation', () => {
-        const files = [
-            {
-                file: 'no-annotation.ts',
-                expectedResult: false,
-            },
-            {
-                file: 'one-annotation.ts',
-                expectedResult: true,
-            },
-            {
-                file: 'multiple-annotations.ts',
-                expectedResult: true,
-            },
-        ];
-
-        mock({
-            'no-annotation.ts': 'This file does not have an annotation',
-            'one-annotation.ts': 'This file does not have an annotation // @requirement #[ MyRequirement ]# #( My description )#',
-            'multiple-annotations.ts': `This file does not have an annotation // @requirement #[ MyFirstRequirement ]# #( My first description )#
-                    This is a regular line
-                    This file does not have an annotation // @requirement #[ MySecondRequirement ]# #( My second description )#`,
-        });
-
-        files.forEach(({ file, expectedResult }) => {
-            expect(hasAnnotation(file)).toEqual(expectedResult);
-        });
-    });
 
     test('isNotExcluded(): filters files that are excluded', () => {
         const files = [
@@ -160,34 +131,28 @@ describe('Collector', () => {
 
         const conditions = [
             isNotExcluded(excludes),
-            hasAnnotation,
         ];
 
         mock({
-            'file.ts': '@requirement #[ MyRequirement ]# #( My description )#', // not inside startingpoint, has annotation, not excluded
-            'second-file.ts': 'Text', // not inside startingpoint, has no annotation, not excluded
+            'file.ts': '@requirement #[ MyRequirement ]# #( My description )#', // not inside startingpoint, not excluded
+            'second-file.ts': 'Text', // not inside startingpoint, not excluded
             src: {
-                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, not excluded
-                'second-source.ts': 'Text ', // inside startingpoint, has no annotation, not excluded
-                'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, is excluded
-                'fourth-source.ts': 'Text', // inside startingpoint, has no annotation, is excluded
+                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, not excluded
+                'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, is excluded
+                'fourth-source.ts': 'Text', // inside startingpoint, is excluded
                 nested: {
-                    'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, not excluded
-                    'second-source.ts': 'Text ', // inside startingpoint, has no annotation, not excluded
-                    'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, is excluded
-                    'fourth-source.ts': 'Text', // inside startingpoint, has no annotation, is excluded
+                    'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, not excluded
+                    'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, is excluded
+                    'fourth-source.ts': 'Text', // inside startingpoint, is excluded
                 },
             },
             lib: {
-                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, not excluded
-                'second-source.ts': 'Text ', // inside startingpoint, has no annotation, not excluded
-                'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, is excluded
-                'fourth-source.ts': 'Text', // inside startingpoint, has no annotation, is excluded
+                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, not excluded
+                'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, is excluded
+                'fourth-source.ts': 'Text', // inside startingpoint, is excluded
                 nested: {
-                    'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, not excluded
-                    'second-source.ts': 'Text ', // inside startingpoint, has no annotation, not excluded
-                    'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, has annotation, is excluded
-                    'fourth-source.ts': 'Text', // inside startingpoint, has no annotation, is excluded
+                    'source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, not excluded
+                    'third-source.ts': '@requirement #[ MyRequirement ]# #( My description )#', // inside startingpoint, is excluded
                 },
             },
             docs: {

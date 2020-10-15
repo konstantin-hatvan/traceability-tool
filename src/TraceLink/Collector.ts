@@ -1,5 +1,15 @@
+import * as fs from 'fs';
+import * as constants from '../Shared/constants';
 import { CollectorConfiguration } from '../Shared/types';
-import { createCollector, isNotExcluded, hasAnnotation } from '../Collector';
+import { createCollector, isNotExcluded } from '../Collector';
+import { CollectorCondition } from '../Collector/types';
+
+/**
+ * Check if the file contains an annotation
+ * @param annotation The annotation marker
+ * @requirement #[ TraceLink.Collect ]# #( Files must contain an annotation )#
+ */
+export const hasAnnotation: CollectorCondition = (file: string) => fs.readFileSync(file).indexOf(constants.annotation) >= 0;
 
 /**
  * Collect all files that pass all conditions
