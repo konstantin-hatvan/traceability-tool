@@ -183,4 +183,50 @@ id: MyRequirement
 
         expect(fs.readFileSync(requirement.file, { encoding: 'utf-8' })).toEqual(contentAfter);
     });
+
+    test('Mutations.updateTraceLinks(): updates the trace links', () => {
+        const content = `---
+id: MyRequirement
+---
+
+# My Requirement
+
+<div class="tracey">
+
+| File                                 | Line | Description |
+| ------------------------------------ | ---- | ----------- |
+| [src/source.ts](../src/source.ts#L2) | 2    | Description |
+
+</div>
+
+`;
+        const ast = parse(content);
+        const requirement: Requirement = {
+            ast: ast,
+            file: 'requirements/MyRequirement.md',
+            id: 'MyRequirement',
+        };
+
+        const traceLinks: TraceLink[] = [];
+
+        mock({
+            src: {
+                'source.ts': '@requirement #[ MyRequirement ]# #( Description )#'
+            },
+            requirements: {
+                'MyRequirement.md': content,
+            },
+        });
+
+        const contentAfter = `---
+id: MyRequirement
+---
+
+# My Requirement
+`;
+
+        Service.persist(Mutations.updateTraceLinks(requirement, traceLinks));
+
+        expect(fs.readFileSync(requirement.file, { encoding: 'utf-8' })).toEqual(contentAfter);
+    });
 });
