@@ -2,7 +2,7 @@
 id: Annotation
 ---
 
-# Annotation
+# Annotating requirements
 
 -   The annotation marker is `@requirement`
 -   The requirement identifiers are comma-separated and wrapped by `#[`

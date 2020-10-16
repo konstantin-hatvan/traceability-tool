@@ -1,17 +1,17 @@
 module.exports = {
     requirement: {
         startingpoints: [
-            'requirements',
+            'requirements/**',
         ],
     },
     annotation: {
         startingpoints: [
-            'src',
-            'requirements',
+            'src/**',
+            'requirements/**',
         ],
         excludes: [
-            '.*\\.test\\..*',
-            'constants\\.ts',
+            '*.test.ts',
+            'constants.ts',
             'requirements/Annotation/Annotation.md',
         ],
     }

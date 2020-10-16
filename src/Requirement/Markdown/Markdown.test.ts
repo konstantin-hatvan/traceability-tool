@@ -5,7 +5,7 @@ import { Requirement } from '../types';
 
 describe('TraceLocation', () => {
     beforeEach(() => {
-        // console.log('beforeEach'); // workaround for mock-fs problem with console.log
+        // console = new Console(process.stdout, process.stderr);
     });
 
     afterEach(mock.restore);

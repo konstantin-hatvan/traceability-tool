@@ -5,7 +5,7 @@ import { CollectorConfiguration } from '../Shared/types';
 
 describe('TraceLink', () => {
     beforeEach(() => {
-        // console.log('beforeEach'); // workaround for mock-fs problem with console.log
+        // console = new Console(process.stdout, process.stderr);
     });
 
     afterEach(mock.restore);
@@ -23,7 +23,7 @@ describe('TraceLink', () => {
             const configuration: CollectorConfiguration = {
                 excludes: [],
                 startingpoints: [
-                    '.',
+                    '**',
                 ],
             };
 

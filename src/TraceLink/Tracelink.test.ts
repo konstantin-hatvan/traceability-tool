@@ -6,7 +6,7 @@ import { Annotation } from '../Annotation/types';
 
 describe('Tracelink', () => {
     beforeEach(() => {
-        // console.log('beforeEach'); // workaround for mock-fs problem with console.log
+        // console = new Console(process.stdout, process.stderr);
     });
 
     afterEach(mock.restore);

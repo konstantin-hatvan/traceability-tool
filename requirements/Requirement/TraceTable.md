@@ -2,7 +2,7 @@
 id: Requirement.TraceTable
 ---
 
-# Trace Table
+# Tracetable generation
 
 -   The program generates a table containing the tracelinks
 -   Each row consists of a relative link, a line number and a description

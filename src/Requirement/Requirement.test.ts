@@ -5,24 +5,23 @@ import { CollectorConfiguration } from '../Shared/types';
 import { Requirement } from './types';
 import { parse } from './Markdown';
 import { TraceLink } from '../TraceLink/types';
+import { Console } from 'console';
 
-describe('TraceLocation', () => {
+describe('Requirement', () => {
     beforeEach(() => {
-        // console.log('beforeEach'); // workaround for mock-fs problem with console.log
+        console = new Console(process.stdout, process.stderr); // necessary because of mock-fs problem. Link: https://github.com/tschaub/mock-fs/issues/234
     });
 
     afterEach(mock.restore);
 
-    test('Requirement.list(): lists all Requirements', () => {
+    test('Service.list(): lists all Requirements', () => {
         const configuration: CollectorConfiguration = {
             excludes: [
-                'src',
-                'src/second-requirement.md',
                 'requirements/second-requirement.md',
                 'requirements/nested/second-requirement.md',
             ],
             startingpoints: [
-                'requirements',
+                'requirements/**',
             ],
         };
 
@@ -95,7 +94,7 @@ id: Nested/SecondRequirement
         expect(Service.list(configuration)).toEqual(expectedResult);
     });
 
-    test('Requirement.persist(): persists a Requirement', () => {
+    test('Service.persist(): persists a Requirement', () => {
         const content = `---
 id: MyRequirement
 ---
