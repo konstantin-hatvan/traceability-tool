@@ -17,13 +17,13 @@ const loadConfiguration = () => {
         annotation: {
             excludes: [],
             startingpoints: [
-                '.',
+                '**',
             ],
         },
         requirement: {
             excludes: [],
             startingpoints: [
-                '.',
+                '**',
             ],
         },
     };
