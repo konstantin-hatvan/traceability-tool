@@ -11,7 +11,7 @@ import * as path from 'path';
  * Merge the user configuration with the default configuration
  */
 const loadConfiguration = () => {
-    const result = require(path.resolve(process.cwd(), 'tracey.config.js'));
+    const result = require(path.resolve('tracey.config.js'));
 
     const defaultConfiguration: Configuration = {
         annotation: {
