@@ -22,15 +22,15 @@ Use this configuration option to exclude multiple files from processing. Exclude
 }
 ```
 
-### `requirement.startingpoint`
+### `requirement.startingpoints`
 
-**Default**: `.`
+**Default**: `[ '.' ]`
 
-Use this configuration option to configure the startingpoint directory.
+Use this configuration option to configure the startingpoint directories.
 
-## Implementation
+## Annotation
 
-### `implementation.excludes`
+### `annotation.excludes`
 
 **Default**: `[]`
 
@@ -40,7 +40,7 @@ Use this configuration option to exclude multiple files from processing. Exclude
 
 ```js
 {
-    implementation: {
+    annotation: {
         excludes: [
             '.*\\.test\\..*',
         ],
@@ -49,8 +49,8 @@ Use this configuration option to exclude multiple files from processing. Exclude
 ```
 
 
-### `implementation.startingpoint`
+### `annotation.startingpoints`
 
-**Default**: `.`
+**Default**: `[ '.' ]`
 
-Use this configuration option to configure the startingpoint directory.
+Use this configuration option to configure the startingpoint directories.

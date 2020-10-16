@@ -39,9 +39,9 @@ module.exports = {
             'requirements', // The startingpoint directory for requirement files
         ],
     },
-    implementation: {
+    annotation: {
         startingpoints: [
-            'src', // The startingpoint directory for source code files
+            'src', // The startingpoint directory for source code annotations
         ],
     },
 };
