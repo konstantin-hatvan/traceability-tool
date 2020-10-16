@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import * as constants from '../../Shared/constants'
-import { TraceLinkAnnotation } from '../types';
+import * as constants from '../Shared/constants'
+import { Annotation } from './types';
 
 /**
  * Slice a substring in between begin and end characters
@@ -16,9 +16,9 @@ const sliceBetween = (str: string, begin: string, end: string): string => str.sl
  * @param content The source line with the annotation marker
  */
 const parseAnnotation = (content: string) => ({
-    /** @requirement #[ TraceLink.Annotation ]# #( The description is wrapped by `#(` )# */
+    /** @requirement #[ Annotation ]# #( The description is wrapped by `#(` )# */
     description: sliceBetween(content, '#(', ')#').trim(),
-    /** @requirement #[ TraceLink.Annotation ]# #( The requirement identifiers are comma-separated and wrapped by `#[` )# */
+    /** @requirement #[ Annotation ]# #( The requirement identifiers are comma-separated and wrapped by `#[` )# */
     identifiers: sliceBetween(content, '#[', ']#').trim().split(',').map(identifier => identifier.trim()),
 });
 
@@ -26,9 +26,9 @@ const parseAnnotation = (content: string) => ({
  * Create trace link annotations
  * @param location A trace location
  */
-export const create = async (file: string): Promise<TraceLinkAnnotation[]> => {
+export const create = async (file: string): Promise<Annotation[]> => {
     let line = 1;
-    let output: TraceLinkAnnotation[] = [];
+    let output: Annotation[] = [];
 
     const rl = readline.createInterface({
         input: fs.createReadStream(file),

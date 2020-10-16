@@ -2,7 +2,8 @@
 
 import { Configuration } from './Shared/types';
 import { Service as TraceLinkService } from './TraceLink';
-import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement'
+import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement';
+import { Service as AnnotationService } from './Annotation';
 import merge from 'lodash.merge';
 import * as path from 'path';
 
@@ -32,11 +33,12 @@ const loadConfiguration = () => {
 
 /**
  * Run the program
- * @param configuration The configuratio
+ * @param configuration The configuration
  */
 const main = async (configuration: Configuration) => {
     const requirements = RequirementService.list(configuration.requirement);
-    const traceLinks = await TraceLinkService.list(configuration.tracelink, requirements);
+    const annotations = await AnnotationService.list(configuration.tracelink);
+    const traceLinks = await TraceLinkService.list(requirements, annotations);
 
     requirements.forEach(requirement => {
         const linkedTraceLinks = traceLinks.filter(traceLink => traceLink.destination === requirement);

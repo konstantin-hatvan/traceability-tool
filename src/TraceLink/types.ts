@@ -1,13 +1,7 @@
 import { Requirement } from '../Requirement/types'
-
-export interface TraceLinkAnnotation {
-    file: string;
-    line: number;
-    identifier: string;
-    description: string;
-};
+import { Annotation } from '../Annotation/types';
 
 export interface TraceLink {
     destination: Requirement;
-    annotation: TraceLinkAnnotation;
+    annotation: Annotation;
 };

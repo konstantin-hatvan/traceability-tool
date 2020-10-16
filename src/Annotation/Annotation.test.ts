@@ -1,7 +1,7 @@
-import { Requirement } from '../../Requirement/types';
 import { Service } from './index';
 import mock from 'mock-fs';
-import { TraceLinkAnnotation } from '../types';
+import { Annotation } from './types';
+import { CollectorConfiguration } from '../Shared/types';
 
 describe('TraceLink', () => {
     beforeEach(() => {
@@ -20,27 +20,29 @@ describe('TraceLink', () => {
 <!-- @requirement #[ MySecondRequirement ]# #( My second description )# -->`, // has annotation
             });
 
-            const files = [
-                'source.ts',
-                'MyRequirement.md',
-            ];
+            const configuration: CollectorConfiguration = {
+                excludes: [],
+                startingpoints: [
+                    '.',
+                ],
+            };
 
-            const expectedResult: TraceLinkAnnotation[] = [
-                {
-                    description: 'My description',
-                    identifier: 'MyRequirement',
-                    line: 1,
-                    file: 'source.ts',
-                },
+            const expectedResult: Annotation[] = [
                 {
                     description: 'My second description',
                     identifier: 'MySecondRequirement',
                     line: 3,
                     file: 'MyRequirement.md',
                 },
+                {
+                    description: 'My description',
+                    identifier: 'MyRequirement',
+                    line: 1,
+                    file: 'source.ts',
+                },
             ];
 
-            const list = await Service.list(files);
+            const list = await Service.list(configuration);
 
             expect(list).toEqual(expectedResult);
         });

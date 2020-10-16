@@ -12,7 +12,7 @@ module.exports = {
         excludes: [
             '.*\\.test\\..*',
             'constants\\.ts',
-            'requirements/TraceLink/Annotation.md',
+            'requirements/Annotation/Annotation.md',
         ],
     }
 };

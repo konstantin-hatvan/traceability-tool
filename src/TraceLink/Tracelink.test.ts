@@ -2,7 +2,7 @@ import { Service, Mutations } from './index';
 import mock from 'mock-fs';
 import { Requirement } from '../Requirement/types';
 import { TraceLink } from './types';
-import { CollectorConfiguration } from '../Shared/types';
+import { Annotation } from '../Annotation/types';
 
 describe('Tracelink', () => {
     beforeEach(() => {
@@ -12,6 +12,24 @@ describe('Tracelink', () => {
     afterEach(mock.restore);
 
     test('Service.list(): list all TraceLinks', async () => {
+
+        mock({
+            requirements: {
+                'MyRequirement.md': `---
+id: MyRequirement
+---
+`,
+                'MySecondRequirement.md': `---
+id: MySecondRequirement
+---
+`,
+            },
+            src: {
+                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#',
+                'not-existing.ts': '@requirement #[ MyNotExistingRequirement ]# #( My description )#',
+            },
+        });
+
         const requirements: Requirement[] = [
             {
                 ast: {
@@ -31,43 +49,41 @@ describe('Tracelink', () => {
             },
         ];
 
-        mock({
-            requirements: {
-                'MyRequirement.md': `---
-id: MyRequirement
----
-`,
-                'MySecondRequirement.md': `---
-id: MySecondRequirement
----
-`,
+        const annotations: Annotation[] = [
+            {
+                description: 'My description',
+                file: 'src/source.ts',
+                identifier: 'MyRequirement',
+                line: 1,
             },
-            src: {
-                'source.ts': '@requirement #[ MyRequirement ]# #( My description )#',
-                'not-existing.ts': '@requirement #[ MyNotExistingRequirement ]# #( My description )#',
+            {
+                description: 'My description',
+                file: 'not-existing.ts',
+                identifier: 'MyNotExistingRequirement',
+                line: 1,
             },
-        });
-
-        const configuration: CollectorConfiguration = {
-            excludes: [],
-            startingpoints: [
-                'src',
-            ],
-        };
+        ];
 
         const expectedResult: TraceLink[] = [
             {
                 annotation: {
                     description: 'My description',
-                    identifier: requirements[0].id,
+                    identifier: 'MyRequirement',
                     line: 1,
                     file: 'src/source.ts',
                 },
-                destination: requirements[0],
+                destination: {
+                    ast: expect.objectContaining({
+                        type: 'root',
+                        children: expect.any(Array),
+                    }),
+                    file: 'requirements/MyRequirement.md',
+                    id: 'MyRequirement',
+                },
             },
         ];
 
-        const list = await Service.list(configuration, requirements);
+        const list = await Service.list(requirements, annotations);
 
         expect(list).toEqual(expectedResult);
     });
