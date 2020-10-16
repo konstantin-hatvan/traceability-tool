@@ -5,5 +5,5 @@ export interface CollectorConfiguration {
 
 export interface Configuration {
     requirement: CollectorConfiguration;
-    tracelink: CollectorConfiguration;
+    annotation: CollectorConfiguration;
 };

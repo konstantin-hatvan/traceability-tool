@@ -14,7 +14,7 @@ const loadConfiguration = () => {
     const result = require(path.resolve(process.cwd(), 'tracey.config.js'));
 
     const defaultConfiguration: Configuration = {
-        tracelink: {
+        annotation: {
             excludes: [],
             startingpoints: [
                 '.',
@@ -37,7 +37,7 @@ const loadConfiguration = () => {
  */
 const main = async (configuration: Configuration) => {
     const requirements = RequirementService.list(configuration.requirement);
-    const annotations = await AnnotationService.list(configuration.tracelink);
+    const annotations = await AnnotationService.list(configuration.annotation);
     const traceLinks = await TraceLinkService.list(requirements, annotations);
 
     requirements.forEach(requirement => {

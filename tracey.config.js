@@ -4,7 +4,7 @@ module.exports = {
             'requirements',
         ],
     },
-    tracelink: {
+    annotation: {
         startingpoints: [
             'src',
             'requirements',
