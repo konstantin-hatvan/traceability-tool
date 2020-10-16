@@ -24,7 +24,7 @@ Use this configuration option to exclude multiple files from processing. Exclude
 
 ### `requirement.startingpoints`
 
-**Default**: `[ '.' ]`
+**Default**: `[ '**' ]`
 
 Use this configuration option to configure the startingpoint directories.
 
@@ -42,7 +42,7 @@ Use this configuration option to exclude multiple files from processing. Exclude
 {
     annotation: {
         excludes: [
-            '.*\\.test\\..*',
+            '*.test.ts',
         ],
     },
 }
@@ -51,6 +51,6 @@ Use this configuration option to exclude multiple files from processing. Exclude
 
 ### `annotation.startingpoints`
 
-**Default**: `[ '.' ]`
+**Default**: `[ '**' ]`
 
 Use this configuration option to configure the startingpoint directories.
