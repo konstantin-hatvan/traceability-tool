@@ -13,12 +13,12 @@ id: Requirement.Collect
 
 <div class="tracey">
 
-| File                                                                                            | Line | Description                                                 |
-| ----------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------- |
-| [src/Common/Collector/createCollector.ts](../../../src/Common/Collector/createCollector.ts#L16) | 16   | Files must not be excluded                                  |
-| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L10)                       | 10   | Requirements must be stored in markdown files               |
-| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L17)                       | 17   | Requirements must have a unique yaml frontmatter identifier |
-| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L39)                       | 39   | Requirements must be stored in markdown files               |
-| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L40)                       | 40   | Requirements must have a unique yaml frontmatter identifier |
+| File                                                                        | Line | Description                                                 |
+| --------------------------------------------------------------------------- | ---- | ----------------------------------------------------------- |
+| [src/Common/createCollector.ts](../../../src/Common/createCollector.ts#L16) | 16   | Files must not be excluded                                  |
+| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L10)   | 10   | Requirements must be stored in markdown files               |
+| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L17)   | 17   | Requirements must have a unique yaml frontmatter identifier |
+| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L39)   | 39   | Requirements must be stored in markdown files               |
+| [src/Requirement/Collector.ts](../../../src/Requirement/Collector.ts#L40)   | 40   | Requirements must have a unique yaml frontmatter identifier |
 
 </div>
