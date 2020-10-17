@@ -3,19 +3,15 @@ name: Codecov
 on: [push]
 
 jobs:
-    codecov:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup
-              uses: actions/checkout@v2
-              uses: actions/setup-node@v1
-              with:
-                node-version: '12.x'
-                registry-url: https://registry.npmjs.org/
-            - name: Install
-              run: npm install
-              run: npm install -g codecov
-            - name: Test
-              run: npm test
-            - name: Upload to codecov
-              uses: codecov/codecov-action@v1
+  codecov:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm install -g codecov
+      - run: npm test
+      - uses: codecov/codecov-action@v1
