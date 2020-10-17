@@ -8,7 +8,7 @@ The configuration is separated into multiple blocks.
 
 **Default**: `[]`
 
-Use this configuration option to exclude multiple files from processing. Excludes are regular expressions and must be escaped.
+Use this configuration option to exclude multiple files from processing. Excludes follw the [gitignore spec](https://git-scm.com/docs/gitignore)
 
 #### Example
 
@@ -16,7 +16,8 @@ Use this configuration option to exclude multiple files from processing. Exclude
 {
     requirement: {
         excludes: [
-            'index\\.md',
+            'node_modules',
+            'ExcludedRequirement.md',
         ],
     },
 }
@@ -26,7 +27,7 @@ Use this configuration option to exclude multiple files from processing. Exclude
 
 **Default**: `[ '**' ]`
 
-Use this configuration option to configure the startingpoint directories.
+Use this configuration option to configure the startingpoint directories. Startingpoints use glob patterns
 
 ## Annotation
 
@@ -34,7 +35,7 @@ Use this configuration option to configure the startingpoint directories.
 
 **Default**: `[]`
 
-Use this configuration option to exclude multiple files from processing. Excludes are regular expressions and must be escaped.
+Use this configuration option to exclude multiple files from processing. Excludes follw the [gitignore spec](https://git-scm.com/docs/gitignore)
 
 #### Example
 
@@ -42,6 +43,7 @@ Use this configuration option to exclude multiple files from processing. Exclude
 {
     annotation: {
         excludes: [
+            'node_modules',
             '*.test.ts',
         ],
     },
@@ -53,4 +55,4 @@ Use this configuration option to exclude multiple files from processing. Exclude
 
 **Default**: `[ '**' ]`
 
-Use this configuration option to configure the startingpoint directories.
+Use this configuration option to configure the startingpoint directories. Startingpoints use glob patterns
