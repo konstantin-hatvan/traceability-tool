@@ -1,5 +1,7 @@
 # Project Tracey
 
+![Codecov](https://img.shields.io/codecov/c/github/konstantin-hatvan/traceability-tool)
+
 A markdown-based requirements tool for creating and updating trace links between structured requirements and source code.
 
 ## Workflow
