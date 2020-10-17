@@ -1,6 +1,5 @@
 node_modules
-example_project
 coverage
 build
-progress-reports/*.pdf
+docs/university/progress-reports/*.pdf
 *.code-workspace
