@@ -11,7 +11,7 @@ A markdown-based requirements tool for creating and updating trace links between
 - Annotate the requirement ID in the source code
 - Run `tracey` to generate the trace links
 
-For more information have a look a the [Getting Started](./docs/getting-started.md) guide. If you are interested in how the generated trace links look, have a look at [a real requirements document of this project](./requirements/Annotation/Annotation.md).
+For more information have a look a the [Getting Started](./docs/user/getting-started.md) guide. If you are interested in how the generated trace links look, have a look at [a real requirements document of this project](./docs/requirements/Annotation/Annotation.md).
 
 ## Contributing
 
