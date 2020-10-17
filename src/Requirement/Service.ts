@@ -1,7 +1,7 @@
 import * as RequirementService from 'fs';
 import { collect } from './Collector';
 import { create } from './Factory';
-import { CollectorConfiguration } from '../Shared/types';
+import { CollectorConfiguration } from '../types';
 import { Requirement } from './types';
 import { stringify } from './Markdown';
 

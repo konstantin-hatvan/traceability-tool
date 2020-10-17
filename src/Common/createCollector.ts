@@ -1,7 +1,7 @@
 import { glob } from "glob";
 import ignore from "ignore";
-import { and } from "..";
-import { CollectorConfiguration } from "../../Shared/types";
+import { and } from ".";
+import { CollectorConfiguration } from "../types";
 
 export type CollectorCondition = (file: string) => boolean;
 

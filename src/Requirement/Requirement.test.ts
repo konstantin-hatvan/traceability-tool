@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { Service, Mutations } from './index';
 import mock from 'mock-fs';
-import { CollectorConfiguration } from '../Shared/types';
+import { CollectorConfiguration } from '../types';
 import { Requirement } from './types';
 import { parse } from './Markdown';
 import { TraceLink } from '../TraceLink/types';

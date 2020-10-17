@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Configuration } from './Shared/types';
+import { Configuration } from './types';
 import { Service as TraceLinkService } from './TraceLink';
 import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement';
 import { Service as AnnotationService } from './Annotation';

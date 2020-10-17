@@ -1,6 +1,6 @@
 import { create } from './Factory';
 import { Annotation } from './types';
-import { CollectorConfiguration } from '../Shared/types';
+import { CollectorConfiguration } from '../types';
 import { collect } from './Collector';
 
 /**

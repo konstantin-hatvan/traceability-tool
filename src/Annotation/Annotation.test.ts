@@ -1,7 +1,7 @@
 import { Service } from './index';
 import mock from 'mock-fs';
 import { Annotation } from './types';
-import { CollectorConfiguration } from '../Shared/types';
+import { CollectorConfiguration } from '../types';
 
 describe('TraceLink', () => {
     beforeEach(() => {

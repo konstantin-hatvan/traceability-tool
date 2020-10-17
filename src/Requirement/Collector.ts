@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { parseFrontmatter, parse } from './Markdown';
-import { CollectorConfiguration } from '../Shared/types';
-import { createCollector, CollectorCondition } from '../Common/Collector';
+import { CollectorConfiguration } from '../types';
+import { createCollector, CollectorCondition } from '../Common';
 
 /**
  * Check if the file is MarkDown

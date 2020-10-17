@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import * as constants from '../Shared/constants'
+import * as constants from '../constants'
 import { Annotation } from './types';
 
 /**
