@@ -3,3 +3,4 @@ coverage
 build
 docs/university/progress-reports/*.pdf
 *.code-workspace
+*.drawio
