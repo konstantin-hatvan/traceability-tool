@@ -1,6 +1,6 @@
 {
     "name": "tracey-cli",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "description": "A markdown-based requirements tool",
     "main": "build/index.js",
     "scripts": {
