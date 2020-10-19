@@ -8,7 +8,7 @@ id: Annotation
 -   The requirement identifiers are comma-separated and wrapped by `#[`
 -   The description is wrapped by `#(`
 
-<div class="tracey">
+<div class="tracey tracey-plugin-tracelinktable">
 
 | File                                                                | Line | Description                                                         |
 | ------------------------------------------------------------------- | ---- | ------------------------------------------------------------------- |

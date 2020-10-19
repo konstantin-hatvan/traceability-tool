@@ -10,7 +10,7 @@ id: Annotation.Collect
 -   All conditions have to be passed
 -   All files that are within the startingpoints and pass all conditions are collected
 
-<div class="tracey">
+<div class="tracey tracey-plugin-tracelinktable">
 
 | File                                                                        | Line | Description                      |
 | --------------------------------------------------------------------------- | ---- | -------------------------------- |

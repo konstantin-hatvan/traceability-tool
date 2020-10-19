@@ -8,7 +8,7 @@ id: Requirement.TraceTable
 -   Each row consists of a relative link, a line number and a description
 -   Tracelinks are transformed to relative links
 
-<div class="tracey">
+<div class="tracey tracey-plugin-tracelinktable">
 
 | File                                                                                  | Line | Description                                                             |
 | ------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------- |
