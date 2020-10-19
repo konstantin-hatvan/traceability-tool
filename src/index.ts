@@ -8,6 +8,7 @@ import merge from 'lodash.merge';
 import * as path from 'path';
 import { plugin as TracelinktablePlugin } from './tracey-plugin-tracelinktable';
 import { plugin as ChildrequirementsPlugin } from './tracey-plugin-childrequirements';
+import { plugin as BreadcrumbsPlugin } from './tracey-plugin-breadcrumbs';
 
 /**
  * Merge the user configuration with the default configuration
@@ -51,6 +52,7 @@ const main = async (configuration: Configuration) => {
     const plugins: Plugin[] = [
         TracelinktablePlugin,
         ChildrequirementsPlugin,
+        BreadcrumbsPlugin,
     ];
 
     const pluginResult = plugins.reduce((result, plugin) => plugin(result), pluginInput);

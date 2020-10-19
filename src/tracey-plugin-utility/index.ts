@@ -1,4 +1,4 @@
-import { HTML, Link, PhrasingContent, Table, TableCell, TableRow, Text } from "mdast";
+import { HTML, Link, Paragraph, PhrasingContent, Table, TableCell, TableRow, Text } from "mdast";
 
 export const createText = (value: string): Text => ({
     type: 'text',
@@ -33,4 +33,9 @@ export const createTable = (children: TableRow[]): Table => ({
 export const createHTML = (value: string): HTML => ({
     type: 'html',
     value,
+});
+
+export const createParagraph = (children: PhrasingContent[]): Paragraph => ({
+    type: 'paragraph',
+    children,
 });

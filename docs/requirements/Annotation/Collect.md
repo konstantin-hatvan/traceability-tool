@@ -4,6 +4,12 @@ parent: Annotation
 synopsis: The program collects annotations from files
 ---
 
+<div class="tracey tracey-plugin-breadcrumbs">
+
+[Annotation](../Annotation.md)
+
+</div>
+
 # Collecting annotations
 
 -   The file system is walked recursively from the configured startingpoints
