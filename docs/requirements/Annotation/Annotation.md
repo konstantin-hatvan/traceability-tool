@@ -1,8 +1,12 @@
 ---
-id: Annotation
+id: Annotation.Syntax
+parent: Annotation
+synopsis: The annotation uses a language-independent syntax
 ---
 
-# Annotating requirements
+# Annotation Syntax
+
+The annotation must be language independent. Therefore, the program uses a custom, language-independent syntax.
 
 -   The annotation marker is `@requirement`
 -   The requirement identifiers are comma-separated and wrapped by `#[`

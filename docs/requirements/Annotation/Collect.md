@@ -1,5 +1,7 @@
 ---
 id: Annotation.Collect
+parent: Annotation
+synopsis: The program collects annotations from files
 ---
 
 # Collecting annotations
