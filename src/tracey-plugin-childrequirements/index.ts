@@ -2,7 +2,7 @@ import { Requirement } from "../Requirement/types";
 import visit from 'unist-util-visit';
 import { Plugin } from "../types";
 import path from "path";
-import { createHTML, createLink, createTable, createTableCell, createTableCellFromText, createTableRow, createText } from "../tracey-plugin-utility";
+import { createHTML, createLink, createTable, createTableCell, createTableRow, createText } from "../tracey-plugin-utility";
 
 const createChildRequirementsTable = (requirement: Requirement, childRequirements: Requirement[]) => {
     const tableRows = childRequirements.map(childRequirement => {
@@ -10,12 +10,12 @@ const createChildRequirementsTable = (requirement: Requirement, childRequirement
         const { id, synopsis = '' } = childRequirement;
         return createTableRow([
             createTableCell(createLink(id, relativeLink)),
-            createTableCellFromText(synopsis),
+            createTableCell(createText(synopsis)),
         ]);
     });
 
     const tableHeaderRow = createTableRow([
-        createTableCell(createText('ID')),
+        createTableCell(createText('Requirement')),
         createTableCell(createText('Synopsis')),
     ]);
 

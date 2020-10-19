@@ -3,7 +3,7 @@ import visit from 'unist-util-visit';
 import { TraceLink } from '../TraceLink/types';
 import { Plugin } from '../types';
 import { Table, HTML } from 'mdast';
-import { createHTML, createLink, createTable, createTableCell, createTableCellFromText, createTableRow, createText } from '../tracey-plugin-utility';
+import { createHTML, createLink, createTable, createTableCell, createTableRow, createText } from '../tracey-plugin-utility';
 import path from 'path';
 
 /**
@@ -20,7 +20,7 @@ const createTracelinktable = (traceLinks: TraceLink[]): (Table | HTML)[] => {
         return createTableRow([
             createTableCell(createLink(traceLink.annotation.file, relativeLink)),
             createTableCell(createText(traceLink.annotation.line.toString())),
-            createTableCellFromText(traceLink.annotation.description),
+            createTableCell(createText(traceLink.annotation.description)),
         ])
     });
 
