@@ -9,9 +9,9 @@ id: Annotation
 
 <div class="tracey tracey-plugin-childrequirements">
 
-| ID                                            | Synopsis                                          |
+| Requirement                                   | Synopsis                                          |
 | --------------------------------------------- | ------------------------------------------------- |
-| [Annotation.Syntax](Annotation/Annotation.md) | The annotation uses a language independent syntax |
+| [Annotation.Syntax](Annotation/Annotation.md) | The annotation uses a language-independent syntax |
 | [Annotation.Collect](Annotation/Collect.md)   | The program collects annotations from files       |
 
 </div>
