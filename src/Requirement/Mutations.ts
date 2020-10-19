@@ -12,7 +12,7 @@ const removeTraceLinks = (original: Requirement): Requirement => {
 
     visit(requirement.ast, 'html', (node, index, parent) => {
         if (node.value === '<div class="tracey">' && parent) {
-            parent.children.splice(index);
+            parent.children.splice(index, 3);
         }
     });
 
