@@ -9,11 +9,14 @@ import path from 'path';
 /**
  * Create a markdown table wrapped in a HTML div from given tracelinks
  * @param traceLinks A list of tracelinks
+ * @requirement #[ TracelinkTable ]# #( The plugin generates a table containing the tracelinks )#
  */
 const createTracelinktable = (traceLinks: TraceLink[]): (Table | HTML)[] => {
     const tableRows = traceLinks.map(traceLink => {
+        /** @requirement #[ TracelinkTable ]# #( Tracelinks are transformed to relative links )# */
         const relativeLink = `${path.relative(path.parse(traceLink.destination.file).dir, traceLink.annotation.file)}#L${traceLink.annotation.line}`;
 
+        /** @requirement #[ TracelinkTable ]# #( Each row consists of a relative link, a line number and a description )# */
         return createTableRow([
             createTableCell(createLink(traceLink.annotation.file, relativeLink)),
             createTableCell(createText(traceLink.annotation.line.toString())),
