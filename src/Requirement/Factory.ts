@@ -8,11 +8,12 @@ import { parse, parseFrontmatter } from './Markdown';
  */
 export const create = (file: string): Requirement => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
-    const { id } = parseFrontmatter(ast);
+    const frontmatter = parseFrontmatter(ast);
 
     return {
         file,
-        id,
+        id: frontmatter.id,
         ast,
+        ...frontmatter,
     };
 };

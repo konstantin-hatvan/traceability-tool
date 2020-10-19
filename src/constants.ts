@@ -1,1 +1,1 @@
-export const annotation = '@requirement'; // @requirement #[ Annotation ]# #( The annotation marker must be (at)requirement )#
+export const annotation = '@requirement'; // @requirement #[ Annotation.Syntax ]# #( The annotation marker must be (at)requirement )#

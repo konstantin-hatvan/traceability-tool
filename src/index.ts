@@ -2,10 +2,12 @@
 
 import { Configuration, Plugin, PluginParameters } from './types';
 import { Service as TraceLinkService } from './TraceLink';
-import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement';
+import { Service as RequirementService } from './Requirement';
 import { Service as AnnotationService } from './Annotation';
 import merge from 'lodash.merge';
 import * as path from 'path';
+import { plugin as TracelinktablePlugin } from './tracey-plugin-tracelinktable';
+import { plugin as ChildrequirementsPlugin } from './tracey-plugin-childrequirements';
 
 /**
  * Merge the user configuration with the default configuration
@@ -47,7 +49,8 @@ const main = async (configuration: Configuration) => {
     };
 
     const plugins: Plugin[] = [
-        RequirementMutations.updateTraceLinks,
+        TracelinktablePlugin,
+        ChildrequirementsPlugin,
     ];
 
     const pluginResult = plugins.reduce((result, plugin) => plugin(result), pluginInput);

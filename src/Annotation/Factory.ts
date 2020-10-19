@@ -16,9 +16,9 @@ const sliceBetween = (str: string, begin: string, end: string): string => str.sl
  * @param content The source line with the annotation marker
  */
 const parseAnnotation = (content: string) => ({
-    /** @requirement #[ Annotation ]# #( The description is wrapped by `#(` )# */
+    /** @requirement #[ Annotation.Syntax ]# #( The description is wrapped by `#(` )# */
     description: sliceBetween(content, '#(', ')#').trim(),
-    /** @requirement #[ Annotation ]# #( The requirement identifiers are comma-separated and wrapped by `#[` )# */
+    /** @requirement #[ Annotation.Syntax ]# #( The requirement identifiers are comma-separated and wrapped by `#[` )# */
     identifiers: sliceBetween(content, '#[', ']#').trim().split(',').map(identifier => identifier.trim()),
 });
 
