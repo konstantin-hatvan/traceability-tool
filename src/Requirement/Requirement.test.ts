@@ -1,11 +1,12 @@
 import * as fs from 'fs';
 import { Service, Mutations } from './index';
 import mock from 'mock-fs';
-import { CollectorConfiguration } from '../types';
+import { CollectorConfiguration, PluginParameters } from '../types';
 import { Requirement } from './types';
 import { parse } from './Markdown';
 import { TraceLink } from '../TraceLink/types';
 import { Console } from 'console';
+import { Annotation } from '../Annotation/types';
 
 describe('Requirement', () => {
     beforeEach(() => {
@@ -141,15 +142,19 @@ id: MyRequirement
             file: 'requirements/MyRequirement.md',
             id: 'MyRequirement',
         };
+        const requirements: Requirement[] = [ requirement ];
 
-        const traceLinks: TraceLink[] = [
+        const annotation: Annotation = {
+            file: 'src/source.ts',
+            description: 'Description',
+            identifier: 'MyRequirement',
+            line: 1,
+        };
+        const annotations: Annotation[] = [ annotation ];
+
+        const tracelinks: TraceLink[] = [
             {
-                annotation: {
-                    file: 'src/source.ts',
-                    description: 'Description',
-                    identifier: 'MyRequirement',
-                    line: 1,
-                },
+                annotation,
                 destination: requirement,
             },
         ];
@@ -178,7 +183,8 @@ id: MyRequirement
 </div>
 `;
 
-        Service.persist(Mutations.updateTraceLinks(requirement, traceLinks));
+        const pluginOutput = Mutations.updateTraceLinks({ requirements, tracelinks, annotations });
+        pluginOutput.requirements.forEach(requirement => Service.persist(requirement));
 
         expect(fs.readFileSync(requirement.file, { encoding: 'utf-8' })).toEqual(contentAfter);
     });
@@ -205,8 +211,11 @@ id: MyRequirement
             file: 'requirements/MyRequirement.md',
             id: 'MyRequirement',
         };
+        const requirements: Requirement[] = [ requirement ];
 
-        const traceLinks: TraceLink[] = [];
+        const annotations: Annotation[] = [];
+
+        const tracelinks: TraceLink[] = [];
 
         mock({
             src: {
@@ -224,7 +233,8 @@ id: MyRequirement
 # My Requirement
 `;
 
-        Service.persist(Mutations.updateTraceLinks(requirement, traceLinks));
+        const pluginOutput = Mutations.updateTraceLinks({ requirements, tracelinks, annotations });
+        pluginOutput.requirements.forEach(requirement => Service.persist(requirement));
 
         expect(fs.readFileSync(requirement.file, { encoding: 'utf-8' })).toEqual(contentAfter);
     });

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Configuration } from './types';
+import { Configuration, Plugin, PluginParameters } from './types';
 import { Service as TraceLinkService } from './TraceLink';
 import { Mutations as RequirementMutations, Service as RequirementService } from './Requirement';
 import { Service as AnnotationService } from './Annotation';
@@ -38,12 +38,22 @@ const loadConfiguration = () => {
 const main = async (configuration: Configuration) => {
     const requirements = RequirementService.list(configuration.requirement);
     const annotations = await AnnotationService.list(configuration.annotation);
-    const traceLinks = await TraceLinkService.list(requirements, annotations);
+    const tracelinks = await TraceLinkService.list(requirements, annotations);
 
-    requirements.forEach(requirement => {
-        const linkedTraceLinks = traceLinks.filter(traceLink => traceLink.destination === requirement);
-        const updatedRequirement = RequirementMutations.updateTraceLinks(requirement, linkedTraceLinks);
-        RequirementService.persist(updatedRequirement);
+    const pluginInput: PluginParameters = {
+        requirements,
+        annotations,
+        tracelinks,
+    };
+
+    const plugins: Plugin[] = [
+        RequirementMutations.updateTraceLinks,
+    ];
+
+    const pluginResult = plugins.reduce((result, plugin) => plugin(result), pluginInput);
+
+    pluginResult.requirements.forEach(requirement => {
+        RequirementService.persist(requirement);
     });
 };
 
