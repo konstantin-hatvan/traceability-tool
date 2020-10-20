@@ -25,8 +25,7 @@ The item order resembles the importance from the point of view of the creator.
 | QG_1 | Gradual Adoptability    | Gradual introduction of the software into existing projects should be possible |
 | QG_2 | Scientific Contribution | The software should provide a scientific contribution                          |
 | QG_3 | Usability               | The software should be easy use                                                |
-| QG_4 | Learnability            | The effort to learn the basic usage of the software should be minimal          |
-| QG_5 | Extensibility           | The software should be open for extension and customization                    |
+| QG_4 | Extensibility           | The software should be open for extension and customization                    |
 
 ## Stakeholders
 
