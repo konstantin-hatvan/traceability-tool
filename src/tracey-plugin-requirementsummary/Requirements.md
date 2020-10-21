@@ -14,8 +14,8 @@ This plugin generates a table containing all requirements.
 
 | File                                                          | Line | Description                             |
 | ------------------------------------------------------------- | ---- | --------------------------------------- |
-| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L15) | 15   | Use the frontmatter key synopsis        |
-| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L35) | 35   | Each table row contains a relative link |
-| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L36) | 36   | Each table row contains the synopsis    |
+| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L11) | 11   | Use the frontmatter key synopsis        |
+| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L31) | 31   | Each table row contains a relative link |
+| [src/tracey-plugin-requirementsummary/index.ts](index.ts#L32) | 32   | Each table row contains the synopsis    |
 
 </div>

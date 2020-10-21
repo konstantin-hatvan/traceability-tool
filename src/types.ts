@@ -19,3 +19,5 @@ export interface PluginParameters {
 };
 
 export type Plugin = (input: PluginParameters) => PluginParameters;
+
+export type ConfigurablePlugin = (configuration: any) => (input: PluginParameters) => PluginParameters;

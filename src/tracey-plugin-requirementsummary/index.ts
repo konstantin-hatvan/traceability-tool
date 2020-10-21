@@ -3,13 +3,9 @@ import { HTML, Root, Table } from 'mdast';
 import path from 'path';
 import { Requirement } from '../Requirement/types';
 import { createHTML, createLink, createTable, createTableCell, createTableRow, createText } from '../tracey-plugin-utility';
-import { Plugin } from '../types';
+import { ConfigurablePlugin } from '../types';
 import remark from 'remark';
 import visit from 'unist-util-visit';
-
-interface PluginConfiguration {
-    file?: string;
-};
 
 const getSynopsis = (requirement: Requirement): string => {
     const hasSynopsis = Object.prototype.hasOwnProperty.call(requirement, 'synopsis'); /** @requirement #[ RequirementSummary ]# #( Use the frontmatter key synopsis )# */
@@ -76,7 +72,7 @@ const updateRequirementsummary = (original: Root, block: (HTML | Table)[]): Root
     return ast;
 };
 
-export const plugin = ({ file = path.resolve('tracey-plugin-requirementsummary.md') }: PluginConfiguration): Plugin => ({ requirements, tracelinks, annotations }) => {
+export const plugin: ConfigurablePlugin = ({ file = path.resolve('tracey-plugin-requirementsummary.md') }) => ({ requirements, tracelinks, annotations }) => {
     if (requirements.length) {
         const block = createBlock(file, requirements);
         const ast = getFileContentOrEmptyDocument(file);
