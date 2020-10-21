@@ -1,4 +1,4 @@
-import { Service } from './index';
+import * as Service from './index';
 import mock from 'mock-fs';
 import { Annotation } from './types';
 import { CollectorConfiguration } from '../types';

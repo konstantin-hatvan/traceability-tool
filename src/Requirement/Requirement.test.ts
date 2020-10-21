@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Service } from './index';
+import * as Service from './index';
 import mock from 'mock-fs';
 import { CollectorConfiguration } from '../types';
 import { Requirement } from './types';

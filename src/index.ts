@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { Configuration, Plugin, PluginParameters } from './types';
-import { Service as TraceLinkService } from './TraceLink';
-import { Service as RequirementService } from './Requirement';
-import { Service as AnnotationService } from './Annotation';
+import * as TraceLinkService from './TraceLink';
+import * as RequirementService from './Requirement';
+import * as AnnotationService from './Annotation';
 import merge from 'lodash.merge';
 import * as path from 'path';
 import { plugin as TracelinktablePlugin } from './tracey-plugin-tracelinktable';
