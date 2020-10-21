@@ -7,7 +7,8 @@ module.exports = {
             'docs/university',
             'docs/techical',
             'docs/user',
-            'README.md'
+            'README.md',
+            'docs/requirements/Requirements.md'
         ],
     },
     annotation: {
