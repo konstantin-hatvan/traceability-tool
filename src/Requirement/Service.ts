@@ -1,4 +1,4 @@
-import * as RequirementService from 'fs';
+import * as fs from 'fs';
 import { collect } from './Collector';
 import { create } from './Factory';
 import { CollectorConfiguration } from '../types';
@@ -8,5 +8,5 @@ import { stringify } from './Markdown';
 export const list = (configuration: CollectorConfiguration): Requirement[] => collect(configuration).map(create);
 
 export const persist = (requirement: Requirement): void => {
-    RequirementService.writeFileSync(requirement.file, stringify(requirement.ast));
+    fs.writeFileSync(requirement.file, stringify(requirement.ast));
 };
