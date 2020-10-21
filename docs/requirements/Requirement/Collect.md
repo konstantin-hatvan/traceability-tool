@@ -1,5 +1,6 @@
 ---
 id: Requirement.Collect
+synopsis: Tracey collects requirements
 ---
 
 # Collecting requirements

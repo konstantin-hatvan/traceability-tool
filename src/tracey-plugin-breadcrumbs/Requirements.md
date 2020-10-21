@@ -1,5 +1,6 @@
 ---
 id: Breadcrumbs
+synopsis: The plugin generates breadcrumbs
 ---
 
 # Plugin: Breadcrumbs

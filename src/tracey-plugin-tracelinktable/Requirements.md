@@ -1,5 +1,6 @@
 ---
 id: TracelinkTable
+synopsis: The plugin generates tracelinks
 ---
 
 # Plugin: Tracelink Table

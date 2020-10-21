@@ -1,5 +1,6 @@
 ---
 id: ChildRequirements
+synopsis: The plugin generates tracelinks between hierarchical requirements
 ---
 
 # Plugin: Child Requirements

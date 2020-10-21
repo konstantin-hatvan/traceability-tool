@@ -1,7 +1,7 @@
 ---
 id: Annotation.Syntax
 parent: Annotation
-synopsis: The annotation uses a language-independent syntax
+synopsis: Annotations are language-independent
 ---
 
 <div class="tracey tracey-plugin-breadcrumbs">

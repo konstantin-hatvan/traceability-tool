@@ -1,5 +1,6 @@
 ---
 id: Annotation
+synopsis: Tracey collects annotations
 ---
 
 # Annotation
@@ -9,9 +10,9 @@ id: Annotation
 
 <div class="tracey tracey-plugin-childrequirements">
 
-| Requirement                                   | Synopsis                                          |
-| --------------------------------------------- | ------------------------------------------------- |
-| [Annotation.Syntax](Annotation/Annotation.md) | The annotation uses a language-independent syntax |
-| [Annotation.Collect](Annotation/Collect.md)   | The program collects annotations from files       |
+| Requirement                                   | Synopsis                             |
+| --------------------------------------------- | ------------------------------------ |
+| [Annotation.Syntax](Annotation/Annotation.md) | Annotations are language-independent |
+| [Annotation.Collect](Annotation/Collect.md)   | Tracey collects annotations          |
 
 </div>

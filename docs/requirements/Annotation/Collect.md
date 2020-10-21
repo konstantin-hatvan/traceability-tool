@@ -1,7 +1,7 @@
 ---
 id: Annotation.Collect
 parent: Annotation
-synopsis: The program collects annotations from files
+synopsis: Tracey collects annotations
 ---
 
 <div class="tracey tracey-plugin-breadcrumbs">
