@@ -1,6 +1,9 @@
 # Project Tracey
 
 ![Codecov](https://img.shields.io/codecov/c/github/konstantin-hatvan/traceability-tool)
+![npm downloads](https://img.shields.io/npm/dt/tracey-cli)
+![npm version](https://img.shields.io/npm/v/tracey-cli)
+[![NPM](https://nodei.co/npm/tracey-cli.png?mini=true)](https://npmjs.org/package/tracey-cli)
 
 A markdown-based requirements tool for creating and updating trace links between structured requirements and source code.
 
