@@ -1,4 +1,4 @@
-import * as Service from './index';
+import { list } from './index';
 import mock from 'mock-fs';
 import { Annotation } from './types';
 import { CollectorConfiguration } from '../types';
@@ -10,7 +10,7 @@ describe('Annotation', () => {
 
     afterEach(mock.restore);
 
-    describe('Service', () => {
+    describe('Component', () => {
         describe('list()', () => {
             test('lists all Annotations', async () => {
                 mock({
@@ -51,9 +51,9 @@ describe('Annotation', () => {
                     },
                 ];
 
-                const list = await Service.list(configuration);
+                const annotations = await list(configuration);
 
-                expect(list).toEqual(expectedResult);
+                expect(annotations).toEqual(expectedResult);
             });
         });
     });

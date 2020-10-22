@@ -13,7 +13,7 @@ describe('Requirement', () => {
 
     afterEach(mock.restore);
 
-    describe('Service', () => {
+    describe('Component', () => {
         describe('list()', () => {
             test('lists all Requirements', () => {
                 mock({
