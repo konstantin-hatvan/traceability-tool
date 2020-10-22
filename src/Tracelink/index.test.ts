@@ -1,7 +1,7 @@
 import { list } from './index';
 import mock from 'mock-fs';
 import { Requirement } from '../Requirement/types';
-import { TraceLink } from './types';
+import { Tracelink } from './types';
 import { Annotation } from '../Annotation/types';
 import { Console } from 'console';
 
@@ -47,7 +47,7 @@ describe('Tracelink', () => {
                     },
                 ];
 
-                const expectedResult: TraceLink[] = [
+                const expectedResult: Tracelink[] = [
                     {
                         annotation: {
                             description: 'My description',

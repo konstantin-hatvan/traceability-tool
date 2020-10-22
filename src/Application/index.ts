@@ -1,14 +1,14 @@
 import { Configuration, PluginParameters } from '../types';
-import * as TraceLinkService from '../TraceLink';
-import * as RequirementService from '../Requirement';
-import * as AnnotationService from '../Annotation';
+import { list as listTracelinks } from '../Tracelink';
+import { list as listRequirements, persist as persistRequirement } from '../Requirement';
+import { list as listAnnotations } from '../Annotation';
 import { getConfiguration } from './Configuration';
 import { runPlugins } from './Plugin';
 
 const getData = async (configuration: Configuration): Promise<PluginParameters> => {
-    const requirements = RequirementService.list(configuration.requirement);
-    const annotations = await AnnotationService.list(configuration.annotation);
-    const tracelinks = await TraceLinkService.list(requirements, annotations);
+    const requirements = listRequirements(configuration.requirement);
+    const annotations = await listAnnotations(configuration.annotation);
+    const tracelinks = listTracelinks(requirements, annotations);
 
     return {
         requirements,
@@ -24,6 +24,6 @@ export const run = async () => {
 
     // Persist changes
     transformedData.requirements.forEach(requirement => {
-        RequirementService.persist(requirement);
+        persistRequirement(requirement);
     });
 };

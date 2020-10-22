@@ -1,4 +1,4 @@
-import { TraceLink } from './types';
+import { Tracelink } from './types';
 import { Requirement } from '../Requirement/types';
 import { Annotation } from '../Annotation/types';
 
@@ -6,7 +6,7 @@ import { Annotation } from '../Annotation/types';
  * List all tracelinks
  * @param requirements A list of tracelocations
  */
-export const list = (requirements: Requirement[], annotations: Annotation[]): TraceLink[] => annotations.flatMap(annotation => {
+export const list = (requirements: Requirement[], annotations: Annotation[]): Tracelink[] => annotations.flatMap(annotation => {
     const destination = requirements.find(requirement => requirement.id === annotation.identifier);
 
     if (!destination) {
