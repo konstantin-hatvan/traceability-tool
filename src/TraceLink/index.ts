@@ -7,20 +7,7 @@ import { Annotation } from '../Annotation/types';
  * @param requirements A list of tracelocations
  */
 export const list = (requirements: Requirement[], annotations: Annotation[]): TraceLink[] => annotations.flatMap(annotation => {
-    const destination = requirements.find(requirement => {
-        if (requirement.id === annotation.identifier) {
-            return true;
-        }
-
-        return false;
-    });
-
-    if (destination) {
-        return {
-            destination,
-            annotation,
-        };
-    }
+    const destination = requirements.find(requirement => requirement.id === annotation.identifier);
 
     if (!destination) {
         console.log(`
@@ -30,7 +17,11 @@ Possible errors:
 - The annotation is wrong
 
 `);
-    };
-
-    return [];
+        return [];
+    } else {
+        return {
+            destination,
+            annotation,
+        };
+    }
 });
