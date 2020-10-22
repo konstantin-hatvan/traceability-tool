@@ -3,15 +3,16 @@ import mock from 'mock-fs';
 import { Requirement } from '../Requirement/types';
 import { TraceLink } from './types';
 import { Annotation } from '../Annotation/types';
+import { Console } from 'console';
 
 describe('Tracelink', () => {
     beforeEach(() => {
-        // console = new Console(process.stdout, process.stderr);
+        console = new Console(process.stdout, process.stderr);
     });
 
     afterEach(mock.restore);
 
-    test('Service.list(): list all TraceLinks', async () => {
+    test('Service.list(): list all TraceLinks', () => {
 
         mock({
             requirements: {
@@ -83,7 +84,7 @@ id: MySecondRequirement
             },
         ];
 
-        const list = await Service.list(requirements, annotations);
+        const list = Service.list(requirements, annotations);
 
         expect(list).toEqual(expectedResult);
     });

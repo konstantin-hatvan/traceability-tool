@@ -6,7 +6,7 @@ import { Annotation } from '../Annotation/types';
  * List all tracelinks
  * @param requirements A list of tracelocations
  */
-export const list = async (requirements: Requirement[], annotations: Annotation[]): Promise<TraceLink[]> => annotations.flatMap(annotation => {
+export const list = (requirements: Requirement[], annotations: Annotation[]): TraceLink[] => annotations.flatMap(annotation => {
     const destination = requirements.find(requirement => {
         if (requirement.id === annotation.identifier) {
             return true;
