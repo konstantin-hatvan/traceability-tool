@@ -20,10 +20,10 @@ synopsis: Tracey collects annotations
 
 <div class="tracey tracey-plugin-tracelinktable">
 
-| File                                                                        | Line | Description                      |
-| --------------------------------------------------------------------------- | ---- | -------------------------------- |
-| [src/Annotation/Collector.ts](../../../src/Annotation/Collector.ts#L9)      | 9    | Files must contain an annotation |
-| [src/Annotation/Collector.ts](../../../src/Annotation/Collector.ts#L18)     | 18   | Files must contain an annotation |
-| [src/Common/createCollector.ts](../../../src/Common/createCollector.ts#L16) | 16   | Files must not be excluded       |
+| File                                                                    | Line | Description                      |
+| ----------------------------------------------------------------------- | ---- | -------------------------------- |
+| [src/Annotation/Collector.ts](../../../src/Annotation/Collector.ts#L9)  | 9    | Files must contain an annotation |
+| [src/Annotation/Collector.ts](../../../src/Annotation/Collector.ts#L18) | 18   | Files must contain an annotation |
+| [src/Common/Collector.ts](../../../src/Common/Collector.ts#L16)         | 16   | Files must not be excluded       |
 
 </div>
