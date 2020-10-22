@@ -16,9 +16,7 @@ describe('Annotation', () => {
                     'main.ts': '@requirement #[ ID ]# #( Description )#',
                 });
 
-                const files: string[] = [
-                    'main.ts',
-                ];
+                const file = 'main.ts';
 
                 const expectedResult: Annotation[] = expect.arrayContaining([
                     expect.objectContaining({
@@ -29,9 +27,8 @@ describe('Annotation', () => {
                     }),
                 ]);
 
-                const promises = files.map(create);
-                const rawOutput = await Promise.all(promises);
-                const output = rawOutput.reduce((result, arr) => result.concat(arr), []);
+                const promise = create(file);
+                const output = await promise;
 
                 expect(output).toEqual(expectedResult);
             });
@@ -39,26 +36,22 @@ describe('Annotation', () => {
             test('creates multiple Annotations', async () => {
                 mock({
                     'main.ts': `@requirement #[ ID ]# #( Description )#
-
-                    @requirement #[ ID ]# #( Description )#`,
+                                console.log('Hello world');
+                                @requirement #[ ID ]# #( Description )#`,
                 });
 
-                const files: string[] = [
-                    'main.ts',
-                ];
+                const file = 'main.ts';
 
                 const expectedResult: Annotation[] = expect.arrayContaining([
                     expect.objectContaining({
                         description: 'Description',
                         file: 'main.ts',
                         identifier: 'ID',
-                        line: 1,
                     }),
                 ]);
 
-                const promises = files.map(create);
-                const rawOutput = await Promise.all(promises);
-                const output = rawOutput.reduce((result, arr) => result.concat(arr), []);
+                const promise = create(file);
+                const output = await promise;
 
                 expect(output).toEqual(expectedResult);
                 expect(output.length).toEqual(2);
