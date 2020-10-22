@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { parseFrontmatter, parse } from './Markdown';
 import { CollectorConfiguration } from '../types';
-import { createCollector, CollectorCondition } from '../Common';
+import { createCollector, CollectorCondition } from '../Common/Collector';
 
 /**
  * Check if the file is MarkDown

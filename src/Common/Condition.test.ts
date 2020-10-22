@@ -1,12 +1,12 @@
-import { and } from './conditions';
+import { and } from './Condition';
 
 describe('Common', () => {
     describe('conditions', () => {
         describe('and()', () => {
             test('combines conditions using a logical and', () => {
                 const conditions = [
-                    (input) => input > 10,
-                    (input) => input < 12,
+                    (input: number) => input > 10,
+                    (input: number) => input < 12,
                 ];
 
                 const combinedCondition = and(conditions);

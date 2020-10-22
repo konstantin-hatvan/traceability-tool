@@ -1,7 +1,6 @@
-import { createCollector } from './createCollector';
+import { createCollector,CollectorCondition } from './Collector';
 import mock from 'mock-fs';
 import { CollectorConfiguration } from '../types';
-import { CollectorCondition } from '.';
 import path from 'path';
 
 describe('Common', () => {
@@ -11,7 +10,7 @@ describe('Common', () => {
 
     afterEach(mock.restore);
 
-    describe('createCollector', () => {
+    describe('Collector', () => {
         describe('createCollector()', () => {
             test('creates a Collector', () => {
                 mock({

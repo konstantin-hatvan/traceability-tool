@@ -1,6 +1,6 @@
 import { glob } from "glob";
 import ignore from "ignore";
-import { and } from ".";
+import { and } from "./Condition";
 import { CollectorConfiguration } from "../types";
 
 export type CollectorCondition = (file: string) => boolean;

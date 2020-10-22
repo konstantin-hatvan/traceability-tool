@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as constants from '../constants';
 import { CollectorConfiguration } from '../types';
-import { createCollector, CollectorCondition } from '../Common';
+import { createCollector, CollectorCondition } from '../Common/Collector';
 
 /**
  * Check if the file contains an annotation
