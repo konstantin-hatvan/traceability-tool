@@ -1,3 +1,5 @@
+const RequirementsummaryPlugin = require('tracey-plugin-requirementsummary');
+
 module.exports = {
     requirement: {
         excludes: [
@@ -24,5 +26,8 @@ module.exports = {
             'docs/user',
             'README.md'
         ],
-    }
+    },
+    plugins: [
+        RequirementsummaryPlugin.plugin({ file: 'docs/requirements/Requirements.md' }),
+    ],
 };

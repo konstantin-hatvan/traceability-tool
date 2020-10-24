@@ -10,6 +10,7 @@ export interface CollectorConfiguration {
 export interface Configuration {
     requirement: CollectorConfiguration;
     annotation: CollectorConfiguration;
+    plugins: Plugin[];
 };
 
 export interface PluginParameters {

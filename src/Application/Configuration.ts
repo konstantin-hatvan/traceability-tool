@@ -21,6 +21,7 @@ export const getConfiguration = () => {
                 '**',
             ],
         },
+        plugins: [],
     };
 
     return merge(defaultConfiguration, result);
