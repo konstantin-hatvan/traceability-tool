@@ -2,7 +2,7 @@
 
 ## Components
 
-Tracey consists of the components `Common`, `Requirement`, `Annotation` and `Application`. 
+Tracey consists of the components `Common`, `Requirement`, `Annotation`, `Tracelink` and `Application`. 
 
 ### Common
 
@@ -11,12 +11,16 @@ The `Common` component provides common functionality and general abstractions fo
 ### Requirement
 
 The `Requirement` component is responsible for collecting requirement data from the file system and writing requirement data back to the file system.
-The component consists of the `Collector`, `Factory`, `Markdown` and `Service` module.
+The component consists of the `Collector`, `Factory` and `Markdown` module.
 
 ### Annotation
 
 The `Annotation` component is responsible for collecting annotation data from the file system.
-The component consists of the `Collector`, `Factory` and `Service` module.
+The component consists of the `Collector` and `Factory` module.
+
+### Tracelink
+
+The `Tracelink` component is responsible for connecting requirements with their matching annotations.
 
 ### Application
 
@@ -30,7 +34,7 @@ The `Collector` and `Factory` modules describe shared patterns among the `Requir
 
 ### Collector
 
-> A Collector lists files from the file system
+> A Collector selects files for further processing
 
 A `Collector` pattern describes a module that recursively walk the file system from a provided startingpoint.
 Additionally, the `Collector` is given a set of conditions.
