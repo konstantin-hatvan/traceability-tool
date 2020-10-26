@@ -1,11 +1,17 @@
 # System Scope and Context
 
-![Business Context Diagram](./Context.png "Business Context Diagram")
+Tracey collects data from the file system. This data is passed through a chain of plugins. In the end Tracey writes the updated data back to the file system.
+
+![Context Diagram](./03_context.png "Context Diagram")
 
 ## Developer
 
-The developer is the main user of the software as part of the development process as well as the requirements process. The developer uses the software by using the command line interface.
+The developer is the user of the software. The developer configures Tracey and initiates its execution by calling the command line interface.
 
-## External Plugin
+## Plugin
 
-The system comes with a small set of default tools. It is possible to extend the system with custom plugins though. Plugins are hooked into the system by using the configuration and use the Plugin API to extend the base functionality of the system.
+The collected data is passed through a chain of plugins. Each plugin receives the data as input, acts upon this data, and then returns the same shape. The output is then used for the next plugin in the chain until all plugins were executed.
+
+## File system
+
+All data is somewhere in the project files.
