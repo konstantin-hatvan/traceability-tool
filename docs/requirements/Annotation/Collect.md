@@ -6,7 +6,7 @@ synopsis: Tracey collects annotations
 
 <div class="tracey tracey-plugin-breadcrumbs">
 
-[Annotation](../Annotation.md)
+[Annotation](../Annotation.md "Annotation")
 
 </div>
 

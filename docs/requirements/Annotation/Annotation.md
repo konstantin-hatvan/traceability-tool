@@ -6,7 +6,7 @@ synopsis: Annotations are language-independent
 
 <div class="tracey tracey-plugin-breadcrumbs">
 
-[Annotation](../Annotation.md)
+[Annotation](../Annotation.md "Annotation")
 
 </div>
 

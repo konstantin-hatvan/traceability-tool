@@ -1,4 +1,5 @@
 const RequirementsummaryPlugin = require('tracey-plugin-requirementsummary');
+const BreadcrumbsPlugin = require('tracey-plugin-breadcrumbs');
 
 module.exports = {
     requirement: {
@@ -29,5 +30,6 @@ module.exports = {
     },
     plugins: [
         RequirementsummaryPlugin.plugin({ file: 'docs/requirements/Requirements.md' }),
+        BreadcrumbsPlugin.plugin(),
     ],
 };
