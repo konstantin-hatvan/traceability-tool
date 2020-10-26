@@ -2,7 +2,7 @@
 
 Project Tracey (short: Tracey) is a software to generate tracelinks between structured requirements and source code.
 Requirements are documented in markdown files and can be linked to source code by using annotations.
-Tracey focuses on utilizing a lightweight, scalable and extensible workflow.
+Tracey focuses on utilizing a lightweight and extensible workflow.
 
 ## Requirements Overview
 
@@ -14,12 +14,12 @@ Tracey focuses on utilizing a lightweight, scalable and extensible workflow.
 
 ## Quality Goals
 
-| ID   | Quality Goal            | Description                                                             |
-| ---- | ----------------------- | ----------------------------------------------------------------------- |
-| QG_1 | Gradual Adoptability    | Gradual introduction of the software into existing projects is possible |
-| QG_2 | Scientific Contribution | The software provides a scientific contribution                         |
-| QG_3 | Usability               | The software is easy to use                                             |
-| QG_4 | Extensibility           | The software allows customization                    |
+| ID   | Quality Goal            | Description                                                              |
+| ---- | ----------------------- | ------------------------------------------------------------------------ |
+| QG_1 | Lightweight             | Tracey uses a small set of rules and is easy to follow                   |
+| QG_2 | Extensibility           | Tracey comes with a core set of functionality but allows extension       |
+| QG_3 | Scientific Contribution | Tracey provides a contribution to the field of requirements traceability |
+| QG_4 | Gradual Adoptability    | Tracey can easily be introduced into existing projects                   |
 
 ## Stakeholders
 
