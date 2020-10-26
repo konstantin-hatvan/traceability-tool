@@ -1,18 +1,16 @@
 # Introduction and Goals
 
-## Table of Contents
-
-1. [Requirements Overview](#requirements-overview)
-2. [Quality Goals](#quality-goals)
-3. [Stakeholders](#stakeholders)
+Project Tracey (short: Tracey) is a software to generate tracelinks between structured requirements and source code.
+Requirements are documented in markdown files and can be linked to source code by using annotations.
+Tracey focuses on utilizing a lightweight, scalable and extensible workflow.
 
 ## Requirements Overview
 
-| ID    | Requirement                                                                             |
-| ----- | --------------------------------------------------------------------------------------- |
-| REQ_1 | The system generates tracelinks between requirements and source code artifacts          |
-| REQ_2 | Project requirements are documented in markdown files                                   |
-| REQ_3 | Links between requirements and source code artifacts are documented using code comments |
+| ID    | Requirement                                                                 |
+| ----- | --------------------------------------------------------------------------- |
+| REQ_1 | Tracey generates tracelinks between requirements and source code artifacts  |
+| REQ_2 | Project requirements are documented in markdown files                       |
+| REQ_3 | Links between requirements and source code are documented using annotations |
 
 ## Quality Goals
 
@@ -30,4 +28,3 @@
 | Konstantin Hatvan      | Student              | Successfully finish master's degree                   |
 | Klaus Feiler           | Technical Supervisor | Improve development processes in the company          |
 | Daniel Kienböck        | Academic Supervisor  | Ensure formal and academic requirements are fulfilled |
-| Developers at LIMESODA | Users                | Improved development process through usable software  |
