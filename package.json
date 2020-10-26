@@ -42,6 +42,7 @@
         "jest": "^26.5.3",
         "mock-fs": "^4.13.0",
         "tracey-plugin-breadcrumbs": "0.0.4",
+        "tracey-plugin-childrequirements": "0.0.3",
         "tracey-plugin-requirementsummary": "0.0.3",
         "ts-jest": "^26.4.1",
         "typescript": "^4.0.3"
