@@ -1,17 +1,21 @@
 # Context
 
-Tracey collects data from the file system. This data is passed through a chain of plugins. In the end Tracey writes the updated data back to the file system.
+## Business Context
 
-![Context Diagram](./03_context.png "Context Diagram")
+Tracey collects data from the file system.
+This data is passed through a chain of plugins.
+In the end Tracey writes the updated data back to the file system.
 
-## Developer
+![Business Context](./03_business-context.png "Business Context")
 
-The developer is the user of the software. The developer configures Tracey and initiates its execution by calling the command line interface.
+| Neighbor    | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
+| Developer   | Uses Tracey on the command line to generate tracelinks        |
+| File System | Requirements and annotations are located in the project files |
+| Plugin      | Data is passed through a chain of plugins                     |
 
-## Plugin
+## Deployment Context
 
-The collected data is passed through a chain of plugins. Each plugin receives the data as input, acts upon this data, and then returns the same shape. The output is then used for the next plugin in the chain until all plugins were executed.
+Tracey is developed locally and pushed to a global public git repository on [GitHub](https://github.com/konstantin-hatvan/traceability-tool). From there, a deployment pipeline is executed for building the package and publishing the package to the global public [npm](https://www.npmjs.com/package/tracey-cli) registry. Users can then install the package locally.
 
-## File system
-
-All data is somewhere in the project files.
+![Deployment Context](./03_deployment-context.png "Deployment Context")
