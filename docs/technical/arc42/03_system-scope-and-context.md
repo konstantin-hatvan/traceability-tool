@@ -1,4 +1,4 @@
-# System Scope and Context
+# Context
 
 Tracey collects data from the file system. This data is passed through a chain of plugins. In the end Tracey writes the updated data back to the file system.
 
