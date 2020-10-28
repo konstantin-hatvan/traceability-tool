@@ -14,4 +14,3 @@ Project Tracey is a markdown-based requirements tool. This document shall give a
 8. [Cross Cutting Concepts](./08_cross-cutting-concepts.md)
 9. [Quality Requirements](./09_quality-requirements.md)
 10. [Risks and Technical Debts](./10_risks-and-technical-debts.md)
-11. [Glossary](./11_glossary.md)
