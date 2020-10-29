@@ -14,7 +14,7 @@ const isMarkdownFile: CollectorCondition = (file: string): boolean => path.parse
 /**
  * Check if the file has a MarkDown frontmatter identifier
  * @param file The file
- * @requirement #[ Requirement.Collect ]# #( Requirements must have a unique yaml frontmatter identifier )#
+ * @requirement #[ Requirement.Identifier ]# #( Requirements must have a yaml frontmatter identifier )#
  */
 const hasFrontmatterIdentifier: CollectorCondition = (file: string): boolean => {
     const ast = parse(fs.readFileSync(file, { encoding: 'utf-8' }));
@@ -37,5 +37,5 @@ Fix this warning by adding a frontmatter identifier or excluding the file in the
  */
 export const collect = (configuration: CollectorConfiguration): string[] => createCollector(configuration, [
     isMarkdownFile, /** @requirement #[ Requirement.Collect ]# #( Requirements must be stored in markdown files )# */
-    hasFrontmatterIdentifier, /** @requirement #[ Requirement.Collect ]# #( Requirements must have a unique yaml frontmatter identifier )# */
+    hasFrontmatterIdentifier, /** @requirement #[ Requirement.Identifier ]# #( Requirements must have a yaml frontmatter identifier )# */
 ]);

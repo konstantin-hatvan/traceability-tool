@@ -12,7 +12,8 @@ module.exports = {
             'docs/techical',
             'docs/user',
             'README.md',
-            'docs/requirements/Requirements.md'
+            'docs/requirements/Requirements.md',
+            'arc42',
         ],
     },
     annotation: {
@@ -26,7 +27,7 @@ module.exports = {
             'docs/university',
             'docs/techical',
             'docs/user',
-            'README.md'
+            'README.md',
         ],
     },
     plugins: [
