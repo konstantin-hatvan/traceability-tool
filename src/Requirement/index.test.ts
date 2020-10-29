@@ -44,6 +44,22 @@ describe('Requirement', () => {
 
                 expect(list(configuration)).toEqual(expectedResult);
             });
+
+            test('throws an error if identifiers are not unique', () => {
+                mock({
+                    'requirement.md': '---\nid: requirement\n---\n\n# Requirement',
+                    'duplicate-identifier.md': '---\nid: requirement\n---\n\n# Requirement',
+                });
+
+                const configuration: CollectorConfiguration = {
+                    excludes: [],
+                    startingpoints: [
+                        '**',
+                    ],
+                };
+
+                expect(() => list(configuration)).toThrow(/^ERROR/);
+            });
         });
 
         describe('persist()', () => {
