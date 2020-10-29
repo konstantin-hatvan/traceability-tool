@@ -1,5 +1,5 @@
 import { Configuration, Plugin, PluginParameters } from '../types';
-import { plugin as TracelinktablePlugin } from '../tracey-plugin-tracelinktable';
+import { plugin as TracelinktablePlugin } from '../Core';
 
 const getPlugins = (configuration: Configuration): Plugin[] => {
     return [
