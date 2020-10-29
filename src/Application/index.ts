@@ -19,11 +19,16 @@ const getData = async (configuration: Configuration): Promise<PluginParameters> 
 
 export const run = async () => {
     const configuration = getConfiguration();
-    const data = await getData(configuration);
-    const transformedData = runPlugins(configuration, data);
 
-    // Persist changes
-    transformedData.requirements.forEach(requirement => {
-        persistRequirement(requirement);
-    });
+    try {
+        const data = await getData(configuration);
+        const transformedData = runPlugins(configuration, data);
+
+        // Persist changes
+        transformedData.requirements.forEach(requirement => {
+            persistRequirement(requirement);
+        });
+    } catch(e) {
+        console.log(e.message);
+    }
 };
