@@ -23,7 +23,7 @@ const createHTML = (value: string): HTML => ({ type: 'html', value });
 const createTracelinktable = (tracelinks: Tracelink[]): (Table | HTML)[] => {
     const tableRows = tracelinks.map(tracelink => {
         /** @requirement #[ TracelinkTable ]# #( Tracelinks are transformed to relative links )# */
-        const relativeLink = `${path.relative(path.parse(tracelink.destination.file).dir, tracelink.annotation.file)}#L${tracelink.annotation.line}`;
+        const relativeLink = `${path.relative(path.parse(tracelink.requirement.file).dir, tracelink.annotation.file)}#L${tracelink.annotation.line}`;
 
         /** @requirement #[ TracelinkTable ]# #( Each row consists of a relative link, a line number and a description )# */
         return createTableRow([

@@ -45,7 +45,7 @@ describe('Core', () => {
                 tracelinks: [
                     {
                         annotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     },
                 ],
             };
@@ -148,7 +148,7 @@ describe('Core', () => {
                 tracelinks: [
                     {
                         annotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     }
                 ],
             };
@@ -287,11 +287,11 @@ describe('Core', () => {
                 tracelinks: [
                     {
                         annotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     },
                     {
                         annotation: anotherAnnotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     },
                 ],
             };
@@ -434,11 +434,11 @@ describe('Core', () => {
                 tracelinks: [
                     {
                         annotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     },
                     {
                         annotation: anotherAnnotation,
-                        destination: requirementBefore
+                        requirement: requirementBefore
                     }
                 ],
             };

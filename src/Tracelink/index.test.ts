@@ -55,7 +55,7 @@ describe('Tracelink', () => {
                             line: 1,
                             file: 'source.ts',
                         },
-                        destination: {
+                        requirement: {
                             ast: expect.objectContaining({
                                 type: 'root',
                             }),

@@ -7,9 +7,9 @@ import { Annotation } from '../Annotation/types';
  * @param requirements A list of tracelocations
  */
 export const list = (requirements: Requirement[], annotations: Annotation[]): Tracelink[] => annotations.flatMap(annotation => {
-    const destination = requirements.find(requirement => requirement.id === annotation.identifier);
+    const requirement = requirements.find(requirement => requirement.id === annotation.identifier);
 
-    if (!destination) {
+    if (!requirement) {
         console.log(`
 WARNING: Requirement with the ID ${annotation.identifier} does not exist but was annotated in ${annotation.file} on line ${annotation.line}
 Possible errors:
@@ -20,7 +20,7 @@ Possible errors:
         return [];
     } else {
         return {
-            destination,
+            requirement,
             annotation,
         };
     }
