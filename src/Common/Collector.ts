@@ -14,7 +14,7 @@ export type CollectorCondition = (file: string) => boolean;
  */
 export const createCollector = (configuration: CollectorConfiguration, conditions: CollectorCondition[]): string[] => {
     const filter = ignore().add(configuration.excludes); /** @requirement #[ Requirement.Collect, Annotation.Collect ]# #( Files must not be excluded )# */
-    const requirements = configuration.startingpoints.reduce((result: string[], startingpoint: string) => {
+    const allFiles = configuration.startingpoints.reduce((result: string[], startingpoint: string) => {
         const files = glob.sync(startingpoint, { nodir: true });
 
         return [
@@ -23,6 +23,6 @@ export const createCollector = (configuration: CollectorConfiguration, condition
         ];
     }, []);
 
-    return filter.filter(requirements).filter(and(conditions));
+    return filter.filter(allFiles).filter(and(conditions));
 };
 
