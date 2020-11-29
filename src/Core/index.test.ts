@@ -5,7 +5,7 @@ import { plugin } from './index';
 
 describe('Core', () => {
     describe('plugin()', () => {
-        test('generates tracelink table for requirement when tracelinks exist', () => {
+        test('generates tracelinks for requirement when annotations exist', () => {
             const annotation: Annotation = {
                 description: 'Description',
                 file: 'main.ts',
@@ -41,12 +41,6 @@ describe('Core', () => {
                 ],
                 requirements: [
                     requirementBefore,
-                ],
-                tracelinks: [
-                    {
-                        annotation,
-                        requirement: requirementBefore
-                    },
                 ],
             };
             const requirementAfter: Requirement = {
@@ -145,18 +139,12 @@ describe('Core', () => {
             const expectedOutput: PluginParameters = {
                 annotations: [ annotation ],
                 requirements: [ requirementAfter ],
-                tracelinks: [
-                    {
-                        annotation,
-                        requirement: requirementBefore
-                    }
-                ],
             };
 
             expect(plugin(input)).toEqual(expectedOutput);
         });
 
-        test('updates tracelink table for requirement when tracelink table already exists', () => {
+        test('updates tracelinks for requirement when tracelinks already exists', () => {
             const annotation: Annotation = {
                 description: 'Description',
                 file: 'main.ts',
@@ -283,16 +271,6 @@ describe('Core', () => {
                 ],
                 requirements: [
                     requirementBefore,
-                ],
-                tracelinks: [
-                    {
-                        annotation,
-                        requirement: requirementBefore
-                    },
-                    {
-                        annotation: anotherAnnotation,
-                        requirement: requirementBefore
-                    },
                 ],
             };
             const requirementAfter: Requirement = {
@@ -431,22 +409,12 @@ describe('Core', () => {
             const expectedOutput: PluginParameters = {
                 annotations: [ annotation, anotherAnnotation ],
                 requirements: [ requirementAfter ],
-                tracelinks: [
-                    {
-                        annotation,
-                        requirement: requirementBefore
-                    },
-                    {
-                        annotation: anotherAnnotation,
-                        requirement: requirementBefore
-                    }
-                ],
             };
 
             expect(plugin(input)).toEqual(expectedOutput);
         });
 
-        test('removes tracelink table for requirement when no tracelinks exist', () => {
+        test('removes tracelinks for requirement when no annotations exist', () => {
             const requirementBefore: Requirement = {
                 ast: {
                     type: 'root',
@@ -557,7 +525,6 @@ describe('Core', () => {
             const input: PluginParameters = {
                 annotations: [],
                 requirements: [ requirementBefore ],
-                tracelinks: [ ],
             };
             const requirementAfter: Requirement = {
                 ...requirementBefore,
@@ -572,7 +539,6 @@ describe('Core', () => {
             const expectedOutput: PluginParameters = {
                 annotations: [],
                 requirements: [ requirementAfter ],
-                tracelinks: [],
             };
 
             expect(plugin(input)).toEqual(expectedOutput);
