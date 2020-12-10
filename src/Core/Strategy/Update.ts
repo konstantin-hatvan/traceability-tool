@@ -41,15 +41,15 @@ export const updateStrategy = {
                     if (index > 0) {
                         // Parse existing tracelink into annotation
                         const existingAnnotation = parseTracelinkToAnnotation(requirement, tableRow);
-                        let linkedAnnotation = linkedAnnotations.find(isEqualAnnotation(existingAnnotation));
+                        let linkedAnnotationIndex = linkedAnnotations.findIndex(isEqualAnnotation(existingAnnotation));
 
                         // If it is included in the linked annotations
-                        if (linkedAnnotation) {
+                        if (linkedAnnotationIndex > -1) {
                             // Add it to the list of update annotations
-                            updateAnnotations.push(linkedAnnotation);
+                            updateAnnotations.push(linkedAnnotations[linkedAnnotationIndex]);
 
                             // Remove it from the list of linked annotations
-                            linkedAnnotations = linkedAnnotations.filter(remainingAnnotation => !isEqualAnnotation(remainingAnnotation)(<Annotation>linkedAnnotation));
+                            linkedAnnotations.splice(linkedAnnotationIndex, 1);
                         }
                     }
                 });
