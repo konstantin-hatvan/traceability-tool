@@ -16,8 +16,8 @@ The plugin updates an existing table of tracelinks if the requirement contains a
 
 <div class="tracey tracey-plugin-tracelinktable">
 
-| File                                                                                                 | Line | Description                                                            |
-| ---------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
-| [src/Core/Strategy/Update.ts](../../../src/Core/Strategy/Update.ts#L6 "src/Core/Strategy/Update.ts") | 6    | Update tracelinks of a requirement if annotations and tracelinks exist |
+| File                                                                                                  | Line | Description                                                            |
+| ----------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
+| [src/Core/Strategy/Update.ts](../../../src/Core/Strategy/Update.ts#L29 "src/Core/Strategy/Update.ts") | 29   | Update tracelinks of a requirement if annotations and tracelinks exist |
 
 </div>
