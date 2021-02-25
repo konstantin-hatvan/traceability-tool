@@ -28,3 +28,45 @@ _Kurze Demonstration des Softwareprojektes "Tracey" am Beispiel des Projektrepos
    - Aus welchen Gründen?
 8. Das Werkzeug wurde unter der Annahme entwickelt, dass sich durch dessen Verwendung der agile Entwicklungsprozess verbessert. Stimmen Sie dieser Annahme zu?
    - Aus welchen Gründen?
+
+## Evaluierung
+
+Bitte bewerten Sie das Werkzeug bezüglich folgender Charakteristika
+
+<table>
+    <thead>
+        <tr>
+            <th>Punkte</th>
+            <th>Bedeutung</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>0</th>
+            <td>Ich stimme überhaupt nicht zu</td>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td>Ich stimme wenig zu</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>Ich stimme zu</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>Ich stimme voll und ganz zu</td>
+        </tr>
+    </tbody>
+</table>  
+
+</br>
+
+- Einfachheit (englisch: Simplicity): Das Werkzeug ist einfach
+- Benutzerfreundlichkeit für Entwickler (englisch: Developer-Usability): Das Werkzeug hat eine gute Benutzerfreundlichkeit für Entwickler
+- Lesbarkeit (englisch: Readability)
+    - Die Syntax zum Referenzieren eines Requirements ist gut lesbar
+    - Die generierte Ausgabe ist gut lesbar
+- Innovation: Das Werkzeug nutzt einen innovativen Ansatz
+- Praktikabilität: Das Werkzeug erfüllt seinen Zweck
+- Integrabilität: Das Werkzeug kann in eine bestehende Systemlandschaft integriert werden
