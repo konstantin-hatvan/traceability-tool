@@ -42,20 +42,24 @@ Bitte bewerten Sie das Werkzeug bezüglich folgender Charakteristika
     </thead>
     <tbody>
         <tr>
-            <th>0</th>
-            <td>Ich stimme überhaupt nicht zu</td>
-        </tr>
-        <tr>
             <th>1</th>
-            <td>Ich stimme wenig zu</td>
+            <td>Sehr Gut</td>
         </tr>
         <tr>
             <th>2</th>
-            <td>Ich stimme zu</td>
+            <td>Gut</td>
         </tr>
         <tr>
             <th>3</th>
-            <td>Ich stimme voll und ganz zu</td>
+            <td>Befriedigend</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>Genügend</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>Nicht Genügend</td>
         </tr>
     </tbody>
 </table>  
